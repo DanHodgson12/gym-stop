@@ -1,0 +1,74 @@
+[
+  {
+    "pk": 1,
+    "model": "products.category",
+    "fields": {
+      "name": "strength_training_equipment",
+      "friendly_name": "Strength Training Equipment"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "products.category",
+    "fields": {
+      "name": "cardio_equipment",
+      "friendly_name": "Cardio Equipment"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.category",
+    "fields": {
+      "name": "functional_training_equipment",
+      "friendly_name": "Functional Training Equipment"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "products.category",
+    "fields": {
+      "name": "protein_powder",
+      "friendly_name": "Protein Powder"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "products.category",
+    "fields": {
+      "name": "vitamins_minerals",
+      "friendly_name": "Vitamins & Minerals"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "products.category",
+    "fields": {
+      "name": "pre_workout_supplements",
+      "friendly_name": "Pre-Workout Supplements"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "products.category",
+    "fields": {
+      "name": "wearable_technology",
+      "friendly_name": "Wearable Technology"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "products.category",
+    "fields": {
+      "name": "gym_essentials",
+      "friendly_name": "Gym Essentials"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "products.category",
+    "fields": {
+      "name": "recovery_mobility",
+      "friendly_name": "Recovery & Mobility"
+    }
+  }
+]
