@@ -20,10 +20,10 @@
                 Strength & Conditioning
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="strength-conditioning-link">
-                <a href="" class="dropdown-item">Strength Training Equipment</a>
-                <a href="" class="dropdown-item">Cardio Equipment</a>
-                <a href="" class="dropdown-item">Functional Training Equipment</a>
-                <a href="" class="dropdown-item">All Strength & Conditioning</a>
+                <a href="{% url 'products' %}?category=strength_training_equipment" class="dropdown-item">Strength Training Equipment</a>
+                <a href="{% url 'products' %}?category=cardio_equipment" class="dropdown-item">Cardio Equipment</a>
+                <a href="{% url 'products' %}?category=functional_training_equipment" class="dropdown-item">Functional Training Equipment</a>
+                <a href="{% url 'products' %}?category=strength_training_equipment,cardio_equipment,functional_training_equipment" class="dropdown-item">All Strength & Conditioning</a>
             </div>
         </li>
 
@@ -33,10 +33,10 @@
                 Nutrition & Supplements
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="nutrition-supplements-link">
-                <a href="" class="dropdown-item">Protein Powder</a>
-                <a href="" class="dropdown-item">Pre-Workout Supplements</a>
-                <a href="" class="dropdown-item">Vitamins & Minerals</a>
-                <a href="" class="dropdown-item">All Nutrition & Supplements</a>
+                <a href="{% url 'products' %}?category=protein_powder" class="dropdown-item">Protein Powder</a>
+                <a href="{% url 'products' %}?category=pre_workout_supplements" class="dropdown-item">Pre-Workout Supplements</a>
+                <a href="{% url 'products' %}?category=vitamins_minerals" class="dropdown-item">Vitamins & Minerals</a>
+                <a href="{% url 'products' %}?category=protein_powder,pre_workout_supplements,vitamins_minerals" class="dropdown-item">All Nutrition & Supplements</a>
             </div>
         </li>
 
@@ -46,10 +46,10 @@
                 Accessories
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="accessories-link">
-                <a href="" class="dropdown-item">Wearable Technology</a>
-                <a href="" class="dropdown-item">Gym Essentials</a>
-                <a href="" class="dropdown-item">Recovery & Mobility</a>
-                <a href="" class="dropdown-item">All Accessories</a>
+                <a href="{% url 'products' %}?category=wearable_technology" class="dropdown-item">Wearable Technology</a>
+                <a href="{% url 'products' %}?category=gym_essentials" class="dropdown-item">Gym Essentials</a>
+                <a href="{% url 'products' %}?category=recovery_mobility" class="dropdown-item">Recovery & Mobility</a>
+                <a href="{% url 'products' %}?category=wearable_technology,gym_essentials,recovery_mobility" class="dropdown-item">All Accessories</a>
             </div>
         </li>
 
@@ -59,7 +59,6 @@
                 Special Offers
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">New Arrivals</a>
                 <a href="" class="dropdown-item">Deals</a>
                 <a href="" class="dropdown-item">Clearance</a>
                 <a href="" class="dropdown-item">All Specials</a>
