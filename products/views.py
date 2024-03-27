@@ -21,15 +21,17 @@ def all_products(request):
             print(sortkey)
             sort = sortkey
             if sortkey == 'name':
-                print(sortkey)
                 sortkey = 'lower_name'
-                print(sortkey)
                 products = products.annotate(lower_name=Lower('name'))
-
+            print(sortkey)
+            if sortkey == 'category':
+                sortkey = 'category__name'
+            print(sortkey)
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
+            print(sortkey)
             products = products.order_by(sortkey)
             
         # Navigation functionality
