@@ -23,6 +23,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     multibuy = models.BooleanField(default=False, null=True, blank=True)
     clearance = models.BooleanField(default=False, null=True, blank=True)
+    has_sizes = models.BooleanField(default=False, null=True, blank=True)
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
