@@ -102,8 +102,8 @@ a.category-badge > span.badge:hover {
 
 .message-container {
     position: fixed;
-    top: 175px;
-    right: 5px;
+    top: 72px;
+    right: 15px;
     z-index: 99999999999;
 }
 
@@ -112,7 +112,7 @@ a.category-badge > span.badge:hover {
 }
 
 .toast-capper {
-    height: 4px;
+    height: 2px;
 }
 
 .toast-header {
@@ -151,10 +151,5 @@ a.category-badge > span.badge:hover {
 
     body {
         height: calc(100vh - 124px);
-    }
-
-    /* Push Toasts up when on smaller screen sizes */
-    .message-container {
-        top: 135px;
     }
 }
