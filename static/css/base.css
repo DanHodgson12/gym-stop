@@ -98,6 +98,27 @@ a.category-badge > span.badge:hover {
     cursor: pointer;
 }
 
+/* ------------------------------- bootstrap toasts */
+
+.message-container {
+    position: fixed;
+    top: 175px;
+    right: 5px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 4px;
+}
+
+.toast-header {
+    background-clip: unset;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -122,13 +143,18 @@ a.category-badge > span.badge:hover {
     }
 }
 
-/* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
+    /* pad the top a bit when navbar is collapsed on mobile */
     .header-container {
         padding-top: 124px;
     }
 
     body {
         height: calc(100vh - 124px);
+    }
+
+    /* Push Toasts up when on smaller screen sizes */
+    .message-container {
+        top: 135px;
     }
 }
