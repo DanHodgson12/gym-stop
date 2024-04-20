@@ -59,7 +59,15 @@ def checkout(request):
             # If order_form IS valid...
 
             # Save order_form
-            order = order_form.save()
+            order = order_form.save(commit=False)
+
+            # Get Payment Intent ID from the client secret input in the checkout form
+            pid = request.POST.get('client_secret').split('_secret')[0]
+
+            # Set 'stripe_pid' & 'original_bag' fields on order model
+            order.stripe_pid = pid
+            order.original_bag = json.dumps(bag)
+            order.save()
 
             # Iterate through bag items
             for item_id, item_data in bag.items():
