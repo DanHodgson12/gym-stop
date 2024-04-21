@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['8000-danhodgson12-gymstop-nz9dqaxi0p5.ws-eu110.gitpod.io']
 # Application definition
 
 INSTALLED_APPS = [
+    # Django requirements
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,18 +41,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+
+    # All-auth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    
+    # Crispy Forms
+    "crispy_forms",
+    "crispy_bootstrap5",
 
+    # Custom apps
     'home',
     'products',
     'bag',
     'checkout',
     'profiles',
-
-    "crispy_forms",
-    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
