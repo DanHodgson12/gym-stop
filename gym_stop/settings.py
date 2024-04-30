@@ -31,7 +31,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-danhodgson12-gymstop-nz9dqaxi0p5.ws-eu110.gitpod.io']
+# ALLOWED_HOSTS = ['8000-danhodgson12-gymstop-nz9dqaxi0p5.ws-eu110.gitpod.io']
+
+ALLOWED_HOSTS = ['danh12-gym-stop-6494ee93884f.herokuapp.com']
 
 # Application definition
 
@@ -142,6 +144,17 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# DATABASES = {
+#     'default': dj_database_url.parse('postgres://znniikjh:C_CBot2NeEpbKy3q9CUunrd3Aa8V6fev@surus.db.elephantsql.com/znniikjh')
+# }
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
