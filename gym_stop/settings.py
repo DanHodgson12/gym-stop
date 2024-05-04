@@ -231,7 +231,7 @@ if 'DEVELOPMENT' in os.environ and os.environ['DEVELOPMENT'] == 'True':
     DEFAULT_FROM_EMAIL = 'gym-stop@example.com'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_USE_TLS = False
+    EMAIL_USE_TLS = True
     EMAIL_PORT = 587
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
