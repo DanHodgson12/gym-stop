@@ -32,7 +32,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-danhodgson12-gymstop-nz9dqaxi0p5.ws-eu110.gitpod.io', 
+    '8000-danhodgson12-gymstop-nz9dqaxi0p5.ws-eu110.gitpod.io',
+    '8000-danhodgson12-gymstop-nz9dqaxi0p5.ws-eu111.gitpod.io',
     'danh12-gym-stop-6494ee93884f.herokuapp.com',
     'localhost',
 ]
@@ -145,8 +146,6 @@ else:
         }
     }
 
-ACCOUNT_EMAIL_VERIFICATION = 'none'
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -227,7 +226,7 @@ STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
 
 # Confirmation email set up
-if 'DEVELOPMENT' in os.environ:
+if 'DEVELOPMENT' in os.environ and os.environ['DEVELOPMENT'] == 'True':
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'gym-stop@example.com'
 else:
