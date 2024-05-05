@@ -102,6 +102,10 @@ input[name='q']::placeholder {
     color: #aab7c4;
 }
 
+.product-image {
+    max-height: 400px;
+}
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
