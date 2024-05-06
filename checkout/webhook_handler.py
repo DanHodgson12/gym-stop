@@ -55,9 +55,9 @@ class StripeWH_Handler:
             intent.latest_charge
         )
 
-        billing_details = stripe_charge.billing_details  # updated
+        billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
-        grand_total = round(stripe_charge.amount / 100, 2)  # updated
+        grand_total = round(stripe_charge.amount / 100, 2)
 
         # Save empty form fields as 'None' instead of an empty string
         for field, value in shipping_details.address.items():
@@ -74,8 +74,12 @@ class StripeWH_Handler:
                 profile.default_country = shipping_details.address.country
                 profile.default_postcode = shipping_details.address.postal_code
                 profile.default_town_or_city = shipping_details.address.city
-                profile.default_street_address1 = shipping_details.address.line1
-                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_street_address1 = (
+                    shipping_details.address.line1
+                )
+                profile.default_street_address2 = (
+                    shipping_details.address.line2
+                )
                 profile.default_county = shipping_details.address.state
                 profile.save()
 
@@ -98,18 +102,21 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 order_exists = True
-                print(f'Order found!')
+                print('Order found!')
                 print(f'Order Number: {order}')
                 break
             except Order.DoesNotExist:
-                print(f'Order cannot be found. Trying again...')
+                print('Order cannot be found. Trying again...')
                 attempt += 1
                 time.sleep(1)
 
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                content=(
+                    f'Webhook received: {event["type"]} | '
+                    f'SUCCESS: Verified order already in database'
+                ),
                 status=200)
         else:
             order = None
@@ -138,12 +145,12 @@ class StripeWH_Handler:
                         )
                         order_line_item.save()
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for s, q in item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
-                                quantity=quantity,
-                                product_size=size,
+                                quantity=q,
+                                product_size=s,
                             )
                             order_line_item.save()
             except Exception as e:
@@ -155,7 +162,10 @@ class StripeWH_Handler:
 
         self._send_confirmation_email(order)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
+            content=(
+                f'Webhook received: {event["type"]} | '
+                f'SUCCESS: Created order in webhook'
+            ),
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):

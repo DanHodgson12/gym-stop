@@ -29,6 +29,8 @@ class UserProfileForm(forms.ModelForm):
                     placeholder = f'{placeholders[field]} *'
                 else:
                     placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'border-black profile-form-input'
+                widget_attrs = self.fields[field].widget.attrs
+                widget_attrs['placeholder'] = placeholder
+                widget_attrs['class'] = 'border-black profile-form-input'
+
             self.fields[field].label = False

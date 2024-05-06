@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -61,7 +62,7 @@ def checkout(request):
             # Save order_form
             order = order_form.save(commit=False)
 
-            # Get Payment Intent ID from the client secret input in the checkout form
+            # Get Payment Intent ID from client secret input in checkout form
             pid = request.POST.get('client_secret').split('_secret')[0]
 
             # Set 'stripe_pid' & 'original_bag' fields on order model
@@ -74,7 +75,7 @@ def checkout(request):
                 try:
                     product = Product.objects.get(id=item_id)
 
-                    # If item DOES NOT have size, create line item for each item
+                    # If item DOES NOT have size, create line item for each
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
@@ -82,21 +83,21 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
-                    # If item DOES have size, create line item for each size of each item
+                    # If item DOES have size, create line item for each size
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for s, q in item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
-                                quantity=quantity,
-                                product_size=size,
+                                quantity=q,
+                                product_size=s,
                             )
                             order_line_item.save()
                 except Product.DoesNotExist:
-                    # If product does not exist, delete the order and redirect user to their bag
+                    # If product does not exist, delete order and redirect user
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
-                        "Please call us for assistance!")
+                        "One of the products in your bag wasn't found in our "
+                        "database. Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
@@ -105,7 +106,8 @@ def checkout(request):
             request.session['save_info'] = 'save-info' in request.POST
 
             # ORDER SUCCESSFUL!!! Perform 'checkout_success' function
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(
+                    reverse('checkout_success', args=[order.order_number]))
         else:
             # If order_form IS NOT valid...
 
@@ -119,7 +121,8 @@ def checkout(request):
 
         # If no bag, redirect customer back to products page
         if not bag:
-            messages.error(request, "There's nothing in your bag at the moment")
+            messages.error(
+                request, "There's nothing in your bag at the moment")
             return redirect(reverse('products'))
 
         current_bag = bag_contents(request)
@@ -131,7 +134,7 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # Attempt to prefill the form with any info the user maintains in their profile
+        # Attempt to prefill form with any info user maintains in their profile
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -170,7 +173,7 @@ def checkout_success(request, order_number):
     Handle successful checkouts
     """
 
-    # Check user wanted to save their info - used to make user profile for later
+    # Check user wanted to save their info - used to add to user profile
     save_info = request.session.get('save_info')
 
     # Grab the order data for this particular order
