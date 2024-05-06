@@ -54,7 +54,7 @@ def checkout(request):
 
         # Create instance of an order form using the above checkout form data
         order_form = OrderForm(form_data)
-        
+
         if order_form.is_valid():
             # If order_form IS valid...
 
@@ -196,7 +196,6 @@ def checkout_success(request, order_number):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-
 
     # Let the user know their order was successful by displaying message
     messages.success(request, f'Order successfully processed! \
