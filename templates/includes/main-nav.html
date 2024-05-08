@@ -2,18 +2,18 @@
     <ul class="navbar-nav w-auto mx-auto">
 
         <!-- Home Link -->
-        <li class="nav-item d-block d-md-none">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'home' %}" id="home-link">
+        <li class="nav-item d-block d-lg-none">
+            <a class="logo-font font-weight-bold nav-link text-white mr-5" href="{% url 'home' %}" id="home-link">
                 Home
             </a>
         </li>
 
         <!-- All Products -->
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-white mr-5" href="#" id="all-products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Products
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+            <div class="dropdown-menu nav-dropdown border-0" aria-labelledby="all-products-link">
                 <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
                 <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
@@ -23,10 +23,10 @@
 
         <!-- Strength & Conditioning -->
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="strength-conditioning-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-white mr-5" href="#" id="strength-conditioning-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Strength & Conditioning
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="strength-conditioning-link">
+            <div class="dropdown-menu nav-dropdown border-0" aria-labelledby="strength-conditioning-link">
                 <a href="{% url 'products' %}?category=strength_training_equipment" class="dropdown-item">Strength Training Equipment</a>
                 <a href="{% url 'products' %}?category=cardio_equipment" class="dropdown-item">Cardio Equipment</a>
                 <a href="{% url 'products' %}?category=functional_training_equipment" class="dropdown-item">Functional Training Equipment</a>
@@ -36,10 +36,10 @@
 
         <!-- Nutrition & Supplements -->
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="nutrition-supplements-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-white mr-5" href="#" id="nutrition-supplements-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Nutrition & Supplements
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="nutrition-supplements-link">
+            <div class="dropdown-menu nav-dropdown border-0" aria-labelledby="nutrition-supplements-link">
                 <a href="{% url 'products' %}?category=protein_powder" class="dropdown-item">Protein Powder</a>
                 <a href="{% url 'products' %}?category=pre_workout_supplements" class="dropdown-item">Pre-Workout Supplements</a>
                 <a href="{% url 'products' %}?category=vitamins_minerals" class="dropdown-item">Vitamins & Minerals</a>
@@ -49,10 +49,10 @@
 
         <!-- Accessories -->
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="accessories-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-white" href="#" id="accessories-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Accessories
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="accessories-link">
+            <div class="dropdown-menu nav-dropdown border-0" aria-labelledby="accessories-link">
                 <a href="{% url 'products' %}?category=wearable_technology" class="dropdown-item">Wearable Technology</a>
                 <a href="{% url 'products' %}?category=gym_essentials" class="dropdown-item">Gym Essentials</a>
                 <a href="{% url 'products' %}?category=recovery_mobility" class="dropdown-item">Recovery & Mobility</a>
@@ -62,7 +62,7 @@
 
         <!-- Special Offers -->
         <!-- <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-white" href="#" id="specials-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Special Offers
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
