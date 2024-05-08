@@ -27,6 +27,10 @@ body {
     width: fit-content;
 }
 
+.bg-grey {
+    background-color: #383838;
+}
+
 .shop-now-button {
     background: black;
     color: white;
