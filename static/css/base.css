@@ -134,6 +134,14 @@ input[name='q']::placeholder {
     z-index: 99999999999;
 }
 
+.subscribe-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99999999999;
+    border: 1px solid white;
+}
+
 .custom-toast {
     overflow: visible;
 }
@@ -299,7 +307,7 @@ input[name='q']::placeholder {
     }
 
     .header-container {
-        padding-top: 173px;
+        padding-top: 168px;
     }
 }
 
