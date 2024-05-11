@@ -20,6 +20,7 @@ class UserProfileForm(forms.ModelForm):
             'default_street_address1': 'Street Address 1',
             'default_street_address2': 'Street Address 2',
             'default_county': 'County, State or Locality',
+            'is_subscribed_to_newsletter': 'Subscribed to Marketing Emails?',
         }
 
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
@@ -33,4 +34,7 @@ class UserProfileForm(forms.ModelForm):
                 widget_attrs['placeholder'] = placeholder
                 widget_attrs['class'] = 'border-black profile-form-input'
 
-            self.fields[field].label = False
+            if field == 'is_subscribed_to_newsletter':
+                self.fields[field].label = 'Subscribed to Marketing Emails?'
+            else:
+                self.fields[field].label = False
