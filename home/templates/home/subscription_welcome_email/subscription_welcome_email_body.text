@@ -8,7 +8,7 @@ Stay tuned for valuable insights and tips from our team.
 
 If you have any questions or feedback, feel free to contact us at gym-stop@example.com.
 
-If you wish to unsubscribe from our newsletter, you can do so by clicking the following link: [Unsubscribe](unsubscribe_link_here).
+If you wish to unsubscribe from our newsletter, you can do so by clicking the following link: {{ unsubscribe_url }}.
 
 Best regards,
 The Gym-Stop Team
