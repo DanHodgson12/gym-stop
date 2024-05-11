@@ -25,7 +25,28 @@
         </div>
     </div>
 
-    <div class="subscribe-container border-white">
+    <footer class="fixed-bottom bg-grey py-2 px-3 text-end">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
+            aria-controls="offcanvasBottom">Subscribe to our Newsletter!</button>
+        
+        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+            <div class="offcanvas-header d-flex justify-content-center">
+                <h5 class="offcanvas-title text-center mx-auto" id="offcanvasBottomLabel">Subscribe to our Newsletter!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body text-center">
+                <form id="subscribeForm" method="post" action="{% url 'subscribe' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- <div class="subscribe-container">
         <div class="toast" id="subscribeToast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
             <div class="toast-header">
                 <strong class="me-auto">Subscribe to Our Newsletter</strong>
@@ -39,5 +60,5 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
 {% endblock %}

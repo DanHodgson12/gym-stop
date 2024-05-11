@@ -16,10 +16,12 @@ def subscribe(request):
         form = MarketingSubscriptionForm(request.POST)
         if form.is_valid():
             form.save()
-            # Optionally, generate and send a discount code to the subscriber
             messages.success(request, f'Thanks for subscribing! A welcome email and your discount code will be sent to {form.cleaned_data["email"]}.')
+            return redirect('home')
+        else:
+            email = request.POST.get('email')
+            messages.error(request, f'The email address {email} is already subscribed.')
             return redirect('home')
     else:
         form = MarketingSubscriptionForm()
-        messages.error(request, 'An error occurred when submitting your form. Please try again.')
     return render(request, 'home/index.html', {'form': form})

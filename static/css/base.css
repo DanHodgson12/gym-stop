@@ -139,7 +139,6 @@ input[name='q']::placeholder {
     bottom: 20px;
     right: 20px;
     z-index: 99999999999;
-    border: 1px solid white;
 }
 
 .custom-toast {
@@ -152,6 +151,14 @@ input[name='q']::placeholder {
 
 .toast-header {
     background-clip: unset;
+}
+
+.offcanvas-header .btn-close {
+    margin: 0;
+}
+
+.offcanvas-body ul {
+    list-style: none;
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
