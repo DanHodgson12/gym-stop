@@ -3,6 +3,8 @@ from django.conf import settings
 from django.template.loader import render_to_string
 from django.contrib import messages
 from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
+from django.utils.html import strip_tags
 from .models import MarketingSubscription
 from .forms import MarketingSubscriptionForm
 from .forms import UnsubscribeForm
@@ -20,9 +22,10 @@ def subscribe(request):
     if request.method == 'POST':
         form = MarketingSubscriptionForm(request.POST)
         if form.is_valid():
-            instance = form.save()
-            send_welcome_email(instance.email)
-            messages.success(request, f'Thanks for subscribing! A welcome email and your discount code will be sent to {form.cleaned_data["email"]}.')
+            form.save()
+            subscriber_email = request.POST.get('email')
+            send_welcome_email(subscriber_email)
+            messages.success(request, f'Thanks for subscribing! A welcome email and your discount code will be sent to {subscriber_email}.')
             return redirect('home')
         else:
             email = request.POST.get('email')
@@ -52,8 +55,26 @@ def unsubscribe(request):
 
 
 def send_welcome_email(subscriber_email):
-    subject = render_to_string('home/subscription_welcome_email/subscription_welcome_email_subject.txt')
-    message = render_to_string('home/subscription_welcome_email/subscription_welcome_email_body.text')
     sender_email = settings.DEFAULT_FROM_EMAIL
-    recipient_list = [subscriber_email]
-    send_mail(subject, message, sender_email, recipient_list)
+    receiver_email = [subscriber_email,]
+
+    if settings.DEBUG:
+        base_url = 'http://localhost:8000'
+    else:
+        base_url = 'https://danh12-gym-stop-6494ee93884f.herokuapp.com'
+
+    unsubscribe_url = f'{base_url}/unsubscribe/'
+
+    subject = render_to_string('home/subscription_welcome_email/subscription_welcome_email_subject.txt')
+    message_text = render_to_string('home/subscription_welcome_email/subscription_welcome_email_body.text', {'unsubscribe_url': unsubscribe_url})
+    message_html = render_to_string('home/subscription_welcome_email/subscription_welcome_email_body.html', {'unsubscribe_url': unsubscribe_url})
+
+    email = EmailMultiAlternatives(subject, strip_tags(message_text), sender_email, receiver_email)
+    email.attach_alternative(message_html, "text/html")
+    
+    try:
+        email.send()
+        return True  # or return some success message if needed
+    except Exception as e:
+        print(f"Failed to send welcome email to {subscriber_email}: {str(e)}")
+        return False  # or return some failure message
