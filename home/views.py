@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.conf import settings
+from django.contrib.auth import get_user_model
 import os
 from django.template.loader import render_to_string
 from django.contrib import messages
@@ -20,17 +21,30 @@ def index(request):
 
 
 def subscribe(request):
+    User = get_user_model()
+
     if request.method == 'POST':
         form = MarketingSubscriptionForm(request.POST)
         if form.is_valid():
-            form.save()
+            email = request.POST.get('email')
+            user = User.objects.filter(email=email).first()
+            if user:
+                profile = user.userprofile
+                if profile.is_subscribed_to_newsletter:
+                    messages.error(request, f'The email address {email} is already subscribed to our mailing list, and is associated with an existing account.')
+                    return redirect('home')
+                else:
+                    profile.is_subscribed_to_newsletter = True
+                    profile.save()
+            else:
+                form.save()
             subscriber_email = request.POST.get('email')
             send_welcome_email(subscriber_email)
-            messages.success(request, f'Thanks for subscribing! A welcome email has been sent to {subscriber_email}.')
+            messages.success(request, f'Thanks for subscribing to our mailing list! A welcome email has been sent to {subscriber_email}.')
             return redirect('home')
         else:
             email = request.POST.get('email')
-            messages.error(request, f'The email address {email} is already subscribed.')
+            messages.error(request, f'The email address {email} is already subscribed to our mailing list.')
             return redirect('home')
     else:
         form = MarketingSubscriptionForm()
@@ -38,17 +52,29 @@ def subscribe(request):
 
 
 def unsubscribe(request):
+    User = get_user_model()
+
     if request.method == 'POST':
         form = UnsubscribeForm(request.POST)
         if form.is_valid():
             email = form.cleaned_data['email']
             subscriber = MarketingSubscription.objects.filter(email=email).first()
-            if subscriber:
-                subscriber.delete()
-                messages.success(request, 'You have been successfully unsubscribed.')
+            user = User.objects.filter(email=email).first()
+            if subscriber or user:
+                if subscriber:
+                    subscriber.delete()
+                if user:
+                    profile = user.userprofile
+                    if not profile.is_subscribed_to_newsletter:
+                        messages.error(request, f'The email address {email} is not on our mailing list.')
+                        return redirect('home')
+                    else:
+                        profile.is_subscribed_to_newsletter = False
+                        profile.save()
+                messages.success(request, f'The email address {email} has been successfully unsubscribed from our mailing list.')
                 return redirect('home')
             else:
-                messages.error(request, 'No subscriber found with this email address.')
+                messages.error(request, f'The email address {email} is not on our mailing list.')
                 return redirect('unsubscribe')
     else:
         form = UnsubscribeForm()
@@ -72,7 +98,7 @@ def send_welcome_email(subscriber_email):
 
     email = EmailMultiAlternatives(subject, strip_tags(message_text), sender_email, receiver_email)
     email.attach_alternative(message_html, "text/html")
-    
+
     try:
         email.send()
         return True  # or return some success message if needed
