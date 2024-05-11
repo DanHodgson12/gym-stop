@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.conf import settings
+import os
 from django.template.loader import render_to_string
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -58,7 +59,7 @@ def send_welcome_email(subscriber_email):
     sender_email = settings.DEFAULT_FROM_EMAIL
     receiver_email = [subscriber_email,]
 
-    if settings.DEBUG:
+    if 'DEVELOPMENT' in os.environ and os.environ['DEVELOPMENT'] == 'True':
         base_url = 'http://localhost:8000'
     else:
         base_url = 'https://danh12-gym-stop-6494ee93884f.herokuapp.com'
