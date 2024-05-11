@@ -25,7 +25,7 @@ def subscribe(request):
             form.save()
             subscriber_email = request.POST.get('email')
             send_welcome_email(subscriber_email)
-            messages.success(request, f'Thanks for subscribing! A welcome email and your discount code will be sent to {subscriber_email}.')
+            messages.success(request, f'Thanks for subscribing! A welcome email has been sent to {subscriber_email}.')
             return redirect('home')
         else:
             email = request.POST.get('email')
