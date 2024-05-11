@@ -134,13 +134,6 @@ input[name='q']::placeholder {
     z-index: 99999999999;
 }
 
-.subscribe-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99999999999;
-}
-
 .custom-toast {
     overflow: visible;
 }
