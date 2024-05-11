@@ -6,7 +6,6 @@ class SubscriptionAdmin(admin.ModelAdmin):
     list_display = (
         'email',
         'date_subscribed',
-        'discount_code',
     )
 
     ordering = ('-date_subscribed',)
