@@ -10,4 +10,5 @@ class SubscriptionAdmin(admin.ModelAdmin):
 
     ordering = ('-date_subscribed',)
 
+
 admin.site.register(MarketingSubscription, SubscriptionAdmin)
