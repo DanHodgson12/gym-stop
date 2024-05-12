@@ -121,14 +121,14 @@ def send_welcome_email(subscriber_email):
     unsubscribe_url = f'{base_url}/unsubscribe/'
 
     subject = render_to_string(
-        'home/subscription_welcome_email/subscription_welcome_email_subject.txt'
+        'home/subscription_email/subscription_email_subject.txt'
     )
     message_text = render_to_string(
-        'home/subscription_welcome_email/subscription_welcome_email_body.text',
+        'home/subscription_email/subscription_email_body.txt',
         {'unsubscribe_url': unsubscribe_url}
     )
     message_html = render_to_string(
-        'home/subscription_welcome_email/subscription_welcome_email_body.html',
+        'home/subscription_email/subscription_email_body.html',
         {'unsubscribe_url': unsubscribe_url}
     )
 
