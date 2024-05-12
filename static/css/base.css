@@ -10,6 +10,16 @@ body {
     font-family: 'Lato';
 }
 
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: whitesmoke;
+	z-index: -1;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -84,16 +94,6 @@ body {
 
 .border-black {
     border: 1px solid black !important;
-}
-
-.overlay {
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: white;
-	z-index: -1;
 }
 
 a.category-badge > span.badge:hover {
