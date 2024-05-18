@@ -1,5 +1,11 @@
 from django.contrib import admin
 from .models import Product, Category
+from reviews.models import Review
+
+
+class ReviewInline(admin.TabularInline):  # or admin.StackedInline for a different layout
+    model = Review
+    extra = 0  # Number of empty review forms to display
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -13,6 +19,7 @@ class ProductAdmin(admin.ModelAdmin):
     )
 
     ordering = ('sku',)
+    inlines = [ReviewInline]  # Include the ReviewInline in the Product admin page
 
 
 class CategoryAdmin(admin.ModelAdmin):
