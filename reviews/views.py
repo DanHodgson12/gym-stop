@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import Review
 from .forms import ReviewForm
+from products.models import Product
 
 
+# Might not need this or the url
 def review_list(request):
     reviews = Review.objects.all()
 
