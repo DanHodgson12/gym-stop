@@ -16,7 +16,7 @@
 
             <!-- Product Image -->
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                <div class="image-container my-5">
+                <div class="image-container m-2">
                     {% if product.image %}
                         <a href="{{ product.image.url }}" target="_blank">
                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -31,7 +31,7 @@
 
             <!-- Product Details -->
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="product-details-container mb-5 mt-md-5">
+                <div class="product-details-container mb-2 mt-md-2">
                     <p class="mb-0">{{ product.name }}</p>
                     <p class="lead mb-0 text-start font-weight-bold">${{ product.price }}</p>
 
@@ -57,18 +57,6 @@
                     {% endif %}
 
                     <p class="mt-3">{{ product.description }}</p>
-
-                    <!-- Review form (displayed only if review_form is not None and user is authenticated) -->
-                    {% if review_form and user.is_authenticated %}
-                        <h3>Add a Review</h3>
-                        <form method="post" action="{% url 'reviews:add_review' product.id %}">
-                            {% csrf_token %}
-                            {{ review_form.as_p }}
-                            <button type="submit">Submit Review</button>
-                        </form>
-                    {% elif not user.is_authenticated %}
-                        <p>Please <a href="{% url 'login' %}">log in</a> to leave a review.</p>
-                    {% endif %}
 
                     <!-- Add To Bag functionality -->
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
@@ -133,6 +121,44 @@
                             {% endwith %}
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-10 col-md-8 col-lg-8 offset-lg-2 border mt-3 mb-5 bg-white">
+                <div class="product-reviews">
+                    <div class="row">
+                        <div class="col-6">
+                            <h4 class="mb-0 mt-2">Product Reviews</h4>
+                        </div>
+                        <div class="col-6">
+                            <!-- Review form (displayed only if review_form is not None and user is authenticated) -->
+                            {% if review_form and user.is_authenticated %}
+                            <div class="text-end mt-2">
+                                <a class="btn btn-warning text-black rounded" href="{% url 'reviews:add_review' product.id %}">Add Review</a>
+                            </div>
+                            {% elif not user.is_authenticated %}
+                            <div class="text-end mt-2">
+                                <p class="text-black">Please <a class="text-decoration-none" href="{% url 'account_login' %}">log in</a> to leave a review.</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <hr class="m-2">
+                    {% for review in product.reviews.all %}
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                Review left by <strong>{{ review.user }}</strong> on {{ review.created_at|date:"F d, Y" }}
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text"><strong>Rating:</strong> {{ review.rating }}</p>
+                                <p class="card-text">{{ review.content }}</p>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <p>No reviews yet.</p>
+                    {% endfor %}
                 </div>
             </div>
         </div>
