@@ -5,6 +5,9 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Category
 from .forms import ProductForm
+from reviews.forms import ReviewForm
+from checkout.models import Order
+from profiles.models import UserProfile
 
 
 def all_products(request):
@@ -75,8 +78,21 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
+    review_form = None
+
+    # Check if the user is authenticated
+    if request.user.is_authenticated:
+        # Check if the user has a profile
+        if hasattr(request.user, 'userprofile'):
+            # Check if the user has purchased the product
+            if Order.objects.filter(user_profile=request.user.userprofile, lineitems__product=product).exists():
+                # If the user has purchased the product, initialize the review form
+                review_form = ReviewForm()
+
+
     context = {
         'product': product,
+        'review_form': review_form
     }
 
     return render(request, 'products/product_detail.html', context)
