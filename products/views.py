@@ -89,10 +89,19 @@ def product_detail(request, product_id):
                 # If the user has purchased the product, initialize the review form
                 review_form = ReviewForm()
 
+    reviews = product.reviews.all()
+    total_reviews = reviews.count()
+
+    if total_reviews > 0:
+        rating_percentage = (product.rating or 0) * 20  # Assuming rating out of 5, convert to percentage
+    else:
+        rating_percentage = 0
 
     context = {
         'product': product,
-        'review_form': review_form
+        'review_form': review_form,
+        'total_reviews': total_reviews,
+        'rating_percentage': rating_percentage,
     }
 
     return render(request, 'products/product_detail.html', context)
