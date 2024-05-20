@@ -67,7 +67,7 @@ body {
 
 .btn-outline-black {
     background: white;
-    color: black !important; /* use important to override link colors for <a> elements */
+    color: black !important;
     border: 1px solid black;
 }
 
@@ -88,13 +88,17 @@ body {
     color: white;
 }
 
-.text-black {
+/* DELETE THESE */
+
+/* .text-black {
     color: #000 !important;
 }
 
 .border-black {
     border: 1px solid black !important;
-}
+} */
+
+/* ------------- */
 
 a.category-badge > span.badge:hover {
     background: #212529 !important;
@@ -115,9 +119,7 @@ a.category-badge > span.badge:hover {
     cursor: pointer;
 }
 
-input[name='q']::placeholder {
-    color: #aab7c4;
-}
+
 
 .product-image {
     max-height: 400px;
@@ -165,20 +167,6 @@ input[name='q']::placeholder {
 
 .toast-header {
     background-clip: unset;
-}
-
-.offcanvas-header .btn-close {
-    margin: 0;
-}
-
-.offcanvas-body ul {
-    list-style: none;
-}
-
-#unsubscribe-form ul {
-    list-style: none;
-    margin: 0;
-    font-size: small;
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
@@ -232,7 +220,33 @@ input[name='q']::placeholder {
     overflow-y: auto;
 }
 
-/* -------------------------------- Allauth Form Formatting */
+/* --------------- Subscribe Components */
+
+.offcanvas-header .btn-close {
+    margin: 0;
+}
+
+.offcanvas-body ul {
+    list-style: none;
+}
+
+#unsubscribe-form ul {
+    list-style: none;
+    margin: 0;
+    font-size: small;
+}
+
+/* ------------------ Forms */
+
+.form-control {
+    background-clip: unset;
+}
+
+input[name='q']::placeholder {
+    color: #aab7c4;
+}
+
+/* - Allauth Form - */
 
 .allauth-form-inner-content p {
     margin-top: 1.5rem; /* mt-4 */
@@ -286,7 +300,7 @@ input[name='q']::placeholder {
 	color: #17a2b8; /* text-info */
 }
 
-/* -------------------------------- Product Form */
+/* - Product Form - */
 
 .btn-file {
     position: relative;
