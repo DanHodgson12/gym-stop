@@ -20,6 +20,22 @@ body {
 	z-index: -1;
 }
 
+.nav-link{
+    color: whitesmoke;
+    border-radius: 5px;
+}
+
+.nav-link:hover,
+.nav-link:active,
+.nav-link:focus {
+    background-color: whitesmoke;
+    color: black !important;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    background-color: #cecece;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -35,6 +51,7 @@ body {
 
 .main-logo-link {
     width: fit-content;
+    text-decoration: none;
 }
 
 .bg-grey {

@@ -46,7 +46,7 @@
 
             <!-- Logo -->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-start">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                <a href="{% url 'home' %}" class="main-logo-link">
                     <h2 class="logo-font fw-bold my-0">
                         <span class="text-white">GYM</span>
                         <span class="text-danger">STOP</span>
@@ -71,8 +71,8 @@
             <!-- Account & Shopping Bag -->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled text-center text-lg-end my-0">
-                    <li class="list-inline-item dropdown">
-                        <a class="text-white nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li class="list-inline-item dropdown m-0">
+                        <a class="nav-link px-2" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
                                 <p class="my-0">My Account</p>
@@ -92,7 +92,7 @@
                         </div>
                     </li>
                     <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-warning font-weight-bold{% else %}text-white{% endif %} nav-link" href="{% url 'view_bag' %}">
+                        <a class="{% if grand_total %}text-warning font-weight-bold{% endif %} nav-link px-2" href="{% url 'view_bag' %}">
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                                 <p class="my-0">
