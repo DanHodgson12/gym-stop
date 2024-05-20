@@ -127,11 +127,9 @@ input[name='q']::placeholder {
 
 .star-container {
     unicode-bidi: bidi-override;
-    color: #c5c5c5;
-    font-size: 25px;
+    color: #383838;
+    font-size: 20px;
     position: relative;
-    height: 25px;
-    width: 125px;
     display: inline-block;
 }
 
@@ -141,7 +139,7 @@ input[name='q']::placeholder {
     left: 0;
     overflow: hidden;
     white-space: nowrap;
-    color: #e7711b;
+    color: #ffc107;
 }
 
 .empty-stars {
