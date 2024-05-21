@@ -44,6 +44,7 @@
                     {% endif %}
 
                     <!-- Average Star Rating -->
+                    <small class="text-muted">{{ product.rating|floatformat:1 }}</small>
                     <div class="star-container star-container-average mb-1" data-has-reviews="{% if product.reviews.all.count > 0 %}true{% else %}false{% endif %}">
                         <div class="filled-stars" data-rating="{{ rating_percentage }}">
                             &starf;&starf;&starf;&starf;&starf;
@@ -53,7 +54,7 @@
                         </div>
                     </div>
                     <small class="text-muted">({{ product.reviews.all.count }})</small>
-                    <small class="text-muted">{{ product.rating|floatformat:1 }} / 5</small>
+                    
 
                     {% if request.user.is_superuser %}
                     <p class="mb-0">
