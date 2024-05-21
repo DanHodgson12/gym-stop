@@ -136,7 +136,6 @@ a.category-badge > span.badge:hover {
 
 .star-container {
     unicode-bidi: bidi-override;
-    color: #383838;
     font-size: 20px;
     position: relative;
     display: inline-block;
@@ -148,11 +147,16 @@ a.category-badge > span.badge:hover {
     left: 0;
     overflow: hidden;
     white-space: nowrap;
-    color: #ffc107;
 }
 
-.empty-stars {
-    display: inline-block;
+.star-container,
+.empty-star {
+    color: #383838;
+}
+
+.filled-stars,
+.filled-star {
+    color: #ffc107;
 }
 
 /* ------------------------------- bootstrap toasts */
