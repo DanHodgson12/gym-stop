@@ -35,5 +35,10 @@ class Product(models.Model):
         self.rating = average or 0  # Assign 0 if there are no ratings
         self.save()
 
+    def rating_percentage(self):
+        if self.rating is not None:
+            return self.rating * 20  # Convert rating (out of 5) to percentage (out of 100)
+        return 0  # Return 0 if there is no rating
+
     def __str__(self):
         return self.name
