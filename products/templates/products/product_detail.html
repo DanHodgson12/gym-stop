@@ -43,13 +43,13 @@
                         </p>
                     {% endif %}
 
-                    <!-- Star Rating -->
-                    <div class="star-container mb-1" data-has-reviews="{% if product.reviews.all.count > 0 %}true{% else %}false{% endif %}">
+                    <!-- Average Star Rating -->
+                    <div class="star-container star-container-average mb-1" data-has-reviews="{% if product.reviews.all.count > 0 %}true{% else %}false{% endif %}">
                         <div class="filled-stars" data-rating="{{ rating_percentage }}">
-                            ★★★★★
+                            &starf;&starf;&starf;&starf;&starf;
                         </div>
-                        <div class="empty-stars">
-                            ★★★★★
+                        <div class="empty-stars d-inline-block">
+                            &star;&star;&star;&star;&star;
                         </div>
                     </div>
                     <small class="text-muted">({{ product.reviews.all.count }})</small>
@@ -130,35 +130,47 @@
                 </div>
             </div>
         </div>
-        <div class="row">
 
-            <div class="col-10 col-md-8 col-lg-8 offset-lg-2 border mt-3 mb-5 bg-white">
+        <!-- Reviews -->
+        <div class="row">
+            <div class="col-10 offset-1 col-lg-8 offset-lg-2 border mt-3 mb-5 bg-white">
                 <div class="product-reviews">
+
+                    <!-- Review Header & Button -->
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-6 mt-2">
                             <h4 class="mb-0 mt-2">Product Reviews</h4>
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 mt-2">
                             <!-- Review form (displayed only if review_form is not None and user is authenticated) -->
                             {% if review_form and user.is_authenticated %}
-                            <div class="text-end mt-2">
+                            <div class="text-end">
                                 <a class="btn btn-warning text-black rounded" href="{% url 'reviews:add_review' product.id %}">Add Review</a>
                             </div>
                             {% elif not user.is_authenticated %}
-                            <div class="text-end mt-2">
+                            <div class="text-end">
                                 <p class="text-black">Please <a class="text-decoration-none" href="{% url 'account_login' %}">log in</a> to leave a review.</p>
                             </div>
                             {% endif %}
                         </div>
                     </div>
                     <hr class="m-2">
+
+                    <!-- Review Cards -->
                     {% for review in product.reviews.all %}
                         <div class="card mb-3">
                             <div class="card-header">
-                                Review left by <strong>{{ review.user }}</strong> on {{ review.created_at|date:"F d, Y" }}
+                                <div class="star-container star-container-single me-1" data-rating="{{ review.rating }}">
+                                    <span class="stars"></span>
+                                </div>
+                                <div class="d-inline-block">
+                                    <strong>{{ review.headline }}</strong>
+                                </div>
+                                <p class="text-muted m-0">
+                                    Reviewed by <strong>{{ review.user|default:"Anonymous" }}</strong> on {{ review.created_at|date:"F d, Y" }}
+                                </p>
                             </div>
                             <div class="card-body">
-                                <p class="card-text"><strong>Rating:</strong> {{ review.rating }}</p>
                                 <p class="card-text">{{ review.content }}</p>
                             </div>
                         </div>
