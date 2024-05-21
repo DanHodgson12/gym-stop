@@ -1,17 +1,33 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        var starContainers = document.querySelectorAll('.star-container');
-        starContainers.forEach(function(starContainer) {
-            var filledStars = starContainer.querySelector('.filled-stars');
-            var hasReviews = starContainer.getAttribute('data-has-reviews') === 'true';
+        // Script for average rating of product
+        var avgStarContainers = document.querySelectorAll('.star-container-average');
+        avgStarContainers.forEach(function(starAvg) {
+            var filledStars = starAvg.querySelector('.filled-stars');
+            var hasReviews = starAvg.getAttribute('data-has-reviews') === 'true';
             var rating = filledStars.getAttribute('data-rating');
-
             if (hasReviews) {
                 filledStars.style.width = rating + '%';
             } else {
                 filledStars.style.width = '0%';  // Ensures no filled stars show when there are no reviews
-                starContainer.querySelector('.empty-stars').style.color = '#ccc'; // Optional: Change color if no reviews
+                starAvg.querySelector('.empty-stars').style.color = '#ccc'; // Optional: Change color if no reviews
             }
+        });
+
+        // Script for individual rating given in user's review
+        const ratings = document.querySelectorAll('.star-container-single');
+        ratings.forEach(rating => {
+            const stars = rating.querySelector('.stars');
+            const score = parseInt(rating.dataset.rating);
+            let starHTML = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= score) {
+                    starHTML += '<span class="filled-star">&starf;</span>';
+                } else {
+                    starHTML += '<span class="empty-star">&star;</span>';
+                }
+            }
+            stars.innerHTML = starHTML;
         });
     });
 </script>
