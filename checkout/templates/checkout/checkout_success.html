@@ -18,9 +18,9 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <hr>
-                <h2 class="logo-font mb-3">Thank You</h2>
-                <hr>
+                <hr class="my-2">
+                <h2 class="logo-font">Thank You</h2>
+                <hr class="my-2">
                 <p class="text-black">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
             </div>
         </div>
@@ -197,7 +197,7 @@
         </div>
 
         <div class="row">
-			<div class="col-12 col-lg-7 text-end">
+			<div class="col-12 col-lg-8 text-end">
                 {% if from_profile %}
                     <a href="{% url 'profile' %} " class="btn btn-dark rounded my-2">
                         <span class="text-uppercase">Back to Profile</strong>!</span>
