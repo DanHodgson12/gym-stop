@@ -58,7 +58,8 @@ a.category-badge > span.badge:hover {
     max-height: 400px;
 }
 
-.quantity-selector {
+.quantity-selector,
+.update-remove-links {
     max-width: 200px;
 }
 

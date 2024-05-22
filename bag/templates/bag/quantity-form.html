@@ -1,4 +1,4 @@
-<form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+<form class="form update-form quantity-selector" method="POST" action="{% url 'adjust_bag' item.item_id %}">
     {% csrf_token %}
     <div class="form-group">
         <div class="input-group">
@@ -10,7 +10,7 @@
                     </span>
                 </button>
             </div>
-            <input class="form-control form-control-sm qty_input quantity-selector" type="number"
+            <input class="form-control form-control-sm qty_input text-center" type="number"
                 name="quantity" value="{{ item.quantity }}" min="1" max="99"
                 data-item_id="{{ item.item_id }}"
                 id="id_qty_{{ item.item_id }}">
@@ -28,5 +28,7 @@
         </div>
     </div>
 </form>
-<a class="update-link text-info"><small>Update</small></a>
-<a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+<div class="update-remove-links mt-1">
+    <a class="btn btn-outline-danger remove-item py-0 px-2" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+    <a class="btn btn-outline-success update-link float-end py-0 px-2"><small>Update</small></a>
+</div>
