@@ -154,7 +154,11 @@
                             </div>
                             {% elif not user.is_authenticated %}
                             <div class="text-end">
-                                <p class="text-black">Please <a class="text-decoration-none" href="{% url 'account_login' %}">log in</a> to leave a review.</p>
+                                <p class="text-black">Please <a class="text-black" href="{% url 'account_login' %}">log in</a> to leave a review.</p>
+                            </div>
+                            {% else %}
+                            <div class="text-end">
+                                <p class="text-muted small">Only customers who bought this item can leave a review.</p>
                             </div>
                             {% endif %}
                         </div>
