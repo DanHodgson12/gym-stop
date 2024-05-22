@@ -238,15 +238,6 @@ input[name='q']::placeholder {
 
 /* ------------------ Forms (Review) */
 
-#div_id_rating .form-check {
-    display: inline-block;
-    margin-right: 15px;
-}
-
-#div_id_rating input {
-    margin-right: 5px;
-}
-
 #div_id_rating input,
 #div_id_headline input,
 #div_id_content textarea {
