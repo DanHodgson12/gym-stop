@@ -8,7 +8,7 @@
       "description": "A set of adjustable dumbbells with varying weights, perfect for strength training at home or in the gym.",
       "price": 149.99,
       "category": 1,
-      "rating": 4.5,
+      "rating": 0,
       "image": "adjustable-dumbbells-set.jpg",
       "image_url": ""
     }
@@ -22,7 +22,7 @@
       "description": "A set of resistance bands with different levels of resistance, suitable for various strength and flexibility exercises.",
       "price": 34.99,
       "category": 1,
-      "rating": 3.5,
+      "rating": 0,
       "image": "resistance-bands-set.jpg",
       "image_url": ""
     }
@@ -36,7 +36,7 @@
       "description": "A versatile weight bench with adjustable incline/decline positions, perfect for strength training exercises like bench press and dumbbell workouts.",
       "price": 199.99,
       "category": 1,
-      "rating": 4.8,
+      "rating": 0,
       "image": "adjustable-weight-bench.jpg",
       "image_url": ""
     }
@@ -50,7 +50,7 @@
       "description": "A set of kettlebells in different weights, ideal for dynamic workouts targeting strength, endurance, and flexibility.",
       "price": 89.99,
       "category": 1,
-      "rating": 2.5,
+      "rating": 0,
       "image": "kettlebell-set.jpg",
       "image_url": ""
     }
@@ -64,7 +64,7 @@
       "description": "A high-performance treadmill with various speed and incline settings, perfect for indoor running and cardio workouts.",
       "price": 999.99,
       "category": 2,
-      "rating": 4.7,
+      "rating": 0,
       "image": "treadmill.jpg",
       "image_url": ""
     }
@@ -78,7 +78,7 @@
       "description": "A high-quality jump rope suitable for cardio workouts, agility training, and improving coordination.",
       "price": 14.99,
       "category": 2,
-      "rating": 4,
+      "rating": 0,
       "image": "jump-rope.jpg",
       "image_url": ""
     }
@@ -92,7 +92,7 @@
       "description": "A sturdy pull-up bar that can be easily mounted on doorframes or walls, enabling a variety of upper body exercises.",
       "price": 39.99,
       "category": 2,
-      "rating": 1.5,
+      "rating": 0,
       "image": "pull-up-bar.jpg",
       "image_url": ""
     }
@@ -106,7 +106,7 @@
       "description": "High-quality boxing gloves crafted for training and sparring sessions, offering protection and support for hands and wrists.",
       "price": 59.99,
       "category": 2,
-      "rating": 4.9,
+      "rating": 0,
       "image": "boxing-gloves.jpg",
       "image_url": ""
     }
@@ -120,7 +120,7 @@
       "description": "A suspension trainer system that uses bodyweight resistance for full-body workouts, targeting strength, flexibility, and core stability.",
       "price": 89.99,
       "category": 3,
-      "rating": 4.3,
+      "rating": 0,
       "image": "suspension-trainer.jpg",
       "image_url": ""
     }
@@ -134,7 +134,7 @@
       "description": "Wooden gymnastic rings designed for bodyweight exercises, offering versatile strength and stability training.",
       "price": 49.99,
       "category": 3,
-      "rating": 3,
+      "rating": 0,
       "image": "gymnastic-rings.jpg",
       "image_url": ""
     }
@@ -148,7 +148,7 @@
       "description": "A heavy-duty battle rope suitable for high-intensity workouts, improving strength, endurance, and cardio conditioning.",
       "price": 79.99,
       "category": 3,
-      "rating": 4.6,
+      "rating": 0,
       "image": "battle-rope.jpg",
       "image_url": ""
     }
@@ -162,7 +162,7 @@
       "description": "A foam roller designed to relieve muscle tension, improve flexibility, and enhance recovery after workouts.",
       "price": 24.99,
       "category": 3,
-      "rating": 4.8,
+      "rating": 0,
       "image": "foam-roller.jpg",
       "image_url": ""
     }
@@ -176,7 +176,7 @@
       "description": "A high-quality whey protein powder for muscle recovery and growth.",
       "price": 29.99,
       "category": 4,
-      "rating": 4.5,
+      "rating": 0,
       "image": "whey-protein-powder.jpg",
       "image_url": ""
     }
@@ -190,7 +190,7 @@
       "description": "A vegan-friendly protein powder sourced from plant-based ingredients for muscle support and recovery.",
       "price": 34.99,
       "category": 4,
-      "rating": 2,
+      "rating": 0,
       "image": "plant-based-protein-powder.jpg",
       "image_url": ""
     }
@@ -204,7 +204,7 @@
       "description": "Slow-release protein powder ideal for nighttime muscle recovery and repair.",
       "price": 39.99,
       "category": 4,
-      "rating": 3.5,
+      "rating": 0,
       "image": "casein-protein-powder.jpg",
       "image_url": ""
     }
@@ -218,7 +218,7 @@
       "description": "A calorie-dense protein powder with added carbohydrates and fats for muscle mass and weight gain.",
       "price": 49.99,
       "category": 4,
-      "rating": 4.7,
+      "rating": 0,
       "image": "mass-gainer.jpg",
       "image_url": ""
     }
@@ -232,7 +232,7 @@
       "description": "A comprehensive blend of essential vitamins and minerals to support overall health and well-being.",
       "price": 19.99,
       "category": 5,
-      "rating": 4.9,
+      "rating": 0,
       "image": "multivitamin.jpg",
       "image_url": ""
     }
@@ -246,7 +246,7 @@
       "description": "Omega-3 fatty acids supplement derived from fish oil for heart and brain health.",
       "price": 24.99,
       "category": 5,
-      "rating": 3,
+      "rating": 0,
       "image": "fish-oil.jpg",
       "image_url": ""
     }
@@ -260,7 +260,7 @@
       "description": "Vitamin D supplement to support bone health and immune function.",
       "price": 9.99,
       "category": 5,
-      "rating": 4.2,
+      "rating": 0,
       "image": "vitamin-d3.jpg",
       "image_url": ""
     }
@@ -274,7 +274,7 @@
       "description": "A combination of essential minerals for bone strength, muscle function, and immune support.",
       "price": 14.99,
       "category": 5,
-      "rating": 4.4,
+      "rating": 0,
       "image": "calcium-magnesium-zinc.jpg",
       "image_url": ""
     }
@@ -288,7 +288,7 @@
       "description": "A combination of caffeine and L-theanine for increased energy, focus, and alertness during workouts.",
       "price": 24.99,
       "category": 6,
-      "rating": 4.6,
+      "rating": 0,
       "image": "caffeine-l-theanine.jpg",
       "image_url": ""
     }
@@ -302,7 +302,7 @@
       "description": "An amino acid supplement to improve endurance and delay muscle fatigue during high-intensity exercise.",
       "price": 29.99,
       "category": 6,
-      "rating": 1.8,
+      "rating": 0,
       "image": "beta-alanine.jpg",
       "image_url": ""
     }
@@ -316,7 +316,7 @@
       "description": "A popular supplement for increasing muscle strength, power, and performance during resistance training.",
       "price": 19.99,
       "category": 6,
-      "rating": 4.3,
+      "rating": 0,
       "image": "creatine-monohydrate.jpg",
       "image_url": ""
     }
@@ -330,7 +330,7 @@
       "description": "A formula designed to increase nitric oxide levels in the body, enhancing blood flow, endurance, and muscle pumps.",
       "price": 39.99,
       "category": 6,
-      "rating": 4.9,
+      "rating": 0,
       "image": "nitric-oxide-booster.jpg",
       "image_url": ""
     }
@@ -344,7 +344,7 @@
       "description": "A sleek and waterproof fitness tracker watch that monitors heart rate, tracks workouts, and provides activity data to help achieve fitness goals.",
       "price": 129.99,
       "category": 7,
-      "rating": 4.7,
+      "rating": 0,
       "image": "fitness-tracker-watch.jpg",
       "image_url": ""
     }
@@ -358,7 +358,7 @@
       "description": "Sweatproof and comfortable wireless earbuds designed for workouts, providing high-quality sound without the hassle of wires.",
       "price": 79.99,
       "category": 7,
-      "rating": 3,
+      "rating": 0,
       "image": "wireless-bluetooth-earbuds.jpg",
       "image_url": ""
     }
@@ -372,7 +372,7 @@
       "description": "A digital scale that measures weight, body fat percentage, muscle mass, and other metrics for comprehensive body composition analysis.",
       "price": 49.99,
       "category": 7,
-      "rating": 4.5,
+      "rating": 0,
       "image": "smart-scale.jpg",
       "image_url": ""
     }
@@ -386,7 +386,7 @@
       "description": "A chest strap heart rate monitor for accurate and real-time heart rate tracking during workouts.",
       "price": 39.99,
       "category": 7,
-      "rating": 2.5,
+      "rating": 0,
       "image": "heart-rate-monitor-chest-strap.jpg",
       "image_url": ""
     }
@@ -400,7 +400,7 @@
       "description": "Durable and padded gym gloves designed to provide grip, protect hands, and reduce calluses during weightlifting and other gym activities.",
       "price": 19.99,
       "category": 8,
-      "rating": 4.2,
+      "rating": 0,
       "image": "gym-gloves.jpg",
       "image_url": ""
     }
@@ -414,7 +414,7 @@
       "description": "A spacious and durable gym bag with multiple compartments, perfect for carrying workout gear, clothes, and accessories.",
       "price": 49.99,
       "category": 8,
-      "rating": 4.8,
+      "rating": 0,
       "image": "gym-bag.jpg",
       "image_url": ""
     }
@@ -428,7 +428,7 @@
       "description": "A BPA-free hydration bottle with a leak-proof design, ideal for staying hydrated during workouts and throughout the day.",
       "price": 12.99,
       "category": 8,
-      "rating": 3.5,
+      "rating": 0,
       "image": "hydration-bottle.jpg",
       "image_url": ""
     }
@@ -442,7 +442,7 @@
       "description": "A handheld percussion massage gun for deep tissue muscle recovery and pain relief.",
       "price": 99.99,
       "category": 9,
-      "rating": 4.9,
+      "rating": 0,
       "image": "massage-gun.jpg",
       "image_url": ""
     }
@@ -456,7 +456,7 @@
       "description": "A yoga block designed to support and deepen yoga poses, improve flexibility, and aid in balance.",
       "price": 14.99,
       "category": 9,
-      "rating": 2,
+      "rating": 0,
       "image": "yoga-block.jpg",
       "image_url": ""
     }
@@ -470,7 +470,7 @@
       "description": "A stretching strap with multiple loops for flexibility training, yoga, and physical therapy exercises.",
       "price": 9.99,
       "category": 9,
-      "rating": 3.2,
+      "rating": 0,
       "image": "stretching-strap.jpg",
       "image_url": ""
     }
@@ -484,7 +484,7 @@
       "description": "A massage ball for targeted muscle relief, trigger point therapy, and myofascial release.",
       "price": 7.99,
       "category": 9,
-      "rating": 4.3,
+      "rating": 0,
       "image": "massage-ball.jpg",
       "image_url": ""
     }
