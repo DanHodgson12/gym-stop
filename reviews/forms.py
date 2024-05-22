@@ -18,6 +18,15 @@ class ReviewForm(forms.ModelForm):
             widget=forms.RadioSelect(attrs={'class': 'filled-star'}),
             label="Rating"
         )
+        
+        labels = {
+            'headline': mark_safe("Headline <span class='text-muted'>(optional)</span>"),
+            'content': mark_safe("Content <span class='text-muted'>(optional)</span>")
+        }
+        
+        for field_name, label in labels.items():
+            if field_name in self.fields:
+                self.fields[field_name].label = label
 
         placeholders = {
             'headline': 'Brief headline for your review',
