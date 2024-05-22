@@ -15,7 +15,7 @@
     <div class="container mb-2">
         <!-- Page Header -->
         <div class="row">
-            <div class="col">
+            <div class="col-12 col-sm-10 offset-sm-1">
                 <hr class="mb-2 mt-0">
                 <h2 class="logo-font mb-2">Shopping Bag</h2>
                 <hr class="mt-2">
@@ -24,10 +24,10 @@
         
         <!-- Page Content -->
         {% if bag_items %}
-            <div class="row d-flex flex-column flex-sm-row">
+            <div class="row">
 
                 <!-- Order Total & Checkout Buttons -->
-                <div class="col-12 order-sm-2">
+                <div class="col-12 col-sm-10 offset-sm-1 order-sm-2">
                     <div class="row">
                         <div class="col text-sm-end">
                             {% include "bag/bag-total.html" %}
@@ -38,15 +38,15 @@
                 </div>
 
                 <!-- Bag Items -->
-                <div class="col-12 order-sm-1">
+                <div class="col-12 col-sm-10 offset-sm-1 order-sm-1">
                     {% for item in bag_items %}
                         <div class="row">
                             <!-- Product Image -->
-                            <div class="col-12 col-sm-6 mb-2">
+                            <div class="col-6 mb-2 text-center">
                                 {% include "bag/product-image.html" %}
                             </div>
                             <!-- Info, Price & Quantity Form -->
-                            <div class="col-12 col-sm-6 mb-2 d-flex flex-column justify-content-center">
+                            <div class="col-6 mb-2 bag-text">
                                 <div>
                                     {% include "bag/product-info.html" %}
                                     <p class="my-0">Price Each: ${{ item.product.price }}</p>
@@ -55,7 +55,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row"><div class="col"><hr></div></div>
+                        <hr class="my-1">
                     {% endfor %}
                 </div>
             </div>

@@ -55,7 +55,7 @@ a.category-badge > span.badge:hover {
 }
 
 .product-image {
-    max-height: 400px;
+    max-height: 350px;
 }
 
 .quantity-selector,
@@ -397,9 +397,27 @@ input[name='q']::placeholder {
     }
 }
 
-@media (max-width: 480px) {
+.bag-text p {
+    font-size: larger;
+}
+
+@media (max-width: 576px) {
     .checkout-button {
         padding: 0.25rem 0.5rem;
         font-size: 0.875rem;
+    }
+
+    .bag-text p {
+        font-size: small;
+    }
+
+    .product-image {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 428px) {
+    .checkout-button {
+        width: 100%;
     }
 }
