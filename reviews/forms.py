@@ -9,7 +9,7 @@ class ReviewForm(forms.ModelForm):
         
         # Star Rating Choices
         rating_choices = [
-            (i, mark_safe(f"{i} <i class='fa fa-star filled-star'></i>"))
+            (i, mark_safe(f"{'<i class=\"fa fa-star filled-star\"></i>' * i}"))
             for i in range(1, 6)
         ]
 
