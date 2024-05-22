@@ -58,6 +58,10 @@ a.category-badge > span.badge:hover {
     max-height: 400px;
 }
 
+.quantity-selector {
+    max-width: 200px;
+}
+
 /* ---------- Nav */
 
 .nav-link{
