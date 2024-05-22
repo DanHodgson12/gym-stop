@@ -31,9 +31,7 @@
                             <p class="my-0 small text-muted">Price (each): ${{ item.product.price }}</p>
                         </div>
                     </div>
-                    {% if not forloop.last %}
-                        <hr class="m-0">
-                    {% endif %}
+                    <hr class="m-0">
                 {% endfor %}
             </div>
             <div class="row">
