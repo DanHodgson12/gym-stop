@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-danhodgson12-gymstop-nz9dqaxi0p5.ws-eu114.gitpod.io',
+    os.environ.get('DEVELOPMENT_URL'),
     'danh12-gym-stop-6494ee93884f.herokuapp.com',
     'localhost:8000',
 ]
