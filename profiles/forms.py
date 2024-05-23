@@ -33,6 +33,8 @@ class UserProfileForm(forms.ModelForm):
                 widget_attrs = self.fields[field].widget.attrs
                 widget_attrs['placeholder'] = placeholder
                 widget_attrs['class'] = 'border-black profile-form-input'
+            else:
+                self.fields[field].widget.attrs['class'] = 'border-black'
 
             if field == 'is_subscribed_to_newsletter':
                 self.fields[field].label = 'Subscribed to Marketing Emails?'
