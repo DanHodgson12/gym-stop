@@ -58,10 +58,10 @@
                                         <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
                                     </div>
                                     <div class="col-12 col-lg-4">
-                                        <p class="my-0"><strong>Price: </strong> ${{ item.product.price }}</p>
+                                        <p class="my-0"><strong>Price: </strong> £{{ item.product.price }}</p>
                                     </div>
                                     <div class="col-12 col-lg-4">
-                                        <p class="my-0"><strong>Subtotal: </strong>${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                        <p class="my-0"><strong>Subtotal: </strong>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                                     </div>
                                 </div>
                                 {% include "bag/quantity-form.html" %}
