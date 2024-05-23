@@ -4,17 +4,6 @@ from .forms import ReviewForm
 from products.models import Product
 
 
-# Might not need this or the url
-def review_list(request):
-    reviews = Review.objects.all()
-
-    context = {
-        'reviews': reviews
-    }
-
-    return render(request, 'reviews/review_list.html', context)
-
-
 def add_review(request, product_id):
     product = Product.objects.get(id=product_id)
     if request.method == 'POST':
