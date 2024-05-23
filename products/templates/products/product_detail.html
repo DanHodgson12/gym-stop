@@ -63,16 +63,16 @@
                     {% if request.user.is_superuser %}
                         <p class="mb-0">
                             <a class="btn btn-primary py-0" href="{% url 'edit_product' product.id %}">Edit</a> | 
-                            <a href="#deleteModal{{ product.id }}" class="btn btn-danger py-0" data-bs-toggle="modal">Delete</a>
+                            <a href="#deleteProductModal{{ product.id }}" class="btn btn-danger py-0" data-bs-toggle="modal">Delete</a>
                         </p>
                     {% endif %}
 
                     <!-- Delete Product Modal -->
-                    <div id="deleteModal{{ product.id }}" class="modal fade" tabindex="-1" aria-labelledby="deleteModalLabel{{ product.id }}" aria-hidden="true">
+                    <div id="deleteProductModal{{ product.id }}" class="modal fade" tabindex="-1" aria-labelledby="deleteProductModalLabel{{ product.id }}" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="deleteModalLabel{{ product.id }}">Confirm Delete</h5>
+                                    <h5 class="modal-title" id="deleteProductModalLabel{{ product.id }}">Confirm Delete</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
