@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from .models import Review
 from .forms import ReviewForm
 from products.models import Product
@@ -25,3 +26,30 @@ def add_review(request, product_id):
     }
 
     return render(request, 'reviews/add_review.html', context)
+
+
+@login_required
+def edit_review(request, review_id):
+    review = get_object_or_404(Review, id=review_id)
+
+    # Ensure the user is the author of the review
+    if review.user != request.user:
+        messages.error(request, "You are not allowed to edit this review.")
+        return redirect('product_detail', product_id=review.product.id)
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"Review for {review.product.name} updated successfully.")
+            return redirect('product_detail', product_id=review.product.id)
+    else:
+        form = ReviewForm(instance=review)
+
+    context = {
+        'form': form,
+        'product': review.product,
+        'review': review
+    }
+
+    return render(request, 'reviews/edit_review.html', context)
