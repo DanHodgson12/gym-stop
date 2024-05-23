@@ -202,28 +202,7 @@
                                 {% endif %}
 
                                 <!-- Delete Review Modal -->
-                                <div id="deleteReviewModal{{ review.id }}" class="modal fade" tabindex="-1" aria-labelledby="deleteReviewModalLabel{{ review.id }}" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="deleteReviewModalLabel{{ review.id }}">Confirm Delete</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>Are you sure you want to delete this review?</p>
-                                                <p class="text-danger text-uppercase">This action is permanent and cannot be undone.</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                <form action="{% url 'reviews:delete_review' review.id %}" method="POST">
-                                                    {% csrf_token %}
-                                                    <button type="submit" class="btn btn-danger">Confirm Deletion</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                {% include 'products/includes/delete_review_modal.html' %}
                             </div>
                         </div>
                     {% empty %}
