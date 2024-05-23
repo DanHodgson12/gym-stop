@@ -244,6 +244,16 @@ input[name='q']::placeholder {
     border: 1px solid grey;
 }
 
+#div_id_rating .form-check-input,
+#div_id_rating .form-check-label {
+    cursor: pointer;
+}
+
+#div_id_rating .form-check-label:hover,
+#div_id_rating .form-check-label:focus {
+    text-shadow: 0 0 2px;
+}
+
 /* ------------------ Forms (Product) */
 
 .btn-file {
