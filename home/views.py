@@ -113,7 +113,7 @@ def send_welcome_email(subscriber_email):
     receiver_email = [subscriber_email,]
 
     if 'DEVELOPMENT' in os.environ and os.environ['DEVELOPMENT'] == 'True':
-        base_url = 'http://localhost:8000'
+        base_url = os.environ.get('DEVELOPMENT_URL')
     else:
         base_url = 'https://danh12-gym-stop-6494ee93884f.herokuapp.com'
 
