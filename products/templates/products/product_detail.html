@@ -203,7 +203,11 @@
                                 </p>
                             </div>
                             <div class="card-body">
-                                <p class="card-text">{{ review.content }}</p>
+                                {% if review.content %}
+                                    <p class="card-text">{{ review.content }}</p>
+                                {% else %}
+                                    <p class="card-text text-muted">Customer did not leave a comment.</p>
+                                {% endif %}
                             </div>
                         </div>
                     {% empty %}
