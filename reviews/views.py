@@ -53,3 +53,20 @@ def edit_review(request, review_id):
     }
 
     return render(request, 'reviews/edit_review.html', context)
+
+
+@login_required
+def delete_review(request, review_id):
+    review = get_object_or_404(Review, id=review_id)
+
+    # Ensure the user is the author of the review
+    if review.user != request.user:
+        messages.error(request, "You are not allowed to delete this review.")
+        return redirect('product_detail', product_id=review.product.id)
+
+    if request.method == 'POST':
+        review.delete()
+        messages.success(request, "Review deleted successfully.")
+        return redirect('product_detail', product_id=review.product.id)
+
+    return redirect('product_detail', product_id=review.product.id)

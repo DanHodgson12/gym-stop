@@ -193,10 +193,17 @@
                                     <p class="card-text m-0 text-muted">Customer did not leave a comment.</p>
                                 {% endif %}
 
-                                <div class="mt-1 float-end">
-                                    <a class="btn btn-sm btn-primary py-0 px-3" href="{% url 'reviews:edit_review' review.id %}">Edit</a>
-                                    <a class="btn btn-sm btn-danger py-0" href="">Delete</a>
-                                </div>
+                                {% if review_form and user.is_authenticated %}
+                                    <div class="mt-1 float-end">
+                                        <a class="btn btn-sm btn-primary py-0 px-3" href="{% url 'reviews:edit_review' review.id %}">Edit</a>
+                                        <form action="{% url 'reviews:delete_review' review.id %}" method="post" class="d-inline">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-sm btn-danger py-0">Delete</button>
+                                        </form>
+                                    </div>
+                                {% endif %}
+
+                                
 
                             </div>
                         </div>
