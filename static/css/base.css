@@ -405,21 +405,9 @@ input[name='q']::placeholder {
         left: 0;
         z-index: 1030;
     }
-
-    .header-container {
-        padding-top: 168px;
-    }
 }
 
 @media (max-width: 991px) {
-    /* pad the top a bit when navbar is collapsed on mobile */
-    .header-container {
-        padding-top: 124px;
-    }
-
-    body {
-        height: calc(100vh - 124px);
-    }
 
     .display-4.logo-font.text-white {
         font-size: 2rem;
