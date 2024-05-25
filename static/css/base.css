@@ -1,6 +1,7 @@
 /* ---------- General */
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     color: black;
@@ -51,7 +52,7 @@ main {
     background-color: #383838;
 }
 
-a.category-badge > span.badge:hover {
+a.category-badge>span.badge:hover {
     background: #212529 !important;
     color: #fff !important;
 }
@@ -80,7 +81,7 @@ a.category-badge > span.badge:hover {
 
 /* ---------- Nav */
 
-.nav-link{
+.nav-link {
     color: whitesmoke;
     border-radius: 5px;
 }
@@ -192,10 +193,10 @@ footer a i {
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
+    border-right: 4px solid transparent;
     border-bottom: 10px solid black;
     position: absolute;
     top: -10px;
@@ -322,7 +323,7 @@ input[name='q']::placeholder {
 }
 
 .allauth-form-inner-content a {
-	color: black;
+    color: black;
 }
 
 /* Hide all labels (besides remember me checkbox on the login page) as inputs have placeholders */
