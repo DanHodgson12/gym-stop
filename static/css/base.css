@@ -63,6 +63,10 @@ a.category-badge > span.badge:hover {
     max-width: 200px;
 }
 
+.display-4.logo-font.text-white {
+    text-shadow: -2px 0px 8px black;
+}
+
 /* ---------- Nav */
 
 .nav-link{
