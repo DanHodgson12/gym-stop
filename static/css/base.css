@@ -86,6 +86,10 @@ a.category-badge > span.badge:hover {
     text-shadow: -2px 0px 8px black;
 }
 
+.bag-text p {
+    font-size: larger;
+}
+
 /* ---------- Nav */
 
 .nav-link{
@@ -429,10 +433,6 @@ input[name='q']::placeholder {
         padding: .375rem .375rem;
         font-size: .75rem;
     }
-}
-
-.bag-text p {
-    font-size: larger;
 }
 
 @media (max-width: 576px) {
