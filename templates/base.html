@@ -39,119 +39,146 @@
   </head>
   <body>
 
-    <header class="container-fluid fixed-top">
+    <div class="wrapper">
+        <header class="container-fluid">
+            <!-- Logo / Search / Account & Bag -->
+            <div id="topnav" class="row bg-grey p-lg-2 d-none d-lg-flex">
 
-        <!-- Logo / Search / Account & Bag -->
-        <div id="topnav" class="row bg-grey p-lg-2 d-none d-lg-flex">
+                <!-- Logo -->
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-start">
+                    <a href="{% url 'home' %}" class="main-logo-link">
+                        <h2 class="logo-font fw-bold my-0">
+                            <span class="text-white">GYM</span>
+                            <span class="text-danger">STOP</span>
+                        </h2>
+                    </a>
+                </div>
 
-            <!-- Logo -->
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-start">
-                <a href="{% url 'home' %}" class="main-logo-link">
-                    <h2 class="logo-font fw-bold my-0">
-                        <span class="text-white">GYM</span>
-                        <span class="text-danger">STOP</span>
-                    </h2>
-                </a>
-            </div>
-
-            <!-- Search Bar -->
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <form method="GET" action="{% url 'products' %}">
-                    <div class="input-group w-100">
-                        <input class="form-control border border-black rounded-start" type="text" name="q" placeholder="Search our site">
-                        <button class="btn btn-dark border border-black rounded-end" type="submit">
-                            <span class="icon">
-                                <i class="fas fa-search"></i>
-                            </span>
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Account & Shopping Bag -->
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <ul class="list-inline list-unstyled text-center text-lg-end my-0">
-                    <li class="list-inline-item dropdown m-0">
-                        <a class="nav-link px-2" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
-                                <div><i class="fas fa-user fa-lg"></i></div>
-                                <p class="my-0">My Account</p>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                    <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-                                {% endif %}
-                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            {% endif %}
+                <!-- Search Bar -->
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                    <form method="GET" action="{% url 'products' %}">
+                        <div class="input-group w-100">
+                            <input class="form-control border border-black rounded-start" type="text" name="q" placeholder="Search our site">
+                            <button class="btn btn-dark border border-black rounded-end" type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
                         </div>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-warning font-weight-bold{% endif %} nav-link px-2" href="{% url 'view_bag' %}">
-                            <div class="text-center">
-                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                                <p class="my-0">
-                                    {% if grand_total %}
-                                        £{{ grand_total|floatformat:2 }}
-                                    {% else %}
-                                        £0.00
+                    </form>
+                </div>
+
+                <!-- Account & Shopping Bag -->
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                    <ul class="list-inline list-unstyled text-center text-lg-end my-0">
+                        <li class="list-inline-item dropdown m-0">
+                            <a class="nav-link px-2" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="text-center">
+                                    <div><i class="fas fa-user fa-lg"></i></div>
+                                    <p class="my-0">My Account</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
                                     {% endif %}
-                                </p>
+                                    <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                {% else %}
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                {% endif %}
                             </div>
-                        </a>
-                    </li>
-                </ul>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="{% if grand_total %}text-warning font-weight-bold{% endif %} nav-link px-2" href="{% url 'view_bag' %}">
+                                <div class="text-center">
+                                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                    <p class="my-0">
+                                        {% if grand_total %}
+                                            £{{ grand_total|floatformat:2 }}
+                                        {% else %}
+                                            £0.00
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <!-- Main Nav & Mobile Header -->
-        <div class="row bg-grey pt-0 pb-1 px-3">
-            <nav class="navbar navbar-expand-lg w-100 p-0">
-                <button class="navbar-toggler border-white" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-                {% include 'includes/mobile-top-header.html' %}
-                {% include 'includes/main-nav.html' %}
-            </nav>
-        </div>
+            <!-- Main Nav & Mobile Header -->
+            <div class="row bg-grey pt-0 pb-1 px-3">
+                <nav class="navbar navbar-expand-lg w-100 p-0">
+                    <button class="navbar-toggler border-white" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    {% include 'includes/mobile-top-header.html' %}
+                    {% include 'includes/main-nav.html' %}
+                </nav>
+            </div>
 
-        <!-- Deals Banner -->
-        <div id="delivery-banner" class="row text-center bg-warning">
-            <div class="col text-black">
-                <h5 class="logo-font my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h5>                
-            </div>            
-        </div>
+            <!-- Deals Banner -->
+            <div id="delivery-banner" class="row text-center bg-warning">
+                <div class="col text-black">
+                    <h5 class="logo-font my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h5>                
+                </div>            
+            </div>
+        </header>
 
-    </header>
+        {% if messages %}
+            <div class="message-container">
+                {% for message in messages %}
+                    {% with message.level as level %}
+                        {% if level == 40 %}
+                            {% include 'includes/toasts/toast_error.html' %}
+                        {% elif level == 30 %}
+                            {% include 'includes/toasts/toast_warning.html' %}
+                        {% elif level == 25 %}
+                            {% include 'includes/toasts/toast_success.html' %}
+                        {% else %}
+                            {% include 'includes/toasts/toast_info.html' %}
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
 
-    {% if messages %}
-        <div class="message-container">
-            {% for message in messages %}
-                {% with message.level as level %}
-                    {% if level == 40 %}
-                        {% include 'includes/toasts/toast_error.html' %}
-                    {% elif level == 30 %}
-                        {% include 'includes/toasts/toast_warning.html' %}
-                    {% elif level == 25 %}
-                        {% include 'includes/toasts/toast_success.html' %}
-                    {% else %}
-                        {% include 'includes/toasts/toast_info.html' %}
-                    {% endif %}
-                {% endwith %}
-            {% endfor %}
-        </div>
-    {% endif %}
+        <footer class="sticky-bottom bg-grey p-2">
+            <div class="row p-0 m-0">
 
-    {% block page_header %}
-    {% endblock %}
+                <!-- Social Media Links -->
+                <div class="col-6 p-0 m-0 ps-3 text-start text-white d-flex flex-row align-items-center">
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <i class="fa-brands fa-square-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <i class="fa-brands fa-square-instagram"></i>
+                    </a>
+                    <a href="https://x.com/" target="_blank">
+                        <i class="fa-brands fa-square-x-twitter"></i>
+                    </a>
+                </div>
 
-    {% block content %}
-    {% endblock %}
+                <!-- Subscribe Modal Button/Trigger -->
+                <div class="col-6 text-end p-0 m-0 d-flex flex-column justify-content-center align-items-end">
+                    <button type="button" class="btn btn-warning p-1" data-bs-toggle="modal" data-bs-target="#subscribeModal">
+                        <p class="p-0 m-0 d-none d-sm-block">
+                            Subscribe to our Newsletter!
+                        </p>
+                        <i class="fa-solid fa-square-envelope d-sm-none px-1 fs-2 lh-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
 
     {% block postloadjs %}
     <script type="text/javascript">

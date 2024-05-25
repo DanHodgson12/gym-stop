@@ -1,6 +1,6 @@
 /* ---------- General */
 
-html {
+/* html {
     height: 100%;
 }
 
@@ -10,6 +10,38 @@ body {
     height: calc(100vh - 168px);
     color: black;
     font-family: 'Lato';
+} */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    color: black;
+    font-family: 'Lato';
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    flex: 1;
+}
+
+.home-page {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#btn-back-to-top {
+    position: fixed;
+    bottom: 60px;
+    right: 5px;
+    display: none;
 }
 
 .overlay {
@@ -40,15 +72,6 @@ a.category-badge > span.badge:hover {
     color: #fff !important;
 }
 
-.btt-button {
-    height: 42px;
-    width: 42px;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-}
-
-.btt-link,
 .update-link,
 .remove-item {
     cursor: pointer;
