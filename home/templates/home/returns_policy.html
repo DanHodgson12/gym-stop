@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container p-2 p-sm-3 p-md-4 p-lg-5">
+
+        <h1>Returns Policy</h1>
+    
+        <section>
+            <p>At Gym Stop, we strive to ensure that our customers are satisfied with their purchases. If you are not completely happy with your purchase, we are here to help.</p>
+        </section>
+
+        <section>
+            <h2>Return Conditions</h2>
+            <p>To be eligible for a return, your item must meet the following conditions:</p>
+            <ul>
+                <li>The item must be unused and in the same condition that you received it.</li>
+                <li>The item must be in its original packaging.</li>
+                <li>The return must be initiated within 30 days of the receipt of the item.</li>
+                <li>A receipt or proof of purchase is required for the return.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Non-returnable Items</h2>
+            <p>Several types of goods are exempt from being returned. Non-returnable items include:</p>
+            <ul>
+                <li>Gift cards</li>
+                <li>Downloadable software products</li>
+                <li>Personal care items such as skincare products, shampoos, and soaps</li>
+                <li>Customized or personalized items</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Return Process</h2>
+            <p>To initiate a return, please follow these steps:</p>
+            <ul>
+                <li>Contact our customer service team at <a href="mailto:info@gymstop.com" class="text-black">info@gymstop.com</a> to request a return authorization.</li>
+                <li>Provide your order number, details of the product you wish to return, and the reason for the return.</li>
+                <li>Once your return is approved, you will receive instructions on how to send your item back to us.</li>
+                <li>Pack the item securely in its original packaging, including all parts, accessories, and documentation.</li>
+                <li>Ship the item to the address provided in the return authorization instructions.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Refunds</h2>
+            <p>Once we receive your returned item, we will inspect it and notify you of the status of your refund. If your return is approved, we will initiate a refund to your original method of payment. You will receive the credit within a certain amount of days, depending on your card issuer's policies.</p>
+            <p>Original shipping costs are non-refundable. If you receive a refund, the cost of return shipping will be deducted from your refund.</p>
+        </section>
+
+        <section>
+            <h2>Exchanges</h2>
+            <p>We only replace items if they are defective or damaged. If you need to exchange an item for the same product, please contact us at <a href="mailto:info@gymstop.com" class="text-black">info@gymstop.com</a>.</p>
+        </section>
+
+        <section>
+            <h2>Shipping Costs</h2>
+            <p>You will be responsible for paying for your own shipping costs for returning your item. Shipping costs are non-refundable.</p>
+            <p>If you are returning an item over £75, you should consider using a trackable shipping service or purchasing shipping insurance. We cannot guarantee that we will receive your returned item.</p>
+        </section>
+
+        <section>
+            <h2>Contact Us</h2>
+            <p>If you have any questions about our Returns Policy, please contact us:</p>
+            <p>Email: <a href="mailto:info@gymstop.com" class="text-black">info@gymstop.com</a></p>
+            <p>Address: Gym Stop, 123 Fitness Lane, Workout City, State, ZIP Code, Country</p>
+        </section>
+    </div>
+
+    <!-- Subscribe Modal -->
+    {% include 'subscribe/includes/subscribe_modal.html' %}
+
+{% endblock %}
+
+{% block legal_content %}
+    {% include 'home/includes/legal_content_footer.html' %}
+{% endblock %}
