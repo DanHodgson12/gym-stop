@@ -10,7 +10,8 @@ class ReviewForm(forms.ModelForm):
 
         # Star Rating Choices
         rating_choices = [
-            (i, mark_safe(f"""{i * '<i class="fa fa-star filled-star"></i>'}"""))
+            (i, mark_safe(
+                f"""{i * '<i class="fa fa-star filled-star"></i>'}"""))
             for i in range(1, 6)
         ]
 
@@ -21,8 +22,10 @@ class ReviewForm(forms.ModelForm):
         )
 
         labels = {
-            'headline': mark_safe("Headline <span class='text-muted'>(optional)</span>"),
-            'content': mark_safe("Content <span class='text-muted'>(optional)</span>")
+            'headline': mark_safe(
+                "Headline <span class='text-muted'>(optional)</span>"),
+            'content': mark_safe(
+                "Content <span class='text-muted'>(optional)</span>")
         }
 
         for field_name, label in labels.items():
@@ -36,7 +39,8 @@ class ReviewForm(forms.ModelForm):
 
         for field_name, placeholder in placeholders.items():
             if field_name in self.fields:
-                self.fields[field_name].widget.attrs.update({'placeholder': placeholder})
+                self.fields[field_name].widget.attrs.update(
+                    {'placeholder': placeholder})
 
     class Meta:
         model = Review

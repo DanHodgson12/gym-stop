@@ -3,9 +3,9 @@ from .models import Product, Category
 from reviews.models import Review
 
 
-class ReviewInline(admin.TabularInline):  # or admin.StackedInline for a different layout
+class ReviewInline(admin.TabularInline):
     model = Review
-    extra = 0  # Number of empty review forms to display
+    extra = 0
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -19,7 +19,7 @@ class ProductAdmin(admin.ModelAdmin):
     )
 
     ordering = ('sku',)
-    inlines = [ReviewInline]  # Include the ReviewInline in the Product admin page
+    inlines = [ReviewInline]
 
 
 class CategoryAdmin(admin.ModelAdmin):

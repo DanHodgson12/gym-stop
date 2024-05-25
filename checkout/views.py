@@ -174,7 +174,10 @@ def checkout(request):
 
 
 def checkout_success(request, order_number):
-    """ A view to render the checkout success page and handle successful orders. """
+    """
+    A view to render the checkout success page
+    and handle successful orders.
+    """
 
     # Check user wanted to save their info - used to add to user profile
     save_info = request.session.get('save_info')

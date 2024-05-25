@@ -85,8 +85,11 @@ def product_detail(request, product_id):
         # Check if the user has a profile
         if hasattr(request.user, 'userprofile'):
             # Check if the user has purchased the product
-            if Order.objects.filter(user_profile=request.user.userprofile, lineitems__product=product).exists():
-                # If the user has purchased the product, initialize the review form
+            if Order.objects.filter(
+                user_profile=request.user.userprofile,
+                lineitems__product=product
+            ).exists():
+                # If the user has purchased the product, initialize form
                 review_form = ReviewForm()
 
     context = {
