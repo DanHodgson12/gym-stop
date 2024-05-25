@@ -20,7 +20,7 @@ def index(request):
 
 
 def privacy_policy(request):
-    """ A view to return the privacy policy page """
+    """ A view to return the Privacy Policy page """
 
     return render(request, 'home/privacy_policy.html')
 
@@ -29,3 +29,9 @@ def terms_and_conditions(request):
     """ A view to return the Terms & Conditions page """
 
     return render(request, 'home/terms_and_conditions.html')
+
+
+def returns_policy(request):
+    """ A view to return the Returns Policy page """
+
+    return render(request, 'home/returns_policy.html')
