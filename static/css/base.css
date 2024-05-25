@@ -115,6 +115,22 @@ a.category-badge > span.badge:hover {
     min-width: 260px;
 }
 
+/* ------------------ Footer */
+
+footer a,
+footer button {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer a i {
+    font-size: 30px;
+    color: #ffc107;
+}
+
 /* ------------------ Product Star Rating */
 
 .star-container {

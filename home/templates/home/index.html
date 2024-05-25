@@ -25,16 +25,32 @@
         </div>
     </div>
 
-    <footer class="fixed-bottom bg-grey py-2 px-1 text-end">
+    <footer class="fixed-bottom bg-grey p-2">
+        <div class="row p-0 m-0">
 
-        <!-- Subscribe Modal Trigger -->
-        <button type="button" class="btn btn-warning p-1" data-bs-toggle="modal" data-bs-target="#subscribeModal">
-            <p class="p-0 m-0 d-none d-sm-block">
-                Subscribe to our Newsletter!
-            </p>
-            <i class="fa-solid fa-square-envelope d-sm-none px-1 fs-2 lh-sm"></i>
-        </button>
+            <!-- Social Media Links -->
+            <div class="col-6 p-0 m-0 ps-3 text-start text-white d-flex flex-row align-items-center">
+                <a href="https://www.facebook.com/" target="_blank">
+                    <i class="fa-brands fa-square-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <i class="fa-brands fa-square-instagram"></i>
+                </a>
+                <a href="https://x.com/" target="_blank">
+                    <i class="fa-brands fa-square-x-twitter"></i>
+                </a>
+            </div>
 
+            <!-- Subscribe Modal Button/Trigger -->
+            <div class="col-6 text-end p-0 m-0 d-flex flex-column justify-content-center align-items-end">
+                <button type="button" class="btn btn-warning p-1" data-bs-toggle="modal" data-bs-target="#subscribeModal">
+                    <p class="p-0 m-0 d-none d-sm-block">
+                        Subscribe to our Newsletter!
+                    </p>
+                    <i class="fa-solid fa-square-envelope d-sm-none px-1 fs-2 lh-sm"></i>
+                </button>
+            </div>
+        </div>
     </footer>
 
     <!-- Subscribe Modal -->
