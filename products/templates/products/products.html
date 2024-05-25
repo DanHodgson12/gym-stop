@@ -159,35 +159,5 @@
     {{ block.super }}
     {% include 'products/includes/sort_selector_script.html' %}
     {% include 'reviews/includes/star_rating_script.html' %}
-    <script type="text/javascript">
-		// $('.btt-link').click(function(e) {
-		// 	window.scrollTo(0,0)
-		// })
-
-        // Back To Top Button - taken from https://mdbootstrap.com/docs/standard/extended/back-to-top/
-        let mybutton = document.getElementById("btn-back-to-top");
-
-        window.onscroll = function () {
-            scrollFunction();
-        };
-
-        function scrollFunction() {
-            if (
-                document.body.scrollTop > 200 ||
-                document.documentElement.scrollTop > 200
-            ) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-
-        mybutton.addEventListener("click", backToTop);
-
-        function backToTop() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-
-	</script>
+    {% include 'products/includes/btt_button_script.html' %}
 {% endblock %}
