@@ -126,7 +126,7 @@ a.category-badge > span.badge:hover {
     min-width: 260px;
 }
 
-/* ------------------ Footer */
+/* ---------- Footer */
 
 footer a,
 footer button {
@@ -142,7 +142,7 @@ footer a i {
     color: #ffc107;
 }
 
-/* ------------------ Product Star Rating */
+/* ---------- Product Star Rating */
 
 .star-container {
     unicode-bidi: bidi-override;
@@ -169,7 +169,7 @@ footer a i {
     color: #ffc107;
 }
 
-/* ------------------ Bootstrap Toasts */
+/* ---------- Bootstrap Toasts */
 
 .message-container {
     position: fixed;
@@ -241,7 +241,7 @@ footer a i {
     overflow-y: auto;
 }
 
-/* ------------------ Subscribe Components */
+/* ---------- Subscribe Components */
 
 .offcanvas-header .btn-close {
     margin: 0;
@@ -257,7 +257,7 @@ footer a i {
     font-size: small;
 }
 
-/* ------------------ Forms (General) */
+/* ---------- Forms (General) */
 
 .form-control {
     background-clip: unset;
@@ -267,7 +267,7 @@ input[name='q']::placeholder {
     color: #aab7c4;
 }
 
-/* ------------------ Forms (Review) */
+/* ---------- Forms (Review) */
 
 #div_id_rating input,
 #div_id_headline input,
@@ -285,7 +285,7 @@ input[name='q']::placeholder {
     text-shadow: 0 0 2px;
 }
 
-/* ------------------ Forms (Product) */
+/* ---------- Forms (Product) */
 
 .btn-file {
     position: relative;
@@ -311,7 +311,7 @@ input[name='q']::placeholder {
     border-color: #dc3545;
 }
 
-/* ------------------ Forms (Allauth) */
+/* ---------- Forms (Allauth) */
 
 .allauth-form-inner-content p {
     margin-top: 1.5rem;
@@ -377,7 +377,7 @@ input[name='q']::placeholder {
     border-color: #212529;
 }
 
-/* ------------------ Media Queries */
+/* ---------- Media Queries */
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
