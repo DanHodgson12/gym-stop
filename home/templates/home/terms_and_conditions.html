@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container p-5">
+
+        <h1 class="text-center">Terms and Conditions</h1>
+
+        <section>
+            <h2>Introduction</h2>
+            <p>Welcome to Gym Stop (gymstop.com). These terms and conditions outline the rules and regulations for the use of Gym Stop's website and services.</p>
+            <p>By accessing this website, we assume you accept these terms and conditions in full. Do not continue to use Gym Stop's website if you do not accept all of the terms and conditions stated on this page.</p>
+        </section>
+
+        <section>
+            <h2>Intellectual Property Rights</h2>
+            <p>Unless otherwise stated, Gym Stop and/or its licensors own the intellectual property rights for all material on Gym Stop. All intellectual property rights are reserved. You may view and/or print pages from gymstop.com for your own personal use subject to restrictions set in these terms and conditions.</p>
+            <p>You must not:</p>
+            <ul>
+                <li>Republish material from gymstop.com</li>
+                <li>Sell, rent, or sub-license material from gymstop.com</li>
+                <li>Reproduce, duplicate, or copy material from gymstop.com</li>
+                <li>Redistribute content from Gym Stop (unless content is specifically made for redistribution)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>User Accounts</h2>
+            <p>When you create an account with us, you must provide information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our service.</p>
+            <p>You are responsible for safeguarding the password that you use to access the service and for any activities or actions under your password. You agree not to disclose your password to any third party. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.</p>
+        </section>
+
+        <section>
+            <h2>Order Processing</h2>
+            <p>All orders are subject to acceptance and availability. We reserve the right to refuse or cancel any order for any reason, including limitations on quantities available, inaccuracies, or errors in product or pricing information, or any problems identified by our credit and fraud avoidance department.
+            <h3>Pricing and Payment</h3>
+            <p>Prices for our products are subject to change without notice. We reserve the right at any time to modify or discontinue the service (or any part or content thereof) without notice at any time.</p>
+            <p>We accept various payment methods, including credit/debit cards and other online payment methods. By providing payment information, you confirm that you are authorized to use the payment method.</p>
+        </section>
+
+        <section>
+            <h2>Shipping and Delivery</h2>
+            <p>Gym Stop will ship products to the address provided by you at the time of purchase. We are not responsible for any delay or loss of items due to incorrect or incomplete shipping details provided by you.</p>
+            <p>Delivery times are estimated and not guaranteed. Any additional charges incurred for international shipping and customs clearance are the responsibility of the customer.</p>
+        </section>
+
+        <section>
+            <h2>Returns and Refunds</h2>
+            <p>If you are not completely satisfied with your purchase, you may return the product within 30 days of receipt for a refund or exchange, subject to our Return Policy. The product must be unused, in the same condition that you received it, and in the original packaging.</p>
+            <p>To initiate a return, please contact our customer service team for instructions. Refunds will be processed to the original method of payment within a certain amount of days after we receive the returned item.</p>
+        </section>
+
+        <section>
+            <h2>Limitation of Liability</h2>
+            <p>To the fullest extent permitted by applicable law, Gym Stop shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from:</p>
+            <ul>
+                <li>Your use or inability to use our service</li>
+                <li>Any unauthorized access to or use of our servers and/or any personal information stored therein</li>
+                <li>Any interruption or cessation of transmission to or from our service</li>
+                <li>Any bugs, viruses, trojan horses, or the like that may be transmitted to or through our service by any third party</li>
+                <li>Any errors or omissions in any content or for any loss or damage incurred as a result of the use of any content posted, emailed, transmitted, or otherwise made available through the service</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Indemnification</h2>
+            <p>You agree to indemnify, defend, and hold harmless Gym Stop, its officers, directors, employees, agents, and affiliates, from and against any and all claims, damages, obligations, losses, liabilities, costs, or debt, and expenses (including but not limited to attorney's fees) arising from:</p>
+            <ul>
+                <li>Your use of and access to the service</li>
+                <li>Your violation of any term of these Terms</li>
+                <li>Your violation of any third-party right, including without limitation any intellectual property, privacy, or proprietary right</li>
+                <li>Any claim that your use of the service has caused damage to a third party</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Governing Law</h2>
+            <p>These Terms shall be governed and construed in accordance with the laws of the State/Country, without regard to its conflict of law provisions.</p>
+            <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect.</p>
+        </section>
+
+        <section>
+            <h2>Changes to Terms</h2>
+            <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will try to provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+        </section>
+
+        <section>
+            <h2>Contact Us</h2>
+            <p>If you have any questions about these Terms, please contact us at:</p>
+            <p>Email: <a href="mailto:info@gymstop.com" class="text-black">info@gymstop.com</a></p>
+            <p>Address: Gym Stop, 123 Fitness Lane, Workout City, State, ZIP Code, Country</p>
+        </section>
+
+    </div>
+
+    <!-- Subscribe Modal -->
+    {% include 'subscribe/includes/subscribe_modal.html' %}
+
+{% endblock %}
+
+{% block legal_content %}
+    {% include 'home/includes/legal_content_footer.html' %}
+{% endblock %}
