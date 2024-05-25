@@ -28,7 +28,6 @@ html, body {
 main {
     display: flex;
     flex: 1;
-    margin-bottom: 38px; /* Height of BTT button */
 }
 
 .home-page {
@@ -38,6 +37,10 @@ main {
     justify-content: center;
     background: url('/media/home-page-gym-stop.jpg') no-repeat center center fixed;
     background-size: cover;
+}
+
+.products-container {
+    margin-bottom: 38px;
 }
 
 #btn-back-to-top {
