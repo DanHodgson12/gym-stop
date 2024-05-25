@@ -21,3 +21,35 @@
     {% include 'subscribe/includes/subscribe_modal.html' %}
 
 {% endblock %}
+
+{% block legal_content %}
+    
+    <div class="bg-dark text-white pt-3 pb-5 px-3 px-sm-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 mb-2">
+                    <h3 class="font-weight-bold">Gym Stop</h3>
+                    <p>Gym Stop is a fictional e-commerce website conceived for the purpose of an educational project.</p>
+                    <p><i class="fas fa-phone-alt me-2"></i> 01234 567890</p>
+                    <a href="mailto:info@gymstop.com" class="text-decoration-none text-white">
+                        <i class="fas fa-envelope me-2"></i> info@gymstop.com
+                    </a>
+                </div>
+                <div class="col-sm-6 mb-2">
+                    <ul class="list-unstyled">
+                        <li class="m-2">
+                            <a href="#" class="text-white text-decoration-none">Terms & Conditions</a>
+                        </li>
+                        <li class="m-2">
+                            <a href="#" class="text-white text-decoration-none">Privacy Policy</a>
+                        </li>
+                        <li class="m-2">
+                            <a href="#" class="text-white text-decoration-none">Returns Policy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
