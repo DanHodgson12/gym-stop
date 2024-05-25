@@ -2,11 +2,12 @@ from django import forms
 from django.utils.safestring import mark_safe
 from .models import Review
 
+
 class ReviewForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ReviewForm, self).__init__(*args, **kwargs)
-        
+
         # Star Rating Choices
         rating_choices = [
             (i, mark_safe(f"""{i * '<i class="fa fa-star filled-star"></i>'}"""))
@@ -18,12 +19,12 @@ class ReviewForm(forms.ModelForm):
             widget=forms.RadioSelect(attrs={'class': 'filled-star'}),
             label="Rating"
         )
-        
+
         labels = {
             'headline': mark_safe("Headline <span class='text-muted'>(optional)</span>"),
             'content': mark_safe("Content <span class='text-muted'>(optional)</span>")
         }
-        
+
         for field_name, label in labels.items():
             if field_name in self.fields:
                 self.fields[field_name].label = label
@@ -35,7 +36,7 @@ class ReviewForm(forms.ModelForm):
 
         for field_name, placeholder in placeholders.items():
             if field_name in self.fields:
-                self.fields[field_name].widget.attrs.update({'placeholder': placeholder})    
+                self.fields[field_name].widget.attrs.update({'placeholder': placeholder})
 
     class Meta:
         model = Review

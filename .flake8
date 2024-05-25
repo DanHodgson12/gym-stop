@@ -4,3 +4,4 @@ exclude =
     settings.py,
     env.py,
     .devcontainer
+ignore = W503

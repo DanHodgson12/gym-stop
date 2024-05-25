@@ -8,7 +8,7 @@ from products.models import Product
 
 @login_required
 def add_review(request, product_id):
-    """ 
+    """
     A view to allow verified users to leave reviews
     on products they have previously purchased.
     """
@@ -35,7 +35,7 @@ def add_review(request, product_id):
 
 @login_required
 def edit_review(request, review_id):
-    """ 
+    """
     A view to allow verified users to edit a review
     they left on a product.
     """
@@ -67,7 +67,7 @@ def edit_review(request, review_id):
 
 @login_required
 def delete_review(request, review_id):
-    """ 
+    """
     A view to allow verified users to delete a review
     they left on a product.
     """

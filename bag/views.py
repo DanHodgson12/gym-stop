@@ -67,7 +67,7 @@ def add_to_bag(request, item_id):
 
 
 def adjust_bag(request, item_id):
-    """ 
+    """
     Adjust the quantity of the specified product
     to the specified amount.
     """
@@ -98,8 +98,9 @@ def adjust_bag(request, item_id):
         if quantity > 0:
             bag[item_id] = quantity
             messages.success(
-                    request,
-                    f'Updated {product.name} quantity to {bag[item_id]}')
+                request,
+                f'Updated {product.name} quantity to {bag[item_id]}'
+            )
         else:
             bag.pop(item_id)
             messages.success(

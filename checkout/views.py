@@ -111,7 +111,8 @@ def checkout(request):
 
             # ORDER SUCCESSFUL!!! Perform 'checkout_success' function
             return redirect(
-                    reverse('checkout_success', args=[order.order_number]))
+                reverse('checkout_success', args=[order.order_number])
+            )
         else:
             # If order_form IS NOT valid...
 

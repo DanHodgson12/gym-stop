@@ -12,7 +12,7 @@ from .forms import UnsubscribeForm
 
 
 def subscribe(request):
-    """ 
+    """
     A view to allow users to subscribe to the mailing list.
     """
 
@@ -60,7 +60,7 @@ def subscribe(request):
 
 
 def unsubscribe(request):
-    """ 
+    """
     A view to render the unsubscribe page and allow users
     to unsubscribe from the mailing list.
     """
@@ -110,7 +110,7 @@ def unsubscribe(request):
 
 
 def send_welcome_email(subscriber_email):
-    """ 
+    """
     A view to send a welcome email when a user
     subscribes to the mailing list.
     """
