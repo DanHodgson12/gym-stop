@@ -17,3 +17,9 @@ def index(request):
     form = MarketingSubscriptionForm()
 
     return render(request, 'home/index.html', {'form': form})
+
+
+def privacy_policy(request):
+    """ A view to return the privacy_policy page """
+
+    return render(request, 'home/privacy_policy.html')
