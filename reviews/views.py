@@ -8,6 +8,11 @@ from products.models import Product
 
 @login_required
 def add_review(request, product_id):
+    """ 
+    A view to allow verified users to leave reviews
+    on products they have previously purchased.
+    """
+
     product = get_object_or_404(Product, id=product_id)
     if request.method == 'POST':
         form = ReviewForm(request.POST)
@@ -30,6 +35,11 @@ def add_review(request, product_id):
 
 @login_required
 def edit_review(request, review_id):
+    """ 
+    A view to allow verified users to edit a review
+    they left on a product.
+    """
+
     review = get_object_or_404(Review, id=review_id)
 
     # Ensure the user is the author of the review
@@ -57,6 +67,11 @@ def edit_review(request, review_id):
 
 @login_required
 def delete_review(request, review_id):
+    """ 
+    A view to allow verified users to delete a review
+    they left on a product.
+    """
+
     review = get_object_or_404(Review, id=review_id)
 
     # Ensure the user is the author of the review

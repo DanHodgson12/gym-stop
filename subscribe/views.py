@@ -12,6 +12,10 @@ from .forms import UnsubscribeForm
 
 
 def subscribe(request):
+    """ 
+    A view to allow users to subscribe to the mailing list.
+    """
+
     User = get_user_model()
 
     if request.method == 'POST':
@@ -56,6 +60,11 @@ def subscribe(request):
 
 
 def unsubscribe(request):
+    """ 
+    A view to render the unsubscribe page and allow users
+    to unsubscribe from the mailing list.
+    """
+
     User = get_user_model()
 
     if request.method == 'POST':
@@ -101,6 +110,11 @@ def unsubscribe(request):
 
 
 def send_welcome_email(subscriber_email):
+    """ 
+    A view to send a welcome email when a user
+    subscribes to the mailing list.
+    """
+
     sender_email = settings.DEFAULT_FROM_EMAIL
     receiver_email = [subscriber_email,]
 

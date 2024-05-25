@@ -15,6 +15,8 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
+    """ A view to cache user's checkout data. """
+
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -31,6 +33,8 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """ A view to render the checkout page and process user's order. """
+
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -169,9 +173,7 @@ def checkout(request):
 
 
 def checkout_success(request, order_number):
-    """
-    Handle successful checkouts
-    """
+    """ A view to render the checkout success page and handle successful orders. """
 
     # Check user wanted to save their info - used to add to user profile
     save_info = request.session.get('save_info')
