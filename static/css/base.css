@@ -441,4 +441,8 @@ input[name='q']::placeholder {
     .checkout-button {
         width: 100%;
     }
+
+    .message-container {
+        max-width: 300px;
+    }
 }
