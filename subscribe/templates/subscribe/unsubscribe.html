@@ -6,15 +6,21 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid text-center border rounded w-50 h-50 mt-5 bg-white">
-    <h1 class="text-black my-4">Unsubscribe Confirmation</h1>
-    <p class="text-black mt-5">We're sorry to see you go &#128542;</p>
-    <p class="text-black">Are you sure you want to unsubscribe from our newsletter?</p>
-    <p class="text-black">If so, please enter your email address below.</p>
-    <form id="unsubscribe-form" method="post" action="{% url 'unsubscribe' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-warning text-black">Unsubscribe</button>
-    </form>
+<div class="container-fluid d-flex flex-column justify-content-center">
+    <div class="row">
+        <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center border border-secondary-subtle shadow rounded p-3">
+
+            <h1 class="text-black mb-4">Unsubscribe Confirmation</h1>
+            <p class="text-black mt-5">We're sorry to see you go &#128542;</p>
+            <p class="text-black">Are you sure you want to unsubscribe from our newsletter?</p>
+            <p class="text-black">If so, please enter your email address below.</p>
+            <form id="unsubscribe-form" method="post" action="{% url 'unsubscribe' %}">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-warning text-black">Unsubscribe</button>
+            </form>
+
+        </div>
+    </div>
 </div>
 {% endblock %}

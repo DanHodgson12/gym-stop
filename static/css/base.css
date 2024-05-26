@@ -262,6 +262,14 @@ footer a i {
     border: 1px solid grey;
 }
 
+#unsubscribe-form .form-control {
+    border: 1px solid grey;
+    width: 60%;
+    max-width: 350px;
+    min-width: 200px;
+    margin: auto;
+}
+
 /* ---------- Forms (General) */
 
 .form-control {
