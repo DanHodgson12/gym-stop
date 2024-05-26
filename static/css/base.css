@@ -258,6 +258,10 @@ footer a i {
     font-size: small;
 }
 
+#subscribeForm .form-control {
+    border: 1px solid grey;
+}
+
 /* ---------- Forms (General) */
 
 .form-control {
