@@ -8,7 +8,7 @@
             <form id="subscribeForm" method="post" action="{% url 'subscribe' %}">
                 <div class="modal-body px-5">
                     {% csrf_token %}
-                    {{ form|crispy }}
+                    {{ subscribe_form|crispy }}
                 </div>
                 <div class="modal-footer p-2">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

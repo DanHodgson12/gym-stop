@@ -14,9 +14,7 @@ from subscribe.forms import UnsubscribeForm
 def index(request):
     """ A view to return the index page. """
 
-    form = MarketingSubscriptionForm()
-
-    return render(request, 'home/index.html', {'form': form})
+    return render(request, 'home/index.html')
 
 
 def privacy_policy(request):

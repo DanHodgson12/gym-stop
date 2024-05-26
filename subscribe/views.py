@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.contrib.auth import get_user_model
 import os
 from django.template.loader import render_to_string
@@ -19,8 +21,8 @@ def subscribe(request):
     User = get_user_model()
 
     if request.method == 'POST':
-        form = MarketingSubscriptionForm(request.POST)
-        if form.is_valid():
+        subscribe_form = MarketingSubscriptionForm(request.POST)
+        if subscribe_form.is_valid():
             email = request.POST.get('email')
             user = User.objects.filter(email=email).first()
             if user:
@@ -32,12 +34,12 @@ def subscribe(request):
                         'to our mailing list, and is associated with an '
                         'existing account.'
                     )
-                    return redirect('home')
+                    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
                 else:
                     profile.is_subscribed_to_newsletter = True
                     profile.save()
             else:
-                form.save()
+                subscribe_form.save()
             subscriber_email = request.POST.get('email')
             send_welcome_email(subscriber_email)
             messages.success(
@@ -45,7 +47,7 @@ def subscribe(request):
                 f'Thanks for subscribing to our mailing list! A welcome '
                 f'email has been sent to {subscriber_email}.'
             )
-            return redirect('home')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         else:
             email = request.POST.get('email')
             messages.error(
@@ -53,10 +55,10 @@ def subscribe(request):
                 f'The email address {email} is already '
                 'subscribed to our mailing list.'
             )
-            return redirect('home')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
     else:
-        form = MarketingSubscriptionForm()
-    return render(request, 'home/index.html', {'form': form})
+        subscribe_form = MarketingSubscriptionForm()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 
 def unsubscribe(request):
