@@ -35,3 +35,9 @@ def returns_policy(request):
     """ A view to return the Returns Policy page. """
 
     return render(request, 'home/returns_policy.html')
+
+
+def page_not_found(request, exception):
+    """ A view to return the 404 page. """
+
+    return render(request, 'home/404.html', status=404)
