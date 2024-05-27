@@ -6,9 +6,15 @@ from django.contrib.messages import get_messages
 
 
 class ProductsViewsTests(TestCase):
+    """
+    Test cases for the views in the products app.
+    """
 
     def setUp(self):
-        """Set up test data for products views."""
+        """
+        Set up test data for products views.
+        """
+
         self.client = Client()
         self.user = User.objects.create_user(username='testuser', password='testpass')
         self.superuser = User.objects.create_superuser(username='admin', password='adminpass')
@@ -22,21 +28,30 @@ class ProductsViewsTests(TestCase):
         )
 
     def test_all_products_view(self):
-        """Test the all_products view."""
+        """
+        Test the all_products view.
+        """
+
         response = self.client.get(reverse('products'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/products.html')
         self.assertContains(response, 'Test Product')
 
     def test_product_detail_view(self):
-        """Test the product_detail view."""
+        """
+        Test the product_detail view.
+        """
+
         response = self.client.get(reverse('product_detail', args=[self.product.id]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/product_detail.html')
         self.assertContains(response, 'Test Product')
 
     def test_add_product_view_not_superuser(self):
-        """Test the add_product view as a non-superuser."""
+        """
+        Test the add_product view as a non-superuser.
+        """
+
         self.client.login(username='testuser', password='testpass')
         response = self.client.get(reverse('add_product'))
         self.assertEqual(response.status_code, 302)
@@ -46,7 +61,10 @@ class ProductsViewsTests(TestCase):
         self.assertRedirects(response, reverse('home'))
 
     def test_add_product_view_superuser(self):
-        """Test the add_product view as a superuser."""
+        """
+        Test the add_product view as a superuser.
+        """
+
         self.client.login(username='admin', password='adminpass')
         response = self.client.get(reverse('add_product'))
         self.assertEqual(response.status_code, 200)
@@ -63,7 +81,10 @@ class ProductsViewsTests(TestCase):
         self.assertRedirects(response, reverse('product_detail', args=[Product.objects.get(name='New Product').id]))
 
     def test_edit_product_view_not_superuser(self):
-        """Test the edit_product view as a non-superuser."""
+        """
+        Test the edit_product view as a non-superuser.
+        """
+
         self.client.login(username='testuser', password='testpass')
         response = self.client.get(reverse('edit_product', args=[self.product.id]))
         self.assertEqual(response.status_code, 302)
@@ -73,7 +94,10 @@ class ProductsViewsTests(TestCase):
         self.assertRedirects(response, reverse('home'))
 
     def test_edit_product_view_superuser(self):
-        """Test the edit_product view as a superuser."""
+        """
+        Test the edit_product view as a superuser.
+        """
+
         self.client.login(username='admin', password='adminpass')
         response = self.client.get(reverse('edit_product', args=[self.product.id]))
         self.assertEqual(response.status_code, 200)
@@ -92,14 +116,20 @@ class ProductsViewsTests(TestCase):
         self.assertEqual(self.product.name, 'Updated Product')
 
     def test_delete_product_view_not_superuser(self):
-        """Test the delete_product view as a non-superuser."""
+        """
+        Test the delete_product view as a non-superuser.
+        """
+
         self.client.login(username='testuser', password='testpass')
         response = self.client.get(reverse('delete_product', args=[self.product.id]))
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('home'))
 
     def test_delete_product_view_superuser(self):
-        """Test the delete_product view as a superuser."""
+        """
+        Test the delete_product view as a superuser.
+        """
+
         self.client.login(username='admin', password='adminpass')
         response = self.client.get(reverse('delete_product', args=[self.product.id]))
         self.assertEqual(response.status_code, 302)
