@@ -5,6 +5,10 @@ from products.models import Product
 
 
 class Review(models.Model):
+    """
+    Model representing a review for a product.
+    """
+
     product = models.ForeignKey(
         Product, on_delete=models.CASCADE, related_name='reviews')
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
@@ -15,5 +19,9 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
+        """
+        String representation of the review.
+        """
+
         user = self.user.username if self.user else 'Anonymous'
         return f"Review by {user} for {self.product.name}"
