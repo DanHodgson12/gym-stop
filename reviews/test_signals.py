@@ -5,8 +5,15 @@ from reviews.models import Review
 
 
 class ReviewSignalsTests(TestCase):
+    """
+    Test cases for the signals related to the Review model to ensure they behave correctly.
+    """
 
     def setUp(self):
+        """
+        Set up initial data for Review signal tests.
+        """
+
         self.category = Category.objects.create(name='Test Category')
         self.product = Product.objects.create(
             sku='12345',
@@ -18,7 +25,10 @@ class ReviewSignalsTests(TestCase):
         self.user = User.objects.create_user(username='testuser', password='testpass')
 
     def test_update_product_rating_on_review_save(self):
-        """Test that the product rating is updated when a review is saved."""
+        """
+        Test that the product rating is updated when a review is saved.
+        """
+
         review = Review.objects.create(
             product=self.product,
             user=self.user,
@@ -30,7 +40,10 @@ class ReviewSignalsTests(TestCase):
         self.assertEqual(self.product.rating, 5.0)
 
     def test_update_product_rating_on_review_delete(self):
-        """Test that the product rating is updated when a review is deleted."""
+        """
+        Test that the product rating is updated when a review is deleted.
+        """
+
         review1 = Review.objects.create(
             product=self.product,
             user=self.user,
@@ -46,12 +59,12 @@ class ReviewSignalsTests(TestCase):
             content='This product was okay.'
         )
         self.product.refresh_from_db()
-        self.assertEqual(self.product.rating, 4.0)  # Average of 5 and 3
+        self.assertEqual(self.product.rating, 4.0)
 
         review1.delete()
         self.product.refresh_from_db()
-        self.assertEqual(self.product.rating, 3.0)  # Only review2 remains
+        self.assertEqual(self.product.rating, 3.0)
 
         review2.delete()
         self.product.refresh_from_db()
-        self.assertEqual(self.product.rating, 0)  # No reviews remain, rating should be 0
+        self.assertEqual(self.product.rating, 0)
