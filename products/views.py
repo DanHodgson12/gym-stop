@@ -11,7 +11,9 @@ from profiles.models import UserProfile
 
 
 def all_products(request):
-    """ A view to show all products, including sorting and search queries. """
+    """
+    A view to show all products, including sorting and search queries.
+    """
 
     products = Product.objects.all()
     query = None
@@ -74,7 +76,9 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ A view to show individual product details. """
+    """
+    A view to show individual product details.
+    """
 
     product = get_object_or_404(Product, pk=product_id)
 
@@ -102,7 +106,9 @@ def product_detail(request, product_id):
 
 @login_required
 def add_product(request):
-    """ A view to allow superuser to add a product to the site. """
+    """
+    A view to allow superuser to add a product to the site.
+    """
 
     # Prevents anyone but the superuser from adding a product.
     if not request.user.is_superuser:
@@ -132,7 +138,9 @@ def add_product(request):
 
 @login_required
 def edit_product(request, product_id):
-    """ A view to allow superuser to edit a product. """
+    """
+    A view to allow superuser to edit a product.
+    """
 
     # Prevents anyone but the superuser from editing a product.
     if not request.user.is_superuser:
@@ -166,7 +174,9 @@ def edit_product(request, product_id):
 
 @login_required
 def delete_product(request, product_id):
-    """ A view to allow superuser to delete a product from the site. """
+    """
+    A view to allow superuser to delete a product from the site.
+    """
 
     # Prevents anyone but the superuser from deleting a product.
     if not request.user.is_superuser:
