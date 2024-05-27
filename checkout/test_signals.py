@@ -10,7 +10,16 @@ User = get_user_model()
 
 
 class SignalsTests(TestCase):
+    """
+    Test cases for the signals related to the Order
+    and OrderLineItem models.
+    """
+
     def setUp(self):
+        """
+        Set up the initial data for the signal tests.
+        """
+
         self.user = User.objects.create_user(
             username='testuser',
             password='testpassword'
