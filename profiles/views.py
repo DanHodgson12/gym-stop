@@ -8,7 +8,9 @@ from checkout.models import Order
 
 @login_required
 def profile(request):
-    """ A view to display the user's profile. """
+    """
+    A view to display the user's profile.
+    """
 
     profile = get_object_or_404(UserProfile, user=request.user)
 
@@ -35,7 +37,9 @@ def profile(request):
 
 
 def order_history(request, order_number):
-    """ A view to display the user's order history. """
+    """
+    A view to display the user's order history.
+    """
 
     order = get_object_or_404(Order, order_number=order_number)
 
