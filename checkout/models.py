@@ -8,6 +8,11 @@ from profiles.models import UserProfile
 
 
 class Order(models.Model):
+    """
+    Represents a customer's order, containing details about the user, 
+    shipping address, and total costs.
+    """
+
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(
         UserProfile, on_delete=models.SET_NULL, null=True, blank=True,
@@ -39,7 +44,7 @@ class Order(models.Model):
 
     def _generate_order_number(self):
         """
-        Generate a random, unique order number using UUID
+        Generate a random, unique order number using UUID.
         """
 
         return uuid.uuid4().hex.upper()
@@ -78,6 +83,10 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """
+    Represents an individual line item within an order.
+    """
+
     order = models.ForeignKey(
         Order, null=False, blank=False, on_delete=models.CASCADE,
         related_name='lineitems'
