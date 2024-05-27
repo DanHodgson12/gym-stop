@@ -4,6 +4,9 @@ from django.core.validators import MaxValueValidator
 
 
 class Category(models.Model):
+    """
+    Represents a product's category.
+    """
 
     class Meta:
         verbose_name_plural = 'Categories'
@@ -12,13 +15,25 @@ class Category(models.Model):
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
     def __str__(self):
+        """
+        String representation of the category, returning its name.
+        """
+
         return self.name
 
     def get_friendly_name(self):
+        """
+        Returns the friendly name of the category.
+        """
+
         return self.friendly_name
 
 
 class Product(models.Model):
+    """
+    Represents a product available in the store.
+    """
+
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
@@ -33,14 +48,26 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True)
 
     def update_average_rating(self):
+        """
+        Update the product's average rating based on its reviews.
+        """
+
         average = self.reviews.aggregate(Avg('rating'))['rating__avg']
         self.rating = average or 0
         self.save()
 
     def rating_percentage(self):
+        """
+        Convert the product's rating to a percentage.
+        """
+
         if self.rating is not None:
             return self.rating * 20
         return 0
 
     def __str__(self):
+        """
+        String representation of the product, returning its name.
+        """
+
         return self.name
