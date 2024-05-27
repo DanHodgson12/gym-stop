@@ -44,12 +44,19 @@ def subscribe(request):
             else:
                 subscribe_form.save()
             subscriber_email = request.POST.get('email')
-            send_welcome_email(subscriber_email)
-            messages.success(
-                request,
-                f'Thanks for subscribing to our mailing list! A welcome '
-                f'email has been sent to {subscriber_email}.'
-            )
+
+            try:
+                send_welcome_email(subscriber_email)
+                messages.success(
+                    request,
+                    f'Thanks for subscribing to our mailing list! A welcome '
+                    f'email has been sent to {subscriber_email}.'
+                )
+            except Exception as e:
+                messages.error(
+                    request,
+                    f"Failed to send welcome email to {subscriber_email}: {str(e)}"
+                )
             return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         else:
             email = request.POST.get('email')
@@ -151,9 +158,4 @@ def send_welcome_email(subscriber_email):
     )
     email.attach_alternative(message_html, "text/html")
 
-    try:
-        email.send()
-        return True  # or return some success message if needed
-    except Exception as e:
-        print(f"Failed to send welcome email to {subscriber_email}: {str(e)}")
-        return False  # or return some failure message
+    email.send()
