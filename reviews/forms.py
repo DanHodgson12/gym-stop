@@ -4,8 +4,16 @@ from .models import Review
 
 
 class ReviewForm(forms.ModelForm):
+    """
+    Form for submitting a review with a star rating, headline, and content.
+    """
 
     def __init__(self, *args, **kwargs):
+        """
+        Initialize the form, set up star rating choices,
+        and add placeholders and labels.
+        """
+
         super(ReviewForm, self).__init__(*args, **kwargs)
 
         # Star Rating Choices
