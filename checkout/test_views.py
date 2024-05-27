@@ -9,8 +9,15 @@ from django.contrib.messages import get_messages
 
 
 class CheckoutViewsTests(TestCase):
+    """
+    Test cases for the views in the checkout app.
+    """
 
     def setUp(self):
+        """
+        Set up the initial data for the checkout view tests.
+        """
+
         self.client = Client()
         self.user = User.objects.create_user(
             username='testuser', email='test@example.com', password='testpass')
@@ -38,6 +45,10 @@ class CheckoutViewsTests(TestCase):
 
     @patch('checkout.views.stripe.PaymentIntent.create')
     def test_checkout_view_get(self, mock_create):
+        """
+        Test the GET method of the checkout view.
+        """
+
         mock_create.return_value = Mock(client_secret='test_secret')
         self.client.login(username='testuser', password='testpass')
         session = self.client.session
@@ -49,6 +60,10 @@ class CheckoutViewsTests(TestCase):
 
     @patch('checkout.views.stripe.PaymentIntent.create')
     def test_checkout_view_post_valid(self, mock_create):
+        """
+        Test the POST method of the checkout view with valid form data.
+        """
+
         mock_create.return_value = Mock(client_secret='test_secret')
         self.client.login(username='testuser', password='testpass')
         session = self.client.session
@@ -72,6 +87,10 @@ class CheckoutViewsTests(TestCase):
 
     @patch('checkout.views.stripe.PaymentIntent.create')
     def test_checkout_view_post_invalid(self, mock_create):
+        """
+        Test the POST method of the checkout view with invalid form data.
+        """
+
         mock_create.return_value = Mock(client_secret='test_secret')
         self.client.login(username='testuser', password='testpass')
         session = self.client.session
@@ -96,6 +115,10 @@ class CheckoutViewsTests(TestCase):
         self.assertEqual(str(messages[0]).replace(' ', ''), 'Therewasanerrorwithyourform.Pleasedoublecheckyourinformation.')
 
     def test_checkout_success_view(self):
+        """
+        Test the checkout success view.
+        """
+
         self.client.login(username='testuser', password='testpass')
         response = self.client.get(reverse('checkout_success', args=[self.order.order_number]))
         self.assertEqual(response.status_code, 200)
@@ -106,6 +129,10 @@ class CheckoutViewsTests(TestCase):
 
     @patch('checkout.views.stripe.PaymentIntent.modify')
     def test_cache_checkout_data_view(self, mock_modify):
+        """
+        Test the cache checkout data view.
+        """
+
         self.client.login(username='testuser', password='testpass')
         response = self.client.post(reverse('cache_checkout_data'), {
             'client_secret': 'test_pid_secret',
@@ -115,6 +142,10 @@ class CheckoutViewsTests(TestCase):
 
     @patch('checkout.views.stripe.PaymentIntent.modify')
     def test_cache_checkout_data_view_exception(self, mock_modify):
+        """
+        Test the cache checkout data view with an exception.
+        """
+
         mock_modify.side_effect = Exception('Test Error')
         self.client.login(username='testuser', password='testpass')
         response = self.client.post(reverse('cache_checkout_data'), {
