@@ -9,9 +9,17 @@ import json
 import stripe
 import uuid
 
+
 class WebhookTests(TestCase):
+    """
+    Test cases for the Stripe webhook handler.
+    """
 
     def setUp(self):
+        """
+        Set up the initial data for the webhook tests.
+        """
+
         self.client = Client()
         self.url = reverse('webhook')
         self.user, created = User.objects.get_or_create(username='testuser', password='password')
@@ -62,6 +70,10 @@ class WebhookTests(TestCase):
     @patch('stripe.Charge.retrieve')
     @patch('stripe.Webhook.construct_event')
     def test_webhook_valid_event(self, mock_construct_event, mock_retrieve_charge):
+        """
+        Test handling of a valid webhook event.
+        """
+
         mock_construct_event.return_value = stripe.Event.construct_from(
             self.payload, stripe.api_key
         )
@@ -90,6 +102,10 @@ class WebhookTests(TestCase):
 
     @patch('stripe.Webhook.construct_event', side_effect=stripe.error.SignatureVerificationError('Invalid signature', 'sig'))
     def test_webhook_invalid_signature(self, mock_construct_event):
+        """
+        Test handling of a webhook event with an invalid signature.
+        """
+
         response = self.client.post(
             self.url, 
             data=json.dumps(self.payload), 
@@ -102,6 +118,10 @@ class WebhookTests(TestCase):
 
     @patch('stripe.Webhook.construct_event', side_effect=ValueError('Invalid payload'))
     def test_webhook_invalid_payload(self, mock_construct_event):
+        """
+        Test handling of a webhook event with an invalid payload.
+        """
+
         response = self.client.post(
             self.url, 
             data=json.dumps(self.payload), 
@@ -114,6 +134,10 @@ class WebhookTests(TestCase):
 
     @patch('stripe.Webhook.construct_event', side_effect=Exception('Unexpected error'))
     def test_webhook_unexpected_error(self, mock_construct_event):
+        """
+        Test handling of a webhook event with an unexpected error.
+        """
+
         response = self.client.post(
             self.url, 
             data=json.dumps(self.payload), 
