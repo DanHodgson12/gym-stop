@@ -3,15 +3,20 @@ from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    """
+    Form for updating and managing user profile information.
+    """
+
     class Meta:
         model = UserProfile
         exclude = ('user',)
 
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders and classes, remove auto-generated
-        labels and set autofocus on first field
+        Initialize the form, add placeholders and CSS classes,
+        remove auto-generated labels, and set autofocus on the first field.
         """
+
         super().__init__(*args, **kwargs)
         placeholders = {
             'default_phone_number': 'Phone Number',
