@@ -7,8 +7,15 @@ from reviews.forms import ReviewForm
 
 
 class ReviewViewsTests(TestCase):
+    """
+    Test cases for the views in the reviews app.
+    """
 
     def setUp(self):
+        """
+        Set up initial data for review views tests.
+        """
+
         self.client = Client()
         self.category = Category.objects.create(name='Test Category')
         self.product = Product.objects.create(
@@ -29,7 +36,10 @@ class ReviewViewsTests(TestCase):
         )
 
     def test_add_review_view_get(self):
-        """Test GET request to add_review view."""
+        """
+        Test GET request to add_review view.
+        """
+
         url = reverse('reviews:add_review', args=[self.product.id])
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
@@ -38,7 +48,10 @@ class ReviewViewsTests(TestCase):
         self.assertEqual(response.context['product'], self.product)
 
     def test_add_review_view_post_valid(self):
-        """Test POST request to add_review view with valid data."""
+        """
+        Test POST request to add_review view with valid data.
+        """
+
         url = reverse('reviews:add_review', args=[self.product.id])
         form_data = {
             'rating': '5',
@@ -52,7 +65,10 @@ class ReviewViewsTests(TestCase):
         self.assertTrue(reviews.exists())
 
     def test_add_review_view_post_invalid(self):
-        """Test POST request to add_review view with invalid data."""
+        """
+        Test POST request to add_review view with invalid data.
+        """
+
         url = reverse('reviews:add_review', args=[self.product.id])
         form_data = {
             'rating': '',  # Missing rating
@@ -65,7 +81,10 @@ class ReviewViewsTests(TestCase):
         self.assertFalse(Review.objects.filter(product=self.product, user=self.user, headline='Bad Product').exists())
 
     def test_edit_review_view_get(self):
-        """Test GET request to edit_review view."""
+        """
+        Test GET request to edit_review view.
+        """
+
         url = reverse('reviews:edit_review', args=[self.review.id])
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
@@ -75,7 +94,10 @@ class ReviewViewsTests(TestCase):
         self.assertEqual(response.context['review'], self.review)
 
     def test_edit_review_view_post_valid(self):
-        """Test POST request to edit_review view with valid data."""
+        """
+        Test POST request to edit_review view with valid data.
+        """
+
         url = reverse('reviews:edit_review', args=[self.review.id])
         form_data = {
             'rating': '4',
@@ -91,7 +113,10 @@ class ReviewViewsTests(TestCase):
         self.assertEqual(self.review.content, 'This product is still good, but...')
 
     def test_edit_review_view_post_invalid(self):
-        """Test POST request to edit_review view with invalid data."""
+        """
+        Test POST request to edit_review view with invalid data.
+        """
+
         url = reverse('reviews:edit_review', args=[self.review.id])
         form_data = {
             'rating': '',  # Missing rating
@@ -105,7 +130,10 @@ class ReviewViewsTests(TestCase):
         self.assertNotEqual(self.review.headline, 'Invalid Update')
 
     def test_edit_review_view_invalid_user(self):
-        """Test that users cannot edit reviews they did not write."""
+        """
+        Test that users cannot edit reviews they did not write.
+        """
+
         other_user = User.objects.create_user(username='otheruser', password='testpass')
         self.client.login(username='otheruser', password='testpass')
         url = reverse('reviews:edit_review', args=[self.review.id])
@@ -114,7 +142,10 @@ class ReviewViewsTests(TestCase):
         self.assertRedirects(response, reverse('product_detail', args=[self.product.id]))
 
     def test_delete_review_view(self):
-        """Test POST request to delete_review view."""
+        """
+        Test POST request to delete_review view.
+        """
+
         url = reverse('reviews:delete_review', args=[self.review.id])
         response = self.client.post(url)
         self.assertEqual(response.status_code, 302)
@@ -122,7 +153,10 @@ class ReviewViewsTests(TestCase):
         self.assertFalse(Review.objects.filter(id=self.review.id).exists())
 
     def test_delete_review_view_invalid_user(self):
-        """Test that users cannot delete reviews they did not write."""
+        """
+        Test that users cannot delete reviews they did not write.
+        """
+
         other_user = User.objects.create_user(username='otheruser', password='testpass')
         self.client.login(username='otheruser', password='testpass')
         url = reverse('reviews:delete_review', args=[self.review.id])
