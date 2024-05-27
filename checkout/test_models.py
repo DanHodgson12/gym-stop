@@ -9,8 +9,15 @@ from checkout.models import Order, OrderLineItem
 
 
 class OrderModelTests(TestCase):
+    """
+    Test cases for the Order model to ensure it behaves correctly.
+    """
 
     def setUp(self):
+        """
+        Set up the initial data for the Order model tests.
+        """
+
         self.user = User.objects.create_user(username='testuser', password='testpass')
         self.user_profile, created = UserProfile.objects.get_or_create(user=self.user)
         self.category = Category.objects.create(name='test_category')
@@ -32,16 +39,30 @@ class OrderModelTests(TestCase):
         )
 
     def test_order_creation(self):
+        """
+        Test that an order instance is created correctly.
+        """
+
         self.assertIsInstance(self.order, Order)
         self.assertIsNotNone(self.order.order_number)
         self.assertEqual(self.order.user_profile, self.user_profile)
 
     def test_order_number_generation(self):
+        """
+        Test that the order number is generated and
+        remains the same upon saving.
+        """
+
         order_number = self.order.order_number
         self.order.save()
         self.assertEqual(self.order.order_number, order_number)
 
     def test_update_total(self):
+        """
+        Test the update_total method to ensure order
+        totals are calculated correctly.
+        """
+
         OrderLineItem.objects.create(
             order=self.order,
             product=self.product,
@@ -54,6 +75,11 @@ class OrderModelTests(TestCase):
         self.assertEqual(self.order.grand_total, self.order.order_total + self.order.delivery_cost)
 
     def test_free_delivery(self):
+        """
+        Test that orders qualifying for free delivery
+        have zero delivery cost.
+        """
+
         OrderLineItem.objects.create(
             order=self.order,
             product=self.product,
@@ -65,12 +91,23 @@ class OrderModelTests(TestCase):
         self.assertEqual(self.order.grand_total, self.order.order_total)
 
     def test_order_string_representation(self):
+        """
+        Test the string representation of the order instance.
+        """
+
         self.assertEqual(str(self.order), self.order.order_number)
 
 
 class OrderLineItemModelTests(TestCase):
+    """
+    Test cases for the OrderLineItem model to ensure it behaves correctly.
+    """
 
     def setUp(self):
+        """
+        Set up the initial data for the OrderLineItem model tests.
+        """
+
         self.user = User.objects.create_user(username='testuser', password='testpass')
         self.user_profile, created = UserProfile.objects.get_or_create(user=self.user)
         self.category = Category.objects.create(name='test_category')
@@ -92,6 +129,10 @@ class OrderLineItemModelTests(TestCase):
         )
 
     def test_order_line_item_creation(self):
+        """
+        Test that an order line item is created correctly.
+        """
+
         line_item = OrderLineItem.objects.create(
             order=self.order,
             product=self.product,
@@ -101,6 +142,10 @@ class OrderLineItemModelTests(TestCase):
         self.assertEqual(line_item.lineitem_total, Decimal('20.00'))
 
     def test_order_total_update_on_lineitem_save(self):
+        """
+        Test that the order total updates correctly when a line item is saved.
+        """
+
         line_item = OrderLineItem.objects.create(
             order=self.order,
             product=self.product,
@@ -110,6 +155,10 @@ class OrderLineItemModelTests(TestCase):
         self.assertEqual(self.order.order_total, Decimal('20.00'))
 
     def test_order_line_item_string_representation(self):
+        """
+        Test the string representation of the order line item instance.
+        """
+
         line_item = OrderLineItem.objects.create(
             order=self.order,
             product=self.product,
