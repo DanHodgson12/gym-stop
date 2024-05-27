@@ -8,15 +8,25 @@ from django_countries.fields import Country
 
 
 class ProfileViewsTests(TestCase):
+    """
+    Test cases for the views in the profiles app.
+    """
 
     def setUp(self):
-        """Set up a user and user profile for testing."""
+        """
+        Set up a user and user profile for testing.
+        """
+
         self.user = User.objects.create_user(username='testuser', password='testpass')
         self.profile, created = UserProfile.objects.get_or_create(user=self.user)
         self.client.login(username='testuser', password='testpass')
 
     def test_profile_view_get(self):
-        """Test that the profile view returns a 200 status code and uses the correct template."""
+        """
+        Test that the profile view returns a 200 status code
+        and uses the correct template.
+        """
+
         response = self.client.get(reverse('profile'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/profile.html')
@@ -24,7 +34,10 @@ class ProfileViewsTests(TestCase):
         self.assertIn('orders', response.context)
 
     def test_profile_view_post_valid_data(self):
-        """Test that the profile view updates the profile with valid data."""
+        """
+        Test that the profile view updates the profile with valid data.
+        """
+
         response = self.client.post(reverse('profile'), {
             'default_phone_number': '123456789',
             'default_street_address1': 'Test Street 1',
@@ -49,7 +62,11 @@ class ProfileViewsTests(TestCase):
         self.assertEqual(str(messages[0]), 'Profile updated successfully')
 
     def test_order_history_view(self):
-        """Test that the order history view returns a 200 status code and uses the correct template."""
+        """
+        Test that the order history view returns a 200
+        status code and uses the correct template.
+        """
+
         order = Order.objects.create(order_number='12345', user_profile=self.profile)
         response = self.client.get(reverse('order_history', args=[order.order_number]))
         self.assertEqual(response.status_code, 200)
