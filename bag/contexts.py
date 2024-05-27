@@ -5,6 +5,11 @@ from products.models import Product
 
 
 def bag_contents(request):
+    """
+    Returns a context dictionary containing the bag items, total cost,
+    product count, delivery cost, amount needed to reach free delivery,
+    free delivery threshold, and the grand total cost.
+    """
 
     bag_items = []
     total = Decimal('0.00')
