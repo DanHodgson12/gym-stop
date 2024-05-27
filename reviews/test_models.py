@@ -6,8 +6,15 @@ from django.core.exceptions import ValidationError
 
 
 class ReviewModelTests(TestCase):
+    """
+    Test cases for the Review model to ensure it behaves correctly.
+    """
 
     def setUp(self):
+        """
+        Set up initial data for Review model tests.
+        """
+
         self.category = Category.objects.create(name='Test Category')
         self.product = Product.objects.create(
             sku='12345',
@@ -26,12 +33,18 @@ class ReviewModelTests(TestCase):
         )
 
     def test_string_representation(self):
-        """Test the string representation of the Review model."""
+        """
+        Test the string representation of the Review model.
+        """
+
         review_str = str(self.review)
         self.assertEqual(review_str, f"Review by testuser for Test Product")
 
     def test_review_creation(self):
-        """Test that a review can be created and retrieved."""
+        """
+        Test that a review can be created and retrieved.
+        """
+
         self.assertEqual(self.review.product, self.product)
         self.assertEqual(self.review.user, self.user)
         self.assertEqual(self.review.headline, 'Great Product')
@@ -39,19 +52,28 @@ class ReviewModelTests(TestCase):
         self.assertEqual(self.review.rating, 5)
 
     def test_rating_min_value(self):
-        """Test that the rating cannot be less than 1."""
+        """
+        Test that the rating cannot be less than 1.
+        """
+
         self.review.rating = 0
         with self.assertRaises(ValidationError):
             self.review.full_clean()  # This will trigger the validation
 
     def test_rating_max_value(self):
-        """Test that the rating cannot be more than 5."""
+        """
+        Test that the rating cannot be more than 5.
+        """
+
         self.review.rating = 6
         with self.assertRaises(ValidationError):
             self.review.full_clean()  # This will trigger the validation
 
     def test_review_without_user(self):
-        """Test that a review can be created without a user (Anonymous)."""
+        """
+        Test that a review can be created without a user (Anonymous).
+        """
+
         anonymous_review = Review.objects.create(
             product=self.product,
             user=None,
@@ -61,4 +83,3 @@ class ReviewModelTests(TestCase):
         )
         self.assertEqual(str(anonymous_review), f"Review by Anonymous for Test Product")
         self.assertIsNone(anonymous_review.user)
-
