@@ -7,8 +7,15 @@ from django.contrib.auth.models import User
 
 
 class ReviewFormTests(TestCase):
+    """
+    Test cases for the ReviewForm to ensure it behaves correctly.
+    """
 
     def setUp(self):
+        """
+        Set up initial data for ReviewForm tests.
+        """
+
         self.category = Category.objects.create(name='Test Category')
         self.product = Product.objects.create(
             sku='12345',
@@ -20,7 +27,10 @@ class ReviewFormTests(TestCase):
         self.user = User.objects.create_user(username='testuser', password='testpass')
 
     def test_rating_choices(self):
-        """Test that the rating choices are correctly set."""
+        """
+        Test that the rating choices are correctly set.
+        """
+
         form = ReviewForm()
         expected_choices = [
             (1, '<i class="fa fa-star filled-star"></i>'),
@@ -42,7 +52,10 @@ class ReviewFormTests(TestCase):
         self.assertEqual(form.fields['rating'].choices, expected_choices)
 
     def test_custom_labels(self):
-        """Test that the custom labels are set correctly."""
+        """
+        Test that the custom labels are set correctly.
+        """
+
         form = ReviewForm()
         self.assertTrue(isinstance(form.fields['headline'].label, SafeData))
         self.assertTrue(isinstance(form.fields['content'].label, SafeData))
@@ -50,13 +63,19 @@ class ReviewFormTests(TestCase):
         self.assertIn("Content <span class='text-muted'>(optional)</span>", form.fields['content'].label)
 
     def test_custom_placeholders(self):
-        """Test that the custom placeholders are set correctly."""
+        """
+        Test that the custom placeholders are set correctly.
+        """
+
         form = ReviewForm()
         self.assertEqual(form.fields['headline'].widget.attrs['placeholder'], 'Brief headline for your review')
         self.assertEqual(form.fields['content'].widget.attrs['placeholder'], 'Write your review here')
 
     def test_valid_form(self):
-        """Test that the form is valid with all required fields."""
+        """
+        Test that the form is valid with all required fields.
+        """
+
         form_data = {
             'rating': '5',
             'headline': 'Great Product',
@@ -66,7 +85,10 @@ class ReviewFormTests(TestCase):
         self.assertTrue(form.is_valid())
 
     def test_invalid_form_no_rating(self):
-        """Test that the form is invalid if no rating is provided."""
+        """
+        Test that the form is invalid if no rating is provided.
+        """
+
         form_data = {
             'headline': 'Great Product',
             'content': 'I really enjoyed this product.'
