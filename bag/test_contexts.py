@@ -23,6 +23,10 @@ class BagContextsTests(TestCase):
         )
 
     def test_bag_contents_no_items(self):
+        """
+        Test bag_contents with no items in the session bag.
+        """
+
         request = self.factory.get('/')
         request.session = {}
         context = bag_contents(request)
@@ -34,6 +38,11 @@ class BagContextsTests(TestCase):
         self.assertEqual(context['grand_total'], Decimal('0.00'))
 
     def test_bag_contents_with_items(self):
+        """
+        Test bag_contents with multiple items, including
+        items with sizes, in the session bag.
+        """
+
         request = self.factory.get('/')
         request.session = {
             'bag': {
@@ -56,6 +65,11 @@ class BagContextsTests(TestCase):
         self.assertEqual(context['grand_total'], expected_total)
 
     def test_bag_contents_with_delivery(self):
+        """
+        Test bag_contents with an item in the session bag
+        that incurs a delivery charge.
+        """
+
         request = self.factory.get('/')
         request.session = {
             'bag': {
