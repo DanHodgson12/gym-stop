@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.contrib.messages import get_messages
 from django.contrib.auth import get_user_model
 from products.models import Product, Category
-
+from unittest.mock import patch
 
 class BagViewsTests(TestCase):
 
@@ -24,7 +24,6 @@ class BagViewsTests(TestCase):
         """
         Test viewing the bag page.
         """
-
         response = self.client.get(self.bag_url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'bag/bag.html')
@@ -33,7 +32,6 @@ class BagViewsTests(TestCase):
         """
         Test adding a product to the bag.
         """
-
         response = self.client.post(self.add_to_bag_url, {
             'quantity': 1,
             'redirect_url': self.bag_url
@@ -47,7 +45,6 @@ class BagViewsTests(TestCase):
         """
         Test adding a product with size to the bag.
         """
-
         response = self.client.post(self.add_to_bag_url, {
             'quantity': 1,
             'product_size': 'M',
@@ -59,11 +56,67 @@ class BagViewsTests(TestCase):
         self.assertIn('M', session['bag'][str(self.product.id)]['items_by_size'])
         self.assertEqual(session['bag'][str(self.product.id)]['items_by_size']['M'], 1)
 
+    def test_add_to_bag_with_size_update(self):
+        """
+        Test updating a product with size in the bag.
+        """
+        response = self.client.post(self.add_to_bag_url, {
+            'quantity': 1,
+            'product_size': 'M',
+            'redirect_url': self.bag_url
+        })
+        self.assertRedirects(response, self.bag_url)
+        session = self.client.session
+        self.assertIn(str(self.product.id), session['bag'])
+        self.assertIn('M', session['bag'][str(self.product.id)]['items_by_size'])
+        self.assertEqual(session['bag'][str(self.product.id)]['items_by_size']['M'], 1)
+
+        response = self.client.post(self.add_to_bag_url, {
+            'quantity': 2,
+            'product_size': 'M',
+            'redirect_url': self.bag_url
+        })
+        self.assertRedirects(response, self.bag_url)
+        session = self.client.session
+        self.assertEqual(session['bag'][str(self.product.id)]['items_by_size']['M'], 3)
+
+    def test_add_to_bag_with_different_size(self):
+        """
+        Test adding a product with a different size to the bag.
+        """
+        session = self.client.session
+        session['bag'] = {str(self.product.id): {'items_by_size': {'M': 1}}}
+        session.save()
+        response = self.client.post(self.add_to_bag_url, {
+            'quantity': 1,
+            'product_size': 'L',
+            'redirect_url': self.bag_url
+        })
+        self.assertRedirects(response, self.bag_url)
+        session = self.client.session
+        self.assertIn('L', session['bag'][str(self.product.id)]['items_by_size'])
+        self.assertEqual(session['bag'][str(self.product.id)]['items_by_size']['L'], 1)
+
+    def test_add_to_bag_without_size_existing(self):
+        """
+        Test adding a product without size that is already in the bag.
+        """
+        session = self.client.session
+        session['bag'] = {str(self.product.id): 1}
+        session.save()
+        response = self.client.post(self.add_to_bag_url, {
+            'quantity': 1,
+            'redirect_url': self.bag_url
+        })
+        self.assertRedirects(response, self.bag_url)
+        session = self.client.session
+        self.assertIn(str(self.product.id), session['bag'])
+        self.assertEqual(session['bag'][str(self.product.id)], 2)
+
     def test_adjust_bag(self):
         """
         Test adjusting the quantity of a product in the bag.
         """
-
         session = self.client.session
         session['bag'] = {str(self.product.id): 1}
         session.save()
@@ -76,7 +129,6 @@ class BagViewsTests(TestCase):
         """
         Test adjusting the quantity of a product with size in the bag.
         """
-
         session = self.client.session
         session['bag'] = {str(self.product.id): {'items_by_size': {'M': 1}}}
         session.save()
@@ -85,11 +137,35 @@ class BagViewsTests(TestCase):
         session = self.client.session
         self.assertEqual(session['bag'][str(self.product.id)]['items_by_size']['M'], 2)
 
+    def test_adjust_bag_with_size_to_zero(self):
+        """
+        Test adjusting the quantity of a product with size to zero in the bag.
+        """
+        session = self.client.session
+        session['bag'] = {str(self.product.id): {'items_by_size': {'M': 1}}}
+        session.save()
+        response = self.client.post(self.adjust_bag_url, {'quantity': 0, 'product_size': 'M'})
+        self.assertRedirects(response, self.bag_url)
+        session = self.client.session
+        bag = session['bag']
+        self.assertNotIn(str(self.product.id), bag, msg=f"Bag contents after adjustment to zero: {bag}")
+
+    def test_adjust_bag_remove_product(self):
+        """
+        Test adjusting the quantity of a product to zero to remove it from the bag.
+        """
+        session = self.client.session
+        session['bag'] = {str(self.product.id): 1}
+        session.save()
+        response = self.client.post(self.adjust_bag_url, {'quantity': 0})
+        self.assertRedirects(response, self.bag_url)
+        session = self.client.session
+        self.assertNotIn(str(self.product.id), session['bag'])
+
     def test_remove_from_bag(self):
         """
         Test removing a product from the bag.
         """
-
         session = self.client.session
         session['bag'] = {str(self.product.id): 1}
         session.save()
@@ -102,7 +178,6 @@ class BagViewsTests(TestCase):
         """
         Test removing a product with size from the bag.
         """
-
         session = self.client.session
         session['bag'] = {str(self.product.id): {'items_by_size': {'M': 1}}}
         session.save()
