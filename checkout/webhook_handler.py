@@ -109,11 +109,8 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 order_exists = True
-                print('Order found!')
-                print(f'Order Number: {order}')
                 break
             except Order.DoesNotExist:
-                print('Order cannot be found. Trying again...')
                 attempt += 1
                 time.sleep(1)
 
