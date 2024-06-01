@@ -55,7 +55,8 @@
                                         <p class="my-0"><strong>Subtotal: </strong>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                                     </div>
                                 </div>
-                                {% include "bag/quantity-form.html" %}
+
+                                {% include 'bag/quantity-form.html' %}
                             </div>
                         </div>
                         <hr class="my-2">
@@ -89,25 +90,4 @@
 {% include 'products/includes/quantity_input_script.html' %}
 {% include 'products/includes/btt_button_script.html' %}
 
-<script type="text/javascript">
-    // Update quantity on click
-    $('.update-link').click(function(e) {
-        var form = $('.update-form');
-        form.submit();
-    })
-
-    // Remove item and reload on click
-    $('.remove-item').click(function(e) {
-        var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var size = $(this).data('product_size');
-        var url = `/bag/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
-
-        $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
-    })
-</script>
 {% endblock %}

@@ -1,27 +1,30 @@
-<form class="form update-form quantity-selector" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+<form class="form update-form quantity-selector" id="form_{{ item.item_id }}{% if item.size %}_{{ item.size }}{% endif %}"
+    method="POST" action="{% url 'adjust_bag' item.item_id %}">
     {% csrf_token %}
     <div class="form-group">
-        <div class="input-group">
+        <div class="input-group input-group-{{ item.item_id }}{% if item.size %}-{{ item.size }}{% endif %}">
+
+            <!-- Quantity Decrement Button -->
             <div class="input-group-prepend">
-                <button class="decrement-qty btn btn-sm btn-dark rounded" 
-                    data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                    <span>
-                        <i class="fas fa-minus fa-sm"></i>
-                    </span>
+                <button class="decrement-qty btn btn-sm btn-dark rounded decrement-qty_{{ item.item_id }}{% if item.size %}_{{ item.size }}{% endif %}" 
+                    data-item_id="{{ item.item_id }}" data-size="{{ item.size }}" type="button">
+                    <span><i class="fas fa-minus fa-sm"></i></span>
                 </button>
             </div>
-            <input class="form-control form-control-sm qty_input text-center" type="number"
-                name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                data-item_id="{{ item.item_id }}"
-                id="id_qty_{{ item.item_id }}">
+
+            <!-- Quantity Input -->
+            <input class="form-control form-control-sm qty_input text-center id_qty_{{ item.item_id }}{% if item.size %}_{{ item.size }}{% endif %}" 
+            type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
+            data-item_id="{{ item.item_id }}" data-size="{{ item.size }}">
+            
+            <!-- Quantity Increment Button -->
             <div class="input-group-append">
-                <button class="increment-qty btn btn-sm btn-dark rounded"
-                    data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                    <span>
-                        <i class="fas fa-plus fa-sm"></i>
-                    </span>
+                <button class="increment-qty btn btn-sm btn-dark rounded increment-qty_{{ item.item_id }}{% if item.size %}_{{ item.size }}{% endif %}" 
+                    data-item_id="{{ item.item_id }}" data-size="{{ item.size }}" type="button">
+                    <span><i class="fas fa-plus fa-sm"></i></span>
                 </button>
             </div>
+
             {% if item.product.has_sizes %}
                 <input type="hidden" name="product_size" value="{{ item.size }}">
             {% endif %}
@@ -29,6 +32,10 @@
     </div>
 </form>
 <div class="update-remove-links mt-1">
-    <a class="btn btn-outline-danger remove-item py-0 px-2" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
-    <a class="btn btn-outline-success update-link float-end py-0 px-2"><small>Update</small></a>
+    <!-- Remove Button -->
+    <a class="btn btn-outline-danger remove-item py-0 px-2" id="remove_{{ item.item_id }}{% if item.size %}_{{ item.size }}{% endif %}"
+    data-item_id="{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+    <!-- Update Button -->
+    <a class="btn btn-outline-success update-link float-end py-0 px-2"
+    data-form-id="form_{{ item.item_id }}{% if item.size %}_{{ item.size }}{% endif %}"><small>Update</small></a>
 </div>
