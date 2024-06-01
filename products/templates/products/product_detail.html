@@ -111,15 +111,19 @@
                                     </div>
                                 </div>
 
-                                <!-- Add To Bag button -->
-                                <div class="col-12{% if s %}-12 mt-2{% endif %}">
-                                    <a href="{% url 'products' %}" class="btn btn-outline-dark rounded mt-5">
+                                
+                                <div class="col-12 mt-4 text-end">
+
+                                    <!-- Keep Shopping button -->
+                                    <a href="{% url 'products' %}" class="btn btn-outline-dark rounded px-2">
                                         <span class="icon">
                                             <i class="fas fa-chevron-left"></i>
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <input type="submit" class="btn btn-dark rounded text-uppercase mt-5" value="Add to Bag">
+
+                                    <!-- Add To Bag button -->
+                                    <input type="submit" class="btn btn-dark rounded text-uppercase" value="Add to Bag">
                                 </div>
 
                                 <!-- Redirection functionality -->
