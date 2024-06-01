@@ -1,8 +1,6 @@
 from django.test import TestCase
-from django.forms import Form, ImageField
 from django.template import Context, Template
 from django.core.files.uploadedfile import SimpleUploadedFile
-from .widgets import CustomClearableFileInput
 from .forms import ProductForm
 from .models import Category, Product
 
@@ -16,15 +14,26 @@ class CustomClearableFileInputTests(TestCase):
         Set up test data for CustomClearableFileInput widget tests.
         """
 
-        self.category = Category.objects.create(name='Test Category', friendly_name='Test Category')
+        self.category = Category.objects.create(
+            name='Test Category', friendly_name='Test Category'
+        )
         self.product = Product.objects.create(
             sku='12345',
             name='Test Product',
             description='Test Description',
             category=self.category,
             price=10.00,
-            image=SimpleUploadedFile(name='test_image.jpg', content=b'', content_type='image/jpeg')
+            image=SimpleUploadedFile(
+                name='test_image.jpg', content=b'file_content', content_type='image/jpeg'
+            )
         )
+
+    def tearDown(self):
+        """
+        Clean up after each test.
+        """
+
+        self.product.image.delete()
 
     def test_widget_template(self):
         """
