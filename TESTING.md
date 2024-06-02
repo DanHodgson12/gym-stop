@@ -25,6 +25,18 @@ Due to this, it is best practice to utilise both forms of testing during the bui
 
 The developer chose to use automated testing as the main form of testing throughout this project. They felt it was an efficient method for this type of application due to its size and the fact that a lot of aspects of the application relied on functions rendering and manipulating data.
 
+## Code Testing
+
+Automated code testing was carried out within the development environment. Each Python file was tested inside its own test file - each test file was name after the file being tested, prepended with 'test_' (for example, views.py's test file is named test_views.py). If you navigate to the test files for each app in the GitHub repository, you will see a detailed view of all tests carried out.
+
+[Coverage](https://coverage.readthedocs.io/en/7.5.3/) was used to check how much of the Python code had been tested. You can see in the image below that 98% of the code has been covered with testing.
+
+![Coverage Report](assets/coverage-report.png)
+
+The 'settings.py' and 'manage.py' files were ignored, as they had been set up automatically as part of the project creation aspect of Django, with minor adjustments made to variables within.
+
+Due to time constraints, a high amount of manual testing being carried out on the subscribe, checkout and profiles app, and no functionality issues noticed in the manual testing of the website in general, the developer chose to ignore the lines not being tested in these files.
+
 ## Testing User Stories
 
 ### Viewing and Navigation
