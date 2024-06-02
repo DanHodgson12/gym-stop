@@ -30,7 +30,49 @@ Visit the deployed site [here](https://danh12-gym-stop-6494ee93884f.herokuapp.co
 
 ## User Stories
 
+### Viewing and Navigation
 
+- **As a** Shopper, **I want** to view a list of products **so that** I can select some to purchase.
+- **As a** Shopper, **I want** to view individual product details **so that** I can identify the price, description, product rating, product image, and available sizes.
+- **As a** Shopper, **I want** to quickly identify deals, clearance items, and special offers **so that** I can take advantage of special savings on products I'd like to purchase.
+- **As a** Shopper, **I want** to easily view the total of my purchases at any time **so that** I can avoid spending too much.
+
+### Registration and User Accounts
+
+- **As a** Site User, **I want** to easily register for an account **so that** I can have a personal account and be able to view my profile.
+- **As a** Site User, **I want** to easily log in or log out **so that** I can access my personal account information.
+- **As a** Site User, **I want** to easily recover my password in case I forget it **so that** I can recover access to my account.
+- **As a** Site User, **I want** to receive an email confirmation after registering **so that** I can verify that my account registration was successful.
+- **As a** Site User, **I want** to have a personalized user profile **so that** I can view my personal order history and order confirmations, and save my payment information.
+
+### Sorting and Searching
+
+- **As a** Shopper, **I want** to sort the list of available products **so that** I can easily identify the best rated, best priced, and categorically sorted products.
+- **As a** Shopper, **I want** to sort a specific category of product **so that** I can find the best-priced or best-rated product in a specific category, or sort the products in that category by name.
+- **As a** Shopper, **I want** to sort multiple categories of products simultaneously **so that** I can find the best-priced or best-rated products across broad categories, such as "clothing" or "homeware".
+- **As a** Shopper, **I want** to search for a product by name or description **so that** I can find a specific product I'd like to purchase.
+- **As a** Shopper, **I want** to easily see what I've searched for and the number of results **so that** I can quickly decide whether the product I want is available.
+
+### Purchasing and Checkout
+
+- **As a** Shopper, **I want** to easily select the size and quantity of a product when purchasing it **so that** I ensure I don't accidentally select the wrong product, quantity, or size.
+- **As a** Shopper, **I want** to view items in my bag to be purchased **so that** I can identify the total cost of my purchase and all items I will receive.
+- **As a** Shopper, **I want** to adjust the quantity of individual items in my bag **so that** I can easily make changes to my purchase before checkout.
+- **As a** Shopper, **I want** to easily enter my payment information **so that** I can check out quickly and with no hassles.
+- **As a** Shopper, **I want** to feel my personal and payment information is safe and secure **so that** I can confidently provide the needed information to make a purchase.
+- **As a** Shopper, **I want** to view an order confirmation after checkout **so that** I can verify that I haven't made any mistakes.
+- **As a** Shopper, **I want** to receive an email confirmation after checking out **so that** I can keep the confirmation of what I've purchased for my records.
+
+### Reviews and Subscriptions
+
+- **As a** Shopper, **I want** to receive marketing emails **so that** I can keep up to date with new deals and offers.
+- **As a** Shopper, **I want** to leave reviews on products I have purchased **so that** I can let other shoppers know what I think of the product.
+
+### Admin and Store Management
+
+- **As a** Store Owner, **I want** to add a product **so that** I can add new items to my store.
+- **As a** Store Owner, **I want** to edit/update a product **so that** I can change product prices, descriptions, images, and other product criteria.
+- **As a** Store Owner, **I want** to delete a product **so that** I can remove items that are no longer for sale.
 
 ## Colour Scheme
 
