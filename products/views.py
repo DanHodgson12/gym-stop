@@ -63,6 +63,9 @@ def all_products(request):
             )
             products = products.filter(queries)
 
+    if not products.exists():
+        messages.info(request, "No products found")
+
     current_sorting = f'{sort}_{direction}'
 
     context = {
