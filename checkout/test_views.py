@@ -61,6 +61,20 @@ class CheckoutViewsTests(TestCase):
         self.assertIn('order_form', response.context)
         self.assertIsInstance(response.context['order_form'], OrderForm)
 
+    def test_checkout_view_get_anonymous_user(self):
+        """
+        Test the checkout view when the user is not authenticated.
+        """
+        session = self.client.session
+        session['bag'] = {str(self.product.id): 1}  # Add product to bag
+        session.save()
+
+        response = self.client.get(reverse('checkout'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'checkout/checkout.html')
+        self.assertIn('order_form', response.context)
+        self.assertIsInstance(response.context['order_form'], OrderForm)
+
     @patch('checkout.views.stripe.PaymentIntent.create')
     def test_checkout_view_get_no_bag(self, mock_create):
         """
@@ -200,6 +214,46 @@ class CheckoutViewsTests(TestCase):
         )
         self.assertIn('order_form', response.context)
         self.assertIsInstance(response.context['order_form'], OrderForm)
+
+    def test_checkout_view_post_product_does_not_exist(self):
+        """
+        Test the POST method of the checkout view when a product does not exist.
+        """
+        self.client.login(username='testuser', password='testpass')
+        session = self.client.session
+        session['bag'] = {str(self.product.id): 1}  # Add product to bag
+        session.save()
+
+        # Delete the product to simulate it not existing during checkout
+        self.product.delete()
+
+        form_data = {
+            'full_name': 'Test User',
+            'email': 'test@example.com',
+            'phone_number': '1234567890',
+            'country': 'US',
+            'postcode': '12345',
+            'town_or_city': 'Test Town',
+            'street_address1': '123 Test St',
+            'street_address2': '',
+            'county': 'Test County',
+            'client_secret': 'test_pid_secret',
+        }
+
+        response = self.client.post(reverse('checkout'), form_data, follow=False)
+
+        # Check if it redirects to the 'view_bag' view
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, reverse('view_bag'))
+
+        # Reload session
+        session = self.client.session
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(
+            str(messages[0]), 
+            "One of the products in your bag wasn't found in our database. Please call us for assistance!"
+        )
 
     @patch('checkout.views.UserProfileForm')
     def test_checkout_success_view_with_save_info(self, mock_user_profile_form):

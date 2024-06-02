@@ -45,10 +45,10 @@ def checkout(request):
     if request.method == 'POST':
         # If user submits the checkout form, do this...
 
-        # Retreive bag data
+        # Retrieve bag data
         bag = request.session.get('bag', {})
 
-        # Retreive form data
+        # Retrieve form data
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -125,7 +125,7 @@ def checkout(request):
     else:
         # When user first hits checkout page, do this...
 
-        # Retreive bag data
+        # Retrieve bag data
         bag = request.session.get('bag', {})
 
         # If no bag, redirect customer back to products page
