@@ -1,6 +1,6 @@
 # Gym Stop
 
-![Gym Stop Final Design]()
+![Gym Stop Final Design](assets/gym-stop-mockup.png)
 
 Gym Stop is an e-commerce website designed for users to search for and purchase a range products, leave reviews, create an account and subscribe to marketing emails.
 
