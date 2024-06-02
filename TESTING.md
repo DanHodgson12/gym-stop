@@ -272,6 +272,8 @@ User is required to verify email address before proceeding | Pass
 
 ### Profile
 
+Outcome | Pass/Fail
+--- | ---
 User's profile renders form for saved info correctly | Pass
 Changing info in form and clicking 'Update Information' button updates the saved info | Pass
 Order History is rendered correctly | Pass
@@ -279,6 +281,14 @@ Clicking on an order number link takes user to order detail page for that order 
 User can subscribe or unsubscribe to marketing emails in saved info form | Pass
 
 ### Reviews
+
+Outcome | Pass/Fail
+--- | ---
+All products reviews are rendered on Product Detail page | Pass
+Only users who have purchased a product can see the 'Add Review' button on Product Detail page | Pass
+Only users who have left a specific review can see it's 'Edit' and 'Delete' buttons | Pass
+Indiviual rating of each review of a product updates the products average rating correctly | Pass
+Editing or Deleting a review updates the product's average rating accordingly | Pass
 
 ### Subscribe
 
@@ -289,8 +299,6 @@ User can subscribe or unsubscribe to marketing emails in saved info form | Pass
 ## Known Bugs
 
 There are no known bugs with the web application.
-
----
 
 ## Code Validation
 
