@@ -173,9 +173,9 @@ There were also other files such as env.py, settings.py and apps.py (for each pr
 
 There was also one error type that was chosen to be ignored - *W503 line break before binary operator*. Upon fixing this error, another error occurs - *W504 line break after binary operator*. As these errors conflict with one another, the decision was made to chose to ignore one of the errors - W503.
 
-![Flake8 Validation]()
+![Flake8 Validation](assets/flake8-report.png)
 
-![Flake8 Settings]()
+![Flake8 Settings](assets/flake8-settings.png)
 
 ## Lighthouse Report
 
