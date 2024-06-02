@@ -308,6 +308,18 @@ Success message displayed when email address is successfully unsubscribed | Pass
 
 ### Bag
 
+Outcome | Pass/Fail
+--- | ---
+Shopping bag renders each product in bag correctly | Pass
+Products crucial info shown correctly: name, sku, size, price, subtotal | Pass
+Quantity selector's min and max values work as expected | Pass
+Quantity can be adjusted by clicking plus or minus symbols and clicking 'Update' button | Pass
+Quantity Selector's 'Remove' button successfully removes item from bag | Pass
+Multiple sizes of the same product are rendered as individual entries in bag | Pass
+Quantity of individual sizes of a product can be updated/removed as expected | Pass
+'Keep Shopping' button takes user back to page they came from | Pass
+'Secure Checkout' button successfully takes user to Checkout page | Pass
+
 ### Checkout
 
 ## Known Bugs
