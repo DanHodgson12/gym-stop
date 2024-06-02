@@ -77,7 +77,19 @@ Visit the deployed site [here](https://danh12-gym-stop-6494ee93884f.herokuapp.co
 
 ## Colour Scheme
 
+![Gym Stop Colour Scheme](assets/gym-stop.png)
 
+The primary colours used for this application are as follows:
+
+- Jet (#383838) - for the main header/navbar and footer.
+- Whitesmoke (#F5F5F5) - for the background to each page.
+- Amber (#FFC107) - for the promotional banner, Shop Now button and most other major action buttons (Bootstrap's 'btn-warning' class colour).
+- Black (#000000) - for the text, and some other major action buttons, such as account management and checkout buttons.
+
+Other secondary colours are used for specific action buttons:
+
+- Rusty Red (#DC3545) - for the 'Delete' buttons (Bootstrap's 'btn-danger' class).
+- Brandeis Blue (#0D6EFD) - for the 'Edit' buttons (Bootstrap's 'btn-primary' class).
 
 ## Typography
 
