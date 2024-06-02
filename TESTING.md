@@ -30,46 +30,77 @@ The developer chose to use automated testing as the main form of testing through
 ### Viewing and Navigation
 
 - **As a** Shopper, **I want** to view a list of products **so that** I can select some to purchase.
+  - **Given** I click the "Shop Now" button on the home page, or click the "All Products" link in the navigation menu, **then** I will see a list of products to view.
 - **As a** Shopper, **I want** to view individual product details **so that** I can identify the price, description, product rating, product image, and available sizes.
+  - **Given** I click on the individual product card, **then** I will see the full product detail page, showing the price, description, product rating, product image, and available sizes.
 - **As a** Shopper, **I want** to quickly identify deals, clearance items, and special offers **so that** I can take advantage of special savings on products I'd like to purchase.
+  - **Given** I look beneath the main navigation menu, **then** I will see that there is an offer for free delivery on orders over £50.
 - **As a** Shopper, **I want** to easily view the total of my purchases at any time **so that** I can avoid spending too much.
+  - **Given** I look in the top right corner of the navigation menu, **then** I will see the bag icon showing the total cost of items in my bag.
 
 ### Registration and User Accounts
 
 - **As a** Site User, **I want** to easily register for an account **so that** I can have a personal account and be able to view my profile.
+  - **Given** I click the 'My Account' icon in the navigation menu, then click the 'Register' link, **then** I will be able to register with an account.
 - **As a** Site User, **I want** to easily log in or log out **so that** I can access my personal account information.
+  - **Given** I click the 'My Account' icon in the navigation menu, then click the 'Login' or 'Logout' link, **then** I will be able to log in or out of my account.
 - **As a** Site User, **I want** to easily recover my password in case I forget it **so that** I can recover access to my account.
+  - **Given** I am on the login page and I click the 'Forgot Password?' link, **then** I will be able to reset my password.
 - **As a** Site User, **I want** to receive an email confirmation after registering **so that** I can verify that my account registration was successful.
+  - **Given** I register with an account with a valid email address, **then** I will receive an email asking me to click a link to verify my account.
 - **As a** Site User, **I want** to have a personalized user profile **so that** I can view my personal order history and order confirmations, and save my payment information.
+  - **Given** I click the 'My Account' icon in the navigation menu, then click the 'My Profile' link, **then** I will be able to see my saved payment and delivery information and order history.
 
 ### Sorting and Searching
 
 - **As a** Shopper, **I want** to sort the list of available products **so that** I can easily identify the best rated, best priced, and categorically sorted products.
+  - **Given** I click the 'All Products' dropdown link in the navigation menu and select from one of the dropdown options, **then** I will be able to sort by price, rating or category.
 - **As a** Shopper, **I want** to sort a specific category of product **so that** I can find the best-priced or best-rated product in a specific category, or sort the products in that category by name.
-- **As a** Shopper, **I want** to sort multiple categories of products simultaneously **so that** I can find the best-priced or best-rated products across broad categories, such as "clothing" or "homeware".
+  - **Given** I click the 'Sort by...' dropdown in the top right corner of the products page, **then** I will be able to sort by price, rating, name and category of product in ascending or descending order.
 - **As a** Shopper, **I want** to search for a product by name or description **so that** I can find a specific product I'd like to purchase.
+  - **Given** I type keywords into the search bar in the middle of the navigation menu, **then** I will be able to search for an item containing that keyword in the product name, category or description.
 - **As a** Shopper, **I want** to easily see what I've searched for and the number of results **so that** I can quickly decide whether the product I want is available.
+  - **Given** I look at the top left of the product page, **then** I will see the number of results returned for the search criteria I have entered.
 
 ### Purchasing and Checkout
 
 - **As a** Shopper, **I want** to easily select the size and quantity of a product when purchasing it **so that** I ensure I don't accidentally select the wrong product, quantity, or size.
+  - **Given** I navigate to a product detail page and select the size and quantity with the appropriate buttons, **then** I will be able to add the correct size and quantity of product to my bag.
 - **As a** Shopper, **I want** to view items in my bag to be purchased **so that** I can identify the total cost of my purchase and all items I will receive.
+  - **Given** I look at the success message shortly after adding a product to my bag, or I click on the shopping bag link in the navigation menu, **then** I will be able to see the cost of individual items as well as a subtotal and total of all items.
 - **As a** Shopper, **I want** to adjust the quantity of individual items in my bag **so that** I can easily make changes to my purchase before checkout.
+  - **Given** I navigate to the shopping bag, **then** I will be able to see different sizes of the same product individually, so I can easily make changes to my order.
 - **As a** Shopper, **I want** to easily enter my payment information **so that** I can check out quickly and with no hassles.
-- **As a** Shopper, **I want** to feel my personal and payment information is safe and secure **so that** I can confidently provide the needed information to make a purchase.
+  - **Given** I click the 'Secure Checkout' button in my shopping bag, **then** I will be prompted to enter delivery and billing information to finalise my purchase.
 - **As a** Shopper, **I want** to view an order confirmation after checkout **so that** I can verify that I haven't made any mistakes.
+  - **Given** I finalise my purchase, or I click the link for the order number in my profile's Order History section, **then** I will see an order confirmation page showing the specific details of my order.
 - **As a** Shopper, **I want** to receive an email confirmation after checking out **so that** I can keep the confirmation of what I've purchased for my records.
+  - **Given** I finalise my purchase, **then** I will be sent a confirmation email showing the details of my order.
 
 ### Reviews and Subscriptions
 
 - **As a** Shopper, **I want** to receive marketing emails **so that** I can keep up to date with new deals and offers.
+  - **Given** I click the 'Subscribe' button in the page footer, or click the 'Subscribe to marketing emails?' option in my profile's saved information, **then** I will receive marketing emails.
+- **As a** Shopper, **I want** to ubsubscribe from marketing emails **so that** I can chose whether I want to see offers and deals.
+  - **Given** I click the 'Unsubscribe' link in a marketing email, or uncheck the 'Subscribe to marketing emails?' option in my profile's saved information, **then** I will be unsubscribed from marketing emails.
 - **As a** Shopper, **I want** to leave reviews on products I have purchased **so that** I can let other shoppers know what I think of the product.
+  - **Given** I am logged in, navigate to the specific product page of a product I have purchased, **then** I can click the 'Add Review' button to leave a review.
+- **As a** Shopper, **I want** to be able to edit reviews I have left **so that** I can update my rating, headline or description if I change my mind.
+  - **Given** I am logged in, navigate to the specific product page of a product I have purchased, find the review and click the 'Edit' button, **then** I will be able to delete the review.
+- **As a** Shopper, **I want** to be able to delete reviews I have left **so that** I can chose whether to leave my review for others to see.
+  - **Given** I am logged in, navigate to the specific product page of a product I have purchased, find the review and click the 'Delete' button, **then** I will be able to delete the review.
 
 ### Admin and Store Management
 
 - **As a** Store Owner, **I want** to add a product **so that** I can add new items to my store.
+  - **Given** I am a superuser and am logged in, **then** I can navigate to the 'Product Management' page via the 'My Account' link in the navigation menu, and add a product.
+  - **Given** I am a superuser and am logged in to the admin panel, **then** I can navigate to the 'Products' section and manually add a product
 - **As a** Store Owner, **I want** to edit/update a product **so that** I can change product prices, descriptions, images, and other product criteria.
+  - **Given** I am a superuser and am logged in, **then** I can navigate to the specific product detail page, click the 'Edit' button and edit a product.
+  - **Given** I am a superuser and am logged in to the admin panel, **then** I can navigate to the 'Products' section and manually edit a product
 - **As a** Store Owner, **I want** to delete a product **so that** I can remove items that are no longer for sale.
+  - **Given** I am a superuser and am logged in, **then** I can navigate to the specific product detail page, click the 'Delete' button and delete a product.
+  - **Given** I am a superuser and am logged in to the admin panel, **then** I can navigate to the 'Products' section and manually delete a product
 
 ## Tools Testing
 
