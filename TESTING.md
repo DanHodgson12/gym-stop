@@ -193,7 +193,58 @@ Displays About and Contact information clearly | Pass
 Displays Ts&Cs, Privacy Policy and Returns Policy links | Pass
 Ts&Cs, Privacy Policy and Returns Policy links take user to respective page | Pass
 
-### Known Bugs
+### Products
+
+Outcome | Pass/Fail
+--- | ---
+All available products rendered appropriately in different column count depending on screen width | Pass
+Each product displays relevant product info | Pass
+Each product can be clicked which takes user to product detail page for specific product | Pass
+Product card's category tag renders products in specific category when clicked | Pass
+Selecting option in the 'Sort by...' dropdown reloads the page and renders products accordingly | Pass
+'Products Home' link takes user back to 'All Products' page | Pass
+Product's rating displayed correctly depending on average rating of reviews left on product | Pass
+Product 'Edit' and 'Delete' buttons show ONLY when a superuser is logged into the site | Pass
+Product 'Edit' button takes user to respective 'Edit Product' page | Pass
+Product 'Delete' button opens modal asking user if they want to proceed | Pass
+After clicking delete button on Delete modal, product is successfully deleted | Pass
+
+### Product Detail
+
+Outcome | Pass/Fail
+--- | ---
+All relevant product information is displayed: image, price, category, rating, description | Pass
+Size selection dropdown is shown ONLY when the product has different sizes | Pass
+Quantity selector is shown correctly, with min and max value validation working as expected | Pass
+'Add To Bag' button successfully adds product to bag and shows success message with bag preview | Pass
+'Keep Shopping' button takes user back to the same page in which they navigated to the product detail page from | Pass
+Product card's category tag renders products in specific category when clicked | Pass
+Product's rating displayed correctly depending on average rating of reviews left on product | Pass
+Reviews section shows the product's reviews if any, and placeholder text if none | Pass
+'Add Review' button shows ONLY when user is logged in and has purchased product before | Pass
+'Add Review' button takes user to 'add_review' page where they can leave a review | Pass
+Review 'Edit' and 'Delete' buttons show ONLY when a user has left that review | Pass
+Review 'Edit' button takes user to respective 'Edit Review' page | Pass
+Review 'Delete' button opens modal asking user if they want to proceed | Pass
+After clicking delete button on Delete modal, review is successfully deleted | Pass
+Product 'Edit' and 'Delete' buttons show ONLY when a superuser is logged into the site | Pass
+Product 'Edit' button takes user to respective 'Edit Product' page | Pass
+Product 'Delete' button opens modal asking user if they want to proceed | Pass
+After clicking delete button on Delete modal, product is successfully deleted | Pass
+
+### Account Management
+
+### Profile
+
+### Reviews
+
+### Subscribe
+
+### Bag
+
+### Checkout
+
+## Known Bugs
 
 There are no known bugs with the web application.
 
