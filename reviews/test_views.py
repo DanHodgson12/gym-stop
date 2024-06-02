@@ -164,3 +164,12 @@ class ReviewViewsTests(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('product_detail', args=[self.product.id]))
         self.assertTrue(Review.objects.filter(id=self.review.id).exists())
+
+    def test_delete_review_view_get_request(self):
+        """
+        Test GET request to delete_review view to ensure the redirect happens.
+        """
+        url = reverse('reviews:delete_review', args=[self.review.id])
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('product_detail', args=[self.product.id]))
