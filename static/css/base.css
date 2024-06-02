@@ -40,7 +40,7 @@ main {
     display: none;
 }
 
-/* from Bulma */
+/* from Bulma - https://bulma.io/documentation/elements/icon/ */
 .icon {
     align-items: center;
     display: inline-flex;
