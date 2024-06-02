@@ -272,6 +272,12 @@ User is required to verify email address before proceeding | Pass
 
 ### Profile
 
+User's profile renders form for saved info correctly | Pass
+Changing info in form and clicking 'Update Information' button updates the saved info | Pass
+Order History is rendered correctly | Pass
+Clicking on an order number link takes user to order detail page for that order | Pass
+User can subscribe or unsubscribe to marketing emails in saved info form | Pass
+
 ### Reviews
 
 ### Subscribe
