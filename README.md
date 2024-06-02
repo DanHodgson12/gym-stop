@@ -316,6 +316,7 @@ To clone the repository:
 
 - [Font Awesome](https://fontawesome.com/icons) was used for providing the icons used in the application.
 - The product images were copied from existing products on [Amazon](https://www.amazon.co.uk/ref=nav_logo).
+- The favicon is a flexed biceps emoji taken from [emojipedia.org](https://emojipedia.org/facebook/15.0/flexed-biceps).
 - All other styling and media was created by the developer.
 
 ## Code
@@ -324,6 +325,7 @@ To clone the repository:
 - [W3Schools](https://www.w3schools.com/) & [Stack Overflow](https://stackoverflow.co/teams/) were consulted on a regular basis to help overcome roadblocks in the developer's coding knowledge.
 - [Bulma](https://bulma.io/documentation/elements/icon/) was used for an icon class.
 - [CSS-tricks.com](https://css-tricks.com/snippets/css/css-triangle/) was used for the 'arrow-up' class for the toasts.
+- [Favicon.io](https://favicon.io/favicon-converter/) was used to generate the favicon for the application.
 
 # Acknowledgements
 
