@@ -74,3 +74,38 @@ class UserProfileFormTests(TestCase):
 
         form = UserProfileForm()
         self.assertTrue(form.fields['default_phone_number'].widget.attrs['autofocus'])
+
+    def test_user_profile_form_required_field_placeholder(self):
+        """
+        Test that the placeholder for required fields includes an asterisk.
+        """
+        form = UserProfileForm()
+        required_fields = ['default_phone_number', 'default_street_address1', 'default_town_or_city']
+
+        placeholders = {
+            'default_phone_number': 'Phone Number',
+            'default_street_address1': 'Street Address 1',
+            'default_town_or_city': 'Town or City',
+        }
+
+        for field in required_fields:
+            expected_placeholder = placeholders[field]
+            self.assertEqual(form.fields[field].widget.attrs['placeholder'], expected_placeholder)
+
+    def test_user_profile_form_non_required_field_placeholder(self):
+        """
+        Test that the placeholder for non-required fields does not include an asterisk.
+        """
+        form = UserProfileForm()
+        non_required_fields = ['default_street_address2', 'default_county', 'default_postcode', 'is_subscribed_to_newsletter']
+
+        placeholders = {
+            'default_street_address2': 'Street Address 2',
+            'default_county': 'County, State or Locality',
+            'default_postcode': 'Postal Code',
+            'is_subscribed_to_newsletter': 'Subscribed to Marketing Emails?',
+        }
+
+        for field in non_required_fields:
+            expected_placeholder = placeholders[field]
+            self.assertEqual(form.fields[field].widget.attrs['placeholder'], expected_placeholder)
