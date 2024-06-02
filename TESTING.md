@@ -175,6 +175,24 @@ Text displayed clearly with no formatting issues | Pass
 Background image displayed clearly with no pixelation or stretching | Pass
 Shop Now button takes user to 'All Products' page as expected | Pass
 
+### Footer
+
+Outcome | Pass/Fail
+--- | ---
+Shows on all pages | Pass
+Stays at bottom of screen (unless when looking at extended footer) as expected | Pass
+Social links navigate to respective website in a new tab | Pass
+Subscribe button shows the subscribe modal | Pass
+
+### Footer (extended)
+
+Outcome | Pass/Fail
+--- | ---
+Shows on only the Home page and legal information pages | Pass
+Displays About and Contact information clearly | Pass
+Displays Ts&Cs, Privacy Policy and Returns Policy links | Pass
+Ts&Cs, Privacy Policy and Returns Policy links take user to respective page | Pass
+
 ### Known Bugs
 
 There are no known bugs with the web application.
