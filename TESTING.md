@@ -144,6 +144,29 @@ The web application was tested across a wide variety of devices using [Google Ch
 
 ## Common Elements Testing
 
+### Navbar
+
+#### Main Header Functionality
+
+Outcome | Pass/Fail
+--- | ---
+Logo reloads the home page when clicked, as expected | Pass
+Can enter text in search bar | Pass
+Search bar returns products with search criteria | Pass
+My Account button highlighted when hovered over | Pass
+My Account button displays dropdown | Pass
+My Account dropdown links take user to appropriate page when clicked | Pass
+Bag icon button highlighted when hovered over | Pass
+Bag icon changes colour when items in bag | Pass
+
+#### Nav Links Functionality
+
+Outcome | Pass/Fail
+--- | ---
+Nav links highlighted when hovered over | Pass
+Nav links display relevant dropdown when clicked | Pass
+Nav link dropdown links take user to appropriate page when clicked | Pass
+
 
 
 ### Known Bugs
