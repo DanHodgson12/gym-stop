@@ -6,6 +6,7 @@ from subscribe.forms import UnsubscribeForm
 from unittest.mock import patch
 from django.contrib import messages
 
+
 class SubscribeViewsTests(TestCase):
     """
     Test cases for the subscribe views.

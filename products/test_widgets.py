@@ -4,6 +4,7 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from .forms import ProductForm
 from .models import Category, Product
 
+
 class CustomClearableFileInputTests(TestCase):
     """
     Test cases for the CustomClearableFileInput widget to ensure it behaves correctly.

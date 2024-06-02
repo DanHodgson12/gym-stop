@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from checkout.forms import OrderForm
 from unittest.mock import patch, Mock
 
+
 class CheckoutViewsTests(TestCase):
     """
     Test cases for the views in the checkout app.
