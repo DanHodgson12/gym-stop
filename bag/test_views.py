@@ -7,16 +7,24 @@ class BagViewsTests(TestCase):
 
     def setUp(self):
         self.client = Client()
-        self.category = Category.objects.create(name='test_category')
+        self.category = Category.objects.create(
+            name='test_category'
+        )
         self.product = Product.objects.create(
             name='Test Product',
             category=self.category,
             price=10.00,
         )
         self.bag_url = reverse('view_bag')
-        self.add_to_bag_url = reverse('add_to_bag', args=[self.product.id])
-        self.adjust_bag_url = reverse('adjust_bag', args=[self.product.id])
-        self.remove_from_bag_url = reverse('remove_from_bag', args=[self.product.id])
+        self.add_to_bag_url = reverse(
+            'add_to_bag', args=[self.product.id]
+        )
+        self.adjust_bag_url = reverse(
+            'adjust_bag', args=[self.product.id]
+        )
+        self.remove_from_bag_url = reverse(
+            'remove_from_bag', args=[self.product.id]
+        )
 
     def test_view_bag(self):
         """
@@ -51,8 +59,14 @@ class BagViewsTests(TestCase):
         self.assertRedirects(response, self.bag_url)
         session = self.client.session
         self.assertIn(str(self.product.id), session['bag'])
-        self.assertIn('M', session['bag'][str(self.product.id)]['items_by_size'])
-        self.assertEqual(session['bag'][str(self.product.id)]['items_by_size']['M'], 1)
+        self.assertIn(
+            'M',
+            session['bag'][str(self.product.id)]['items_by_size']
+        )
+        self.assertEqual(
+            session['bag'][str(self.product.id)]['items_by_size']['M'],
+            1
+        )
 
     def test_add_to_bag_with_size_update(self):
         """
@@ -66,8 +80,14 @@ class BagViewsTests(TestCase):
         self.assertRedirects(response, self.bag_url)
         session = self.client.session
         self.assertIn(str(self.product.id), session['bag'])
-        self.assertIn('M', session['bag'][str(self.product.id)]['items_by_size'])
-        self.assertEqual(session['bag'][str(self.product.id)]['items_by_size']['M'], 1)
+        self.assertIn(
+            'M',
+            session['bag'][str(self.product.id)]['items_by_size']
+        )
+        self.assertEqual(
+            session['bag'][str(self.product.id)]['items_by_size']['M'],
+            1
+        )
 
         response = self.client.post(self.add_to_bag_url, {
             'quantity': 2,
@@ -76,7 +96,10 @@ class BagViewsTests(TestCase):
         })
         self.assertRedirects(response, self.bag_url)
         session = self.client.session
-        self.assertEqual(session['bag'][str(self.product.id)]['items_by_size']['M'], 3)
+        self.assertEqual(
+            session['bag'][str(self.product.id)]['items_by_size']['M'],
+            3
+        )
 
     def test_add_to_bag_with_different_size(self):
         """
@@ -92,8 +115,13 @@ class BagViewsTests(TestCase):
         })
         self.assertRedirects(response, self.bag_url)
         session = self.client.session
-        self.assertIn('L', session['bag'][str(self.product.id)]['items_by_size'])
-        self.assertEqual(session['bag'][str(self.product.id)]['items_by_size']['L'], 1)
+        self.assertIn(
+            'L', session['bag'][str(self.product.id)]['items_by_size']
+        )
+        self.assertEqual(
+            session['bag'][str(self.product.id)]['items_by_size']['L'],
+            1
+        )
 
     def test_add_to_bag_without_size_existing(self):
         """
@@ -118,7 +146,9 @@ class BagViewsTests(TestCase):
         session = self.client.session
         session['bag'] = {str(self.product.id): 1}
         session.save()
-        response = self.client.post(self.adjust_bag_url, {'quantity': 2})
+        response = self.client.post(
+            self.adjust_bag_url, {'quantity': 2}
+        )
         self.assertRedirects(response, self.bag_url)
         session = self.client.session
         self.assertEqual(session['bag'][str(self.product.id)], 2)
@@ -130,32 +160,49 @@ class BagViewsTests(TestCase):
         session = self.client.session
         session['bag'] = {str(self.product.id): {'items_by_size': {'M': 1}}}
         session.save()
-        response = self.client.post(self.adjust_bag_url, {'quantity': 2, 'product_size': 'M'})
+        response = self.client.post(
+            self.adjust_bag_url,
+            {'quantity': 2, 'product_size': 'M'}
+        )
         self.assertRedirects(response, self.bag_url)
         session = self.client.session
-        self.assertEqual(session['bag'][str(self.product.id)]['items_by_size']['M'], 2)
+        self.assertEqual(
+            session['bag'][str(self.product.id)]['items_by_size']['M'],
+            2
+        )
 
     def test_adjust_bag_with_size_to_zero(self):
         """
-        Test adjusting the quantity of a product with size to zero in the bag.
+        Test adjusting the quantity of a product with size
+        to zero in the bag.
         """
         session = self.client.session
         session['bag'] = {str(self.product.id): {'items_by_size': {'M': 1}}}
         session.save()
-        response = self.client.post(self.adjust_bag_url, {'quantity': 0, 'product_size': 'M'})
+        response = self.client.post(
+            self.adjust_bag_url,
+            {'quantity': 0, 'product_size': 'M'}
+        )
         self.assertRedirects(response, self.bag_url)
         session = self.client.session
         bag = session['bag']
-        self.assertNotIn(str(self.product.id), bag, msg=f"Bag contents after adjustment to zero: {bag}")
+        self.assertNotIn(
+            str(self.product.id),
+            bag,
+            msg=f"Bag contents after adjustment to zero: {bag}"
+        )
 
     def test_adjust_bag_remove_product(self):
         """
-        Test adjusting the quantity of a product to zero to remove it from the bag.
+        Test adjusting the quantity of a product to zero
+        to remove it from the bag.
         """
         session = self.client.session
         session['bag'] = {str(self.product.id): 1}
         session.save()
-        response = self.client.post(self.adjust_bag_url, {'quantity': 0})
+        response = self.client.post(
+            self.adjust_bag_url, {'quantity': 0}
+        )
         self.assertRedirects(response, self.bag_url)
         session = self.client.session
         self.assertNotIn(str(self.product.id), session['bag'])
@@ -179,7 +226,9 @@ class BagViewsTests(TestCase):
         session = self.client.session
         session['bag'] = {str(self.product.id): {'items_by_size': {'M': 1}}}
         session.save()
-        response = self.client.post(self.remove_from_bag_url, {'product_size': 'M'})
+        response = self.client.post(
+            self.remove_from_bag_url, {'product_size': 'M'}
+        )
         self.assertEqual(response.status_code, 200)
         session = self.client.session
         self.assertNotIn(str(self.product.id), session['bag'])

@@ -29,10 +29,12 @@ class MarketingSubscriptionFormTests(TestCase):
 
     def test_marketing_subscription_form_unique_email(self):
         """
-        Test that the MarketingSubscriptionForm enforces unique email constraint.
+        Test that the MarketingSubscriptionForm enforces unique
+        email constraint.
 
         Creates a MarketingSubscription object with a specific email.
-        Then tries to create a form with the same email and checks if it's invalid.
+        Then tries to create a form with the same email and
+        checks if it's invalid.
         """
 
         MarketingSubscription.objects.create(email='test@example.com')

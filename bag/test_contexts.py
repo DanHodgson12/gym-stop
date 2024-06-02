@@ -34,7 +34,10 @@ class BagContextsTests(TestCase):
         self.assertEqual(context['product_count'], 0)
         self.assertEqual(len(context['bag_items']), 0)
         self.assertEqual(context['delivery'], Decimal('0.00'))
-        self.assertEqual(context['free_delivery_delta'], Decimal(settings.FREE_DELIVERY_THRESHOLD).quantize(Decimal('0.00')))
+        self.assertEqual(
+            context['free_delivery_delta'],
+            Decimal(settings.FREE_DELIVERY_THRESHOLD).quantize(Decimal('0.00'))
+        )
         self.assertEqual(context['grand_total'], Decimal('0.00'))
 
     def test_bag_contents_with_items(self):
@@ -56,7 +59,9 @@ class BagContextsTests(TestCase):
             }
         }
         context = bag_contents(request)
-        expected_total = (Decimal('10.00') * 2 + Decimal('20.00') * (1 + 3)).quantize(Decimal('0.00'))
+        item1_total = Decimal('10.00') * 2
+        item2_total = Decimal('20.00') * (1 + 3)
+        expected_total = (item1_total + item2_total).quantize(Decimal('0.00'))
         self.assertEqual(context['total'], expected_total)
         self.assertEqual(context['product_count'], 6)
         self.assertEqual(len(context['bag_items']), 3)
@@ -78,10 +83,14 @@ class BagContextsTests(TestCase):
         }
         context = bag_contents(request)
         total = Decimal('10.00')
-        delivery_percentage = Decimal(settings.STANDARD_DELIVERY_PERCENTAGE) / Decimal('100.00')
+        delivery_percentage = (
+            Decimal(settings.STANDARD_DELIVERY_PERCENTAGE) / Decimal('100.00')
+        )
         delivery = (total * delivery_percentage).quantize(Decimal('0.00'))
         grand_total = (total + delivery).quantize(Decimal('0.00'))
-        free_delivery_delta = (Decimal(settings.FREE_DELIVERY_THRESHOLD) - total).quantize(Decimal('0.00'))
+        free_delivery_delta = (
+            Decimal(settings.FREE_DELIVERY_THRESHOLD) - total
+        ).quantize(Decimal('0.00'))
 
         self.assertEqual(context['total'], total.quantize(Decimal('0.00')))
         self.assertEqual(context['product_count'], 1)

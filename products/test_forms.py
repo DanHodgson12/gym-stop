@@ -54,11 +54,14 @@ class ProductFormTests(TestCase):
 
     def test_product_form_custom_widget(self):
         """
-        Test that the ProductForm uses the CustomClearableFileInput widget for the image field.
+        Test that the ProductForm uses the CustomClearableFileInput
+        widget for the image field.
         """
 
         form = ProductForm()
-        self.assertIsInstance(form.fields['image'].widget, CustomClearableFileInput)
+        self.assertIsInstance(
+            form.fields['image'].widget, CustomClearableFileInput
+        )
 
     def test_product_form_field_classes(self):
         """

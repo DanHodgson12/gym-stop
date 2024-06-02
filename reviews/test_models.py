@@ -23,7 +23,9 @@ class ReviewModelTests(TestCase):
             category=self.category,
             price=10.00,
         )
-        self.user = User.objects.create_user(username='testuser', password='testpass')
+        self.user = User.objects.create_user(
+            username='testuser', password='testpass'
+        )
         self.review = Review.objects.create(
             product=self.product,
             user=self.user,
@@ -67,7 +69,7 @@ class ReviewModelTests(TestCase):
 
         self.review.rating = 6
         with self.assertRaises(ValidationError):
-            self.review.full_clean()  # This will trigger the validation
+            self.review.full_clean()
 
     def test_review_without_user(self):
         """
@@ -81,5 +83,7 @@ class ReviewModelTests(TestCase):
             content='This is an anonymous review.',
             rating=4
         )
-        self.assertEqual(str(anonymous_review), "Review by Anonymous for Test Product")
+        self.assertEqual(
+            str(anonymous_review), "Review by Anonymous for Test Product"
+        )
         self.assertIsNone(anonymous_review.user)

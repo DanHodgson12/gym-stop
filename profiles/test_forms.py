@@ -59,10 +59,19 @@ class UserProfileFormTests(TestCase):
         for field in form.fields:
             if field != 'default_country':
                 expected_placeholder = placeholders[field]
-                self.assertEqual(form.fields[field].widget.attrs['placeholder'], expected_placeholder)
-                self.assertEqual(form.fields[field].widget.attrs['class'], 'border-black profile-form-input')
+                self.assertEqual(
+                    form.fields[field].widget.attrs['placeholder'],
+                    expected_placeholder
+                )
+                self.assertEqual(
+                    form.fields[field].widget.attrs['class'],
+                    'border-black profile-form-input'
+                )
             else:
-                self.assertEqual(form.fields[field].widget.attrs['class'], 'border-black')
+                self.assertEqual(
+                    form.fields[field].widget.attrs['class'],
+                    'border-black'
+                )
 
     def test_user_profile_form_autofocus(self):
         """
@@ -71,7 +80,9 @@ class UserProfileFormTests(TestCase):
         """
 
         form = UserProfileForm()
-        self.assertTrue(form.fields['default_phone_number'].widget.attrs['autofocus'])
+        self.assertTrue(
+            form.fields['default_phone_number'].widget.attrs['autofocus']
+        )
 
     def test_user_profile_form_required_field_placeholder(self):
         """
@@ -81,15 +92,23 @@ class UserProfileFormTests(TestCase):
         form = UserProfileForm()
         form.fields['default_phone_number'].required = True
         # Manually reapply the __init__ logic to set the placeholder correctly
-        form.fields['default_phone_number'].widget.attrs['placeholder'] = 'Phone Number *'
+        phone_field = form.fields['default_phone_number']
+        phone_field.widget.attrs['placeholder'] = 'Phone Number *'
 
         expected_placeholder = 'Phone Number *'
-        self.assertEqual(form.fields['default_phone_number'].widget.attrs['placeholder'], expected_placeholder)
+        self.assertEqual(
+            form.fields['default_phone_number'].widget.attrs['placeholder'],
+            expected_placeholder
+        )
 
     def test_user_profile_form_non_required_field_placeholder(self):
         """
-        Test that the placeholder for non-required fields does not include an asterisk.
+        Test that the placeholder for non-required fields does
+        not include an asterisk.
         """
         form = UserProfileForm()
         expected_placeholder = 'Phone Number'
-        self.assertEqual(form.fields['default_phone_number'].widget.attrs['placeholder'], expected_placeholder)
+        self.assertEqual(
+            form.fields['default_phone_number'].widget.attrs['placeholder'],
+            expected_placeholder
+        )

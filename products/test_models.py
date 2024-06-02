@@ -33,7 +33,10 @@ class CategoryModelTests(TestCase):
         Test the get_friendly_name method of the Category model.
         """
 
-        self.assertEqual(self.category.get_friendly_name(), 'Friendly Test Category')
+        self.assertEqual(
+            self.category.get_friendly_name(),
+            'Friendly Test Category'
+        )
 
 
 class ProductModelTests(TestCase):
@@ -60,7 +63,9 @@ class ProductModelTests(TestCase):
             image_url='http://example.com/image.jpg',
             image=None
         )
-        self.user = User.objects.create_user(username='testuser', password='testpass')
+        self.user = User.objects.create_user(
+            username='testuser', password='testpass'
+        )
 
     def test_product_str_method(self):
         """
@@ -71,7 +76,8 @@ class ProductModelTests(TestCase):
 
     def test_update_average_rating_no_reviews(self):
         """
-        Test the update_average_rating method of the Product model with no reviews.
+        Test the update_average_rating method of the
+        Product model with no reviews.
         """
 
         self.product.update_average_rating()
@@ -79,7 +85,8 @@ class ProductModelTests(TestCase):
 
     def test_update_average_rating_with_reviews(self):
         """
-        Test the update_average_rating method of the Product model with reviews.
+        Test the update_average_rating method of the
+        Product model with reviews.
         """
 
         Review.objects.create(
@@ -97,7 +104,8 @@ class ProductModelTests(TestCase):
             rating=3
         )
         self.product.update_average_rating()
-        expected_rating = self.product.reviews.aggregate(Avg('rating'))['rating__avg']
+        rating_aggregate = self.product.reviews.aggregate(Avg('rating'))
+        expected_rating = rating_aggregate['rating__avg']
         self.assertEqual(self.product.rating, expected_rating)
 
     def test_rating_percentage(self):
@@ -110,7 +118,8 @@ class ProductModelTests(TestCase):
 
     def test_rating_percentage_none(self):
         """
-        Test the rating_percentage method of the Product model when rating is None.
+        Test the rating_percentage method of the Product model
+        when rating is None.
         """
 
         self.product.rating = None

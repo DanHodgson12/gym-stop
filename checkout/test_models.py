@@ -17,8 +17,12 @@ class OrderModelTests(TestCase):
         Set up the initial data for the Order model tests.
         """
 
-        self.user = User.objects.create_user(username='testuser', password='testpass')
-        self.user_profile, created = UserProfile.objects.get_or_create(user=self.user)
+        self.user = User.objects.create_user(
+            username='testuser', password='testpass'
+        )
+        self.user_profile, created = UserProfile.objects.get_or_create(
+            user=self.user
+        )
         self.category = Category.objects.create(name='test_category')
         self.product = Product.objects.create(
             name='Test Product',
@@ -69,9 +73,15 @@ class OrderModelTests(TestCase):
         )
         self.order.update_total()
         self.assertEqual(self.order.order_total, Decimal('20.00'))
-        expected_delivery = Decimal('20.00') * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE) / Decimal('100.00')
+        delivery_rate = Decimal(settings.STANDARD_DELIVERY_PERCENTAGE)
+        expected_delivery = (
+            Decimal('20.00') * delivery_rate / Decimal('100.00')
+        )
         self.assertEqual(self.order.delivery_cost, expected_delivery)
-        self.assertEqual(self.order.grand_total, self.order.order_total + self.order.delivery_cost)
+        self.assertEqual(
+            self.order.grand_total,
+            self.order.order_total + self.order.delivery_cost
+        )
 
     def test_free_delivery(self):
         """
@@ -107,8 +117,12 @@ class OrderLineItemModelTests(TestCase):
         Set up the initial data for the OrderLineItem model tests.
         """
 
-        self.user = User.objects.create_user(username='testuser', password='testpass')
-        self.user_profile, created = UserProfile.objects.get_or_create(user=self.user)
+        self.user = User.objects.create_user(
+            username='testuser', password='testpass'
+        )
+        self.user_profile, created = UserProfile.objects.get_or_create(
+            user=self.user
+        )
         self.category = Category.objects.create(name='test_category')
         self.product = Product.objects.create(
             name='Test Product',
@@ -142,7 +156,8 @@ class OrderLineItemModelTests(TestCase):
 
     def test_order_total_update_on_lineitem_save(self):
         """
-        Test that the order total updates correctly when a line item is saved.
+        Test that the order total updates correctly when
+        a line item is saved.
         """
 
         OrderLineItem.objects.create(
@@ -163,4 +178,7 @@ class OrderLineItemModelTests(TestCase):
             product=self.product,
             quantity=2,
         )
-        self.assertEqual(str(line_item), f'SKU {self.product.sku} on order {self.order.order_number}')
+        self.assertEqual(
+            str(line_item),
+            f'SKU {self.product.sku} on order {self.order.order_number}'
+        )

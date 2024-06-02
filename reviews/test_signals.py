@@ -6,7 +6,8 @@ from reviews.models import Review
 
 class ReviewSignalsTests(TestCase):
     """
-    Test cases for the signals related to the Review model to ensure they behave correctly.
+    Test cases for the signals related to the Review model
+    to ensure they behave correctly.
     """
 
     def setUp(self):
@@ -22,7 +23,9 @@ class ReviewSignalsTests(TestCase):
             category=self.category,
             price=10.00,
         )
-        self.user = User.objects.create_user(username='testuser', password='testpass')
+        self.user = User.objects.create_user(
+            username='testuser', password='testpass'
+        )
 
     def test_update_product_rating_on_review_save(self):
         """

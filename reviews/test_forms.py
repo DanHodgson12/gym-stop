@@ -23,7 +23,9 @@ class ReviewFormTests(TestCase):
             category=self.category,
             price=10.00,
         )
-        self.user = User.objects.create_user(username='testuser', password='testpass')
+        self.user = User.objects.create_user(
+            username='testuser', password='testpass'
+        )
 
     def test_rating_choices(self):
         """
@@ -58,8 +60,14 @@ class ReviewFormTests(TestCase):
         form = ReviewForm()
         self.assertTrue(isinstance(form.fields['headline'].label, SafeData))
         self.assertTrue(isinstance(form.fields['content'].label, SafeData))
-        self.assertIn("Headline <span class='text-muted'>(optional)</span>", form.fields['headline'].label)
-        self.assertIn("Content <span class='text-muted'>(optional)</span>", form.fields['content'].label)
+        self.assertIn(
+            "Headline <span class='text-muted'>(optional)</span>",
+            form.fields['headline'].label
+        )
+        self.assertIn(
+            "Content <span class='text-muted'>(optional)</span>",
+            form.fields['content'].label
+        )
 
     def test_custom_placeholders(self):
         """
@@ -67,8 +75,14 @@ class ReviewFormTests(TestCase):
         """
 
         form = ReviewForm()
-        self.assertEqual(form.fields['headline'].widget.attrs['placeholder'], 'Brief headline for your review')
-        self.assertEqual(form.fields['content'].widget.attrs['placeholder'], 'Write your review here')
+        self.assertEqual(
+            form.fields['headline'].widget.attrs['placeholder'],
+            'Brief headline for your review'
+        )
+        self.assertEqual(
+            form.fields['content'].widget.attrs['placeholder'],
+            'Write your review here'
+        )
 
     def test_valid_form(self):
         """

@@ -14,7 +14,9 @@ class UserProfileModelTests(TestCase):
         Set up a user for testing.
         """
 
-        self.user = User.objects.create_user(username='testuser', password='testpass')
+        self.user = User.objects.create_user(
+            username='testuser', password='testpass'
+        )
 
     def test_user_profile_created_on_user_creation(self):
         """

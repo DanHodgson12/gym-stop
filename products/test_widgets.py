@@ -7,7 +7,8 @@ from .models import Category, Product
 
 class CustomClearableFileInputTests(TestCase):
     """
-    Test cases for the CustomClearableFileInput widget to ensure it behaves correctly.
+    Test cases for the CustomClearableFileInput widget
+    to ensure it behaves correctly.
     """
 
     def setUp(self):
@@ -25,7 +26,9 @@ class CustomClearableFileInputTests(TestCase):
             category=self.category,
             price=10.00,
             image=SimpleUploadedFile(
-                name='test_image.jpg', content=b'file_content', content_type='image/jpeg'
+                name='test_image.jpg',
+                content=b'file_content',
+                content_type='image/jpeg'
             )
         )
 
@@ -38,16 +41,21 @@ class CustomClearableFileInputTests(TestCase):
 
     def test_widget_template(self):
         """
-        Test that the CustomClearableFileInput widget uses the correct template.
+        Test that the CustomClearableFileInput widget
+        uses the correct template.
         """
 
         form = ProductForm(instance=self.product)
         widget = form.fields['image'].widget
-        self.assertEqual(widget.template_name, 'products/custom_widget_templates/custom_clearable_file_input.html')
+        self.assertEqual(
+            widget.template_name,
+            'products/custom_widget_templates/custom_clearable_file_input.html'
+        )
 
     def test_widget_labels(self):
         """
-        Test that the CustomClearableFileInput widget has the correct labels.
+        Test that the CustomClearableFileInput widget
+        has the correct labels.
         """
 
         form = ProductForm(instance=self.product)
@@ -58,7 +66,8 @@ class CustomClearableFileInputTests(TestCase):
 
     def test_widget_render(self):
         """
-        Test that the CustomClearableFileInput widget renders correctly in a form.
+        Test that the CustomClearableFileInput widget
+        renders correctly in a form.
         """
 
         form = ProductForm(instance=self.product)

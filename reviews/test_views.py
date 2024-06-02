@@ -25,7 +25,9 @@ class ReviewViewsTests(TestCase):
             category=self.category,
             price=10.00,
         )
-        self.user = User.objects.create_user(username='testuser', password='testpass')
+        self.user = User.objects.create_user(
+            username='testuser', password='testpass'
+        )
         self.client.login(username='testuser', password='testpass')
         self.review = Review.objects.create(
             product=self.product,
@@ -60,8 +62,14 @@ class ReviewViewsTests(TestCase):
         }
         response = self.client.post(url, form_data)
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('product_detail', args=[self.product.id]))
-        reviews = Review.objects.filter(product=self.product, user=self.user, headline='Awesome Product')
+        self.assertRedirects(
+            response, reverse('product_detail', args=[self.product.id])
+        )
+        reviews = Review.objects.filter(
+            product=self.product,
+            user=self.user,
+            headline='Awesome Product'
+        )
         self.assertTrue(reviews.exists())
 
     def test_add_review_view_post_invalid(self):
@@ -78,7 +86,13 @@ class ReviewViewsTests(TestCase):
         response = self.client.post(url, form_data)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'reviews/add_review.html')
-        self.assertFalse(Review.objects.filter(product=self.product, user=self.user, headline='Bad Product').exists())
+        self.assertFalse(
+            Review.objects.filter(
+                product=self.product,
+                user=self.user,
+                headline='Bad Product'
+            ).exists()
+        )
 
     def test_edit_review_view_get(self):
         """
@@ -106,11 +120,15 @@ class ReviewViewsTests(TestCase):
         }
         response = self.client.post(url, form_data)
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('product_detail', args=[self.product.id]))
+        self.assertRedirects(
+            response, reverse('product_detail', args=[self.product.id])
+        )
         self.review.refresh_from_db()
         self.assertEqual(self.review.headline, 'Updated Review')
         self.assertEqual(self.review.rating, 4)
-        self.assertEqual(self.review.content, 'This product is still good, but...')
+        self.assertEqual(
+            self.review.content, 'This product is still good, but...'
+        )
 
     def test_edit_review_view_post_invalid(self):
         """
@@ -139,7 +157,9 @@ class ReviewViewsTests(TestCase):
         url = reverse('reviews:edit_review', args=[self.review.id])
         response = self.client.get(url)
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('product_detail', args=[self.product.id]))
+        self.assertRedirects(
+            response, reverse('product_detail', args=[self.product.id])
+        )
 
     def test_delete_review_view(self):
         """
@@ -149,7 +169,9 @@ class ReviewViewsTests(TestCase):
         url = reverse('reviews:delete_review', args=[self.review.id])
         response = self.client.post(url)
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('product_detail', args=[self.product.id]))
+        self.assertRedirects(
+            response, reverse('product_detail', args=[self.product.id])
+        )
         self.assertFalse(Review.objects.filter(id=self.review.id).exists())
 
     def test_delete_review_view_invalid_user(self):
@@ -162,7 +184,9 @@ class ReviewViewsTests(TestCase):
         url = reverse('reviews:delete_review', args=[self.review.id])
         response = self.client.post(url)
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('product_detail', args=[self.product.id]))
+        self.assertRedirects(
+            response, reverse('product_detail', args=[self.product.id])
+        )
         self.assertTrue(Review.objects.filter(id=self.review.id).exists())
 
     def test_delete_review_view_get_request(self):
@@ -172,4 +196,6 @@ class ReviewViewsTests(TestCase):
         url = reverse('reviews:delete_review', args=[self.review.id])
         response = self.client.get(url)
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('product_detail', args=[self.product.id]))
+        self.assertRedirects(
+            response, reverse('product_detail', args=[self.product.id])
+        )

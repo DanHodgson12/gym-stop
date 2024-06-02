@@ -19,10 +19,13 @@ class MarketingSubscriptionModelTests(TestCase):
         """
         Test that a MarketingSubscription can be created.
 
-        Creates a MarketingSubscription object and checks if it's created successfully.
+        Creates a MarketingSubscription object and checks if it's
+        created successfully.
         """
 
-        subscription = MarketingSubscription.objects.create(email=self.subscription_email)
+        subscription = MarketingSubscription.objects.create(
+            email=self.subscription_email
+        )
         self.assertEqual(subscription.email, self.subscription_email)
         self.assertIsNotNone(subscription.date_subscribed)
 
@@ -31,7 +34,8 @@ class MarketingSubscriptionModelTests(TestCase):
         Test that the email field must be unique.
 
         Creates a MarketingSubscription object with a specific email.
-        Then tries to create another object with the same email and checks if it raises IntegrityError.
+        Then tries to create another object with the same email and
+        checks if it raises IntegrityError.
         """
 
         MarketingSubscription.objects.create(email=self.subscription_email)
@@ -42,8 +46,10 @@ class MarketingSubscriptionModelTests(TestCase):
         """
         Test the string representation of the MarketingSubscription model.
 
-        Creates a MarketingSubscription object and checks its string representation.
+        Creates a MarketingSubscription object and checks its
+        string representation.
         """
 
-        subscription = MarketingSubscription.objects.create(email=self.subscription_email)
+        email = self.subscription_email
+        subscription = MarketingSubscription.objects.create(email=email)
         self.assertEqual(str(subscription), self.subscription_email)

@@ -36,7 +36,9 @@ def subscribe(request):
                         'to our mailing list, and is associated with an '
                         'existing account.'
                     )
-                    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+                    return HttpResponseRedirect(
+                        request.META.get('HTTP_REFERER', '/')
+                    )
                 else:
                     profile.is_subscribed_to_newsletter = True
                     profile.save()
@@ -54,7 +56,10 @@ def subscribe(request):
             except Exception as e:
                 messages.error(
                     request,
-                    f"Failed to send welcome email to {subscriber_email}: {str(e)}"
+                    (
+                        f"Failed to send welcome email to {subscriber_email}: "
+                        f"{str(e)}"
+                    )
                 )
             return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         else:
@@ -75,7 +80,8 @@ def unsubscribe(request):
     A view to render the unsubscribe page and handle unsubscriptions.
 
     Renders the unsubscribe page with a form to submit an email address.
-    If the form is submitted and valid, unsubscribes the user from the mailing list.
+    If the form is submitted and valid, unsubscribes the user
+    from the mailing list.
     """
 
     User = get_user_model()

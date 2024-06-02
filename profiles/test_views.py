@@ -17,8 +17,12 @@ class ProfileViewsTests(TestCase):
         Set up a user and user profile for testing.
         """
 
-        self.user = User.objects.create_user(username='testuser', password='testpass')
-        self.profile, created = UserProfile.objects.get_or_create(user=self.user)
+        self.user = User.objects.create_user(
+            username='testuser', password='testpass'
+        )
+        self.profile, created = UserProfile.objects.get_or_create(
+            user=self.user
+        )
         self.client.login(username='testuser', password='testpass')
 
     def test_profile_view_get(self):
@@ -67,13 +71,18 @@ class ProfileViewsTests(TestCase):
         status code and uses the correct template.
         """
 
-        order = Order.objects.create(order_number='12345', user_profile=self.profile)
-        response = self.client.get(reverse('order_history', args=[order.order_number]))
+        order = Order.objects.create(
+            order_number='12345', user_profile=self.profile
+        )
+        response = self.client.get(
+            reverse('order_history', args=[order.order_number])
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'checkout/checkout_success.html')
         self.assertEqual(response.context['order'], order)
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(str(messages[0]), (
-            f'This is a past confirmation for order number {order.order_number}. '
-            'A confirmation email was sent on the order date.'
+            'This is a past confirmation for order number '
+            f'{order.order_number}. A confirmation email was '
+            'sent on the order date.'
         ))

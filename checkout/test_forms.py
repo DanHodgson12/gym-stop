@@ -41,7 +41,9 @@ class OrderFormTests(TestCase):
             if form.fields[field_name].required:
                 placeholder += ' *'
             self.assertEqual(
-                form.fields[field_name].widget.attrs['placeholder'], placeholder)
+                form.fields[field_name].widget.attrs['placeholder'],
+                placeholder
+            )
 
     def test_order_form_autofocus(self):
         """
@@ -58,7 +60,10 @@ class OrderFormTests(TestCase):
 
         form = OrderForm()
         for field in form.fields:
-            self.assertEqual(form.fields[field].widget.attrs['class'], 'stripe-style-input')
+            self.assertEqual(
+                form.fields[field].widget.attrs['class'],
+                'stripe-style-input'
+            )
 
     def test_order_form_labels(self):
         """

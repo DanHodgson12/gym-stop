@@ -22,8 +22,12 @@ class WebhookTests(TestCase):
 
         self.client = Client()
         self.url = reverse('webhook')
-        self.user, created = User.objects.get_or_create(username='testuser', password='password')
-        self.user_profile, created = UserProfile.objects.get_or_create(user=self.user)
+        self.user, created = User.objects.get_or_create(
+            username='testuser', password='password'
+        )
+        self.user_profile, created = UserProfile.objects.get_or_create(
+            user=self.user
+        )
 
         # Creating a test product
         self.product = Product.objects.create(
@@ -69,7 +73,9 @@ class WebhookTests(TestCase):
 
     @patch('stripe.Charge.retrieve')
     @patch('stripe.Webhook.construct_event')
-    def test_webhook_valid_event(self, mock_construct_event, mock_retrieve_charge):
+    def test_webhook_valid_event(
+        self, mock_construct_event, mock_retrieve_charge
+    ):
         """
         Test handling of a valid webhook event.
         """
@@ -98,9 +104,16 @@ class WebhookTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
         # Verify the order was created
-        self.assertTrue(Order.objects.filter(stripe_pid=self.payment_intent_id).exists())
+        self.assertTrue(
+            Order.objects.filter(stripe_pid=self.payment_intent_id).exists()
+        )
 
-    @patch('stripe.Webhook.construct_event', side_effect=stripe.error.SignatureVerificationError('Invalid signature', 'sig'))
+    @patch(
+        'stripe.Webhook.construct_event',
+        side_effect=stripe.error.SignatureVerificationError(
+            'Invalid signature', 'sig'
+        )
+    )
     def test_webhook_invalid_signature(self, mock_construct_event):
         """
         Test handling of a webhook event with an invalid signature.
@@ -116,7 +129,10 @@ class WebhookTests(TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertIn('Invalid signature', response.content.decode())
 
-    @patch('stripe.Webhook.construct_event', side_effect=ValueError('Invalid payload'))
+    @patch(
+        'stripe.Webhook.construct_event',
+        side_effect=ValueError('Invalid payload')
+    )
     def test_webhook_invalid_payload(self, mock_construct_event):
         """
         Test handling of a webhook event with an invalid payload.
@@ -132,7 +148,10 @@ class WebhookTests(TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertIn('Invalid payload', response.content.decode())
 
-    @patch('stripe.Webhook.construct_event', side_effect=Exception('Unexpected error'))
+    @patch(
+        'stripe.Webhook.construct_event',
+        side_effect=Exception('Unexpected error')
+    )
     def test_webhook_unexpected_error(self, mock_construct_event):
         """
         Test handling of a webhook event with an unexpected error.

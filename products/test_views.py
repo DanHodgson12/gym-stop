@@ -19,9 +19,15 @@ class ProductsViewsTests(TestCase):
         """
 
         self.client = Client()
-        self.user = User.objects.create_user(username='testuser', password='testpass')
-        self.superuser = User.objects.create_superuser(username='admin', password='adminpass')
-        self.category = Category.objects.create(name='Test Category', friendly_name='Test Category')
+        self.user = User.objects.create_user(
+            username='testuser', password='testpass'
+        )
+        self.superuser = User.objects.create_superuser(
+            username='admin', password='adminpass'
+        )
+        self.category = Category.objects.create(
+            name='Test Category', friendly_name='Test Category'
+        )
         self.product = Product.objects.create(
             sku='12345',
             name='Test Product',
@@ -45,7 +51,9 @@ class ProductsViewsTests(TestCase):
         Test the product_detail view.
         """
 
-        response = self.client.get(reverse('product_detail', args=[self.product.id]))
+        response = self.client.get(
+            reverse('product_detail', args=[self.product.id])
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/product_detail.html')
         self.assertContains(response, 'Test Product')
@@ -61,12 +69,16 @@ class ProductsViewsTests(TestCase):
 
         self.client.login(username='testuser', password='testpass')
 
-        response = self.client.get(reverse('product_detail', args=[self.product.id]))
+        response = self.client.get(
+            reverse('product_detail', args=[self.product.id])
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/product_detail.html')
         self.assertContains(response, 'Test Product')
         self.assertIn('review_form', response.context)
-        self.assertIsInstance(response.context['review_form'], ReviewForm)
+        self.assertIsInstance(
+            response.context['review_form'], ReviewForm
+        )
 
     def test_add_product_view_not_superuser(self):
         """
@@ -99,7 +111,13 @@ class ProductsViewsTests(TestCase):
         }
         response = self.client.post(reverse('add_product'), form_data)
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('product_detail', args=[Product.objects.get(name='New Product').id]))
+        self.assertRedirects(
+            response,
+            reverse(
+                'product_detail',
+                args=[Product.objects.get(name='New Product').id]
+            )
+        )
 
     def test_add_product_view_superuser_invalid_data(self):
         """
@@ -111,7 +129,10 @@ class ProductsViewsTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/add_product.html')
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]), 'Failed to add product. Please ensure the form is valid.')
+        self.assertEqual(
+            str(messages[0]),
+            'Failed to add product. Please ensure the form is valid.'
+        )
 
     def test_edit_product_view_not_superuser(self):
         """
@@ -119,10 +140,14 @@ class ProductsViewsTests(TestCase):
         """
 
         self.client.login(username='testuser', password='testpass')
-        response = self.client.get(reverse('edit_product', args=[self.product.id]))
+        response = self.client.get(
+            reverse('edit_product', args=[self.product.id])
+        )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('home'))
-        response = self.client.post(reverse('edit_product', args=[self.product.id]), {})
+        response = self.client.post(
+            reverse('edit_product', args=[self.product.id]), {}
+        )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('home'))
 
@@ -132,7 +157,9 @@ class ProductsViewsTests(TestCase):
         """
 
         self.client.login(username='admin', password='adminpass')
-        response = self.client.get(reverse('edit_product', args=[self.product.id]))
+        response = self.client.get(
+            reverse('edit_product', args=[self.product.id])
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/edit_product.html')
         form_data = {
@@ -142,9 +169,13 @@ class ProductsViewsTests(TestCase):
             'category': self.category.id,
             'price': 30.00,
         }
-        response = self.client.post(reverse('edit_product', args=[self.product.id]), form_data)
+        response = self.client.post(
+            reverse('edit_product', args=[self.product.id]), form_data
+        )
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('product_detail', args=[self.product.id]))
+        self.assertRedirects(
+            response, reverse('product_detail', args=[self.product.id])
+        )
         self.product.refresh_from_db()
         self.assertEqual(self.product.name, 'Updated Product')
 
@@ -154,11 +185,16 @@ class ProductsViewsTests(TestCase):
         """
 
         self.client.login(username='admin', password='adminpass')
-        response = self.client.post(reverse('edit_product', args=[self.product.id]), {})
+        response = self.client.post(
+            reverse('edit_product', args=[self.product.id]), {}
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/edit_product.html')
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]), 'Failed to update product. Please ensure the form is valid.')
+        self.assertEqual(
+            str(messages[0]),
+            'Failed to update product. Please ensure the form is valid.'
+        )
 
     def test_delete_product_view_not_superuser(self):
         """
@@ -166,7 +202,9 @@ class ProductsViewsTests(TestCase):
         """
 
         self.client.login(username='testuser', password='testpass')
-        response = self.client.get(reverse('delete_product', args=[self.product.id]))
+        response = self.client.get(
+            reverse('delete_product', args=[self.product.id])
+        )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('home'))
 
@@ -176,18 +214,25 @@ class ProductsViewsTests(TestCase):
         """
 
         self.client.login(username='admin', password='adminpass')
-        response = self.client.get(reverse('delete_product', args=[self.product.id]))
+        response = self.client.get(
+            reverse('delete_product', args=[self.product.id])
+        )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('products'))
-        self.assertFalse(Product.objects.filter(id=self.product.id).exists())
+        self.assertFalse(
+            Product.objects.filter(id=self.product.id).exists()
+        )
 
     def test_delete_product_view_superuser_invalid_product(self):
         """
-        Test the delete_product view as a superuser with an invalid product id.
+        Test the delete_product view as a superuser with an
+        invalid product id.
         """
 
         self.client.login(username='admin', password='adminpass')
-        response = self.client.get(reverse('delete_product', args=[999]))
+        response = self.client.get(
+            reverse('delete_product', args=[999])
+        )
         self.assertEqual(response.status_code, 404)
 
     def test_all_products_view_no_results(self):
@@ -195,7 +240,9 @@ class ProductsViewsTests(TestCase):
         Test the all_products view with no search results.
         """
 
-        response = self.client.get(reverse('products') + '?q=NonExistentProduct')
+        response = self.client.get(
+            reverse('products') + '?q=NonExistentProduct'
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/products.html')
         messages = list(get_messages(response.wsgi_request))
@@ -205,7 +252,9 @@ class ProductsViewsTests(TestCase):
         """
         Test the all_products view with sorting.
         """
-        response = self.client.get(reverse('products') + '?sort=name&direction=asc')
+        response = self.client.get(
+            reverse('products') + '?sort=name&direction=asc'
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/products.html')
         self.assertContains(response, 'Test Product')
@@ -216,19 +265,25 @@ class ProductsViewsTests(TestCase):
         """
         Test the all_products view with category filtering.
         """
-        response = self.client.get(reverse('products') + f'?category={self.category.name}')
+        response = self.client.get(
+            reverse('products') + f'?category={self.category.name}'
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/products.html')
         self.assertContains(response, 'Test Product')
         self.assertIn('current_categories', response.context)
         self.assertEqual(len(response.context['current_categories']), 1)
-        self.assertEqual(response.context['current_categories'][0], self.category)
+        self.assertEqual(
+            response.context['current_categories'][0], self.category
+        )
 
     def test_all_products_view_search(self):
         """
         Test the all_products view with search query.
         """
-        response = self.client.get(reverse('products') + '?q=Test+Product')
+        response = self.client.get(
+            reverse('products') + '?q=Test+Product'
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/products.html')
         self.assertContains(response, 'Test Product')
@@ -243,24 +298,32 @@ class ProductsViewsTests(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('products'))
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]), "You didn't enter any search criteria!")
+        self.assertEqual(
+            str(messages[0]), "You didn't enter any search criteria!"
+        )
 
     def test_all_products_view_sorting_by_category(self):
         """
         Test the all_products view with sorting by category.
         """
-        response = self.client.get(reverse('products') + '?sort=category&direction=asc')
+        response = self.client.get(
+            reverse('products') + '?sort=category&direction=asc'
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/products.html')
         self.assertContains(response, 'Test Product')
         self.assertIn('current_sorting', response.context)
-        self.assertEqual(response.context['current_sorting'], 'category_asc')
+        self.assertEqual(
+            response.context['current_sorting'], 'category_asc'
+        )
 
     def test_all_products_view_sorting_desc(self):
         """
         Test the all_products view with descending sorting direction.
         """
-        response = self.client.get(reverse('products') + '?sort=name&direction=desc')
+        response = self.client.get(
+            reverse('products') + '?sort=name&direction=desc'
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/products.html')
         self.assertContains(response, 'Test Product')
