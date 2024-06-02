@@ -256,6 +256,20 @@ All fields have relevant field validation | Pass
 
 ### Account Management
 
+Outcome | Pass/Fail
+--- | ---
+Login form renders correctly | Pass
+Only users with an active account can log in | Pass
+Login form fields have relevant validation | Pass
+Login page shows reminder for user to 'Register' if they don't have an account | Pass
+Login page shows 'Forgot Password' link which allows user to reset password | Pass
+Logout page shows 'are you sure' message with link to sign out | Pass
+Clicking 'Sign Out' button successfully signs user out | Pass
+Register form renders correctly | Pass
+Register form fields have relevant validation | Pass
+User can only register account with an email address that isn't already link to an account | Pass
+User is required to verify email address before proceeding | Pass
+
 ### Profile
 
 ### Reviews
