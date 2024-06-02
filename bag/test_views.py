@@ -1,9 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from django.contrib.messages import get_messages
-from django.contrib.auth import get_user_model
 from products.models import Product, Category
-from unittest.mock import patch
+
 
 class BagViewsTests(TestCase):
 

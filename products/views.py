@@ -7,7 +7,6 @@ from .models import Product, Category
 from .forms import ProductForm
 from reviews.forms import ReviewForm
 from checkout.models import Order
-from profiles.models import UserProfile
 
 
 def all_products(request):

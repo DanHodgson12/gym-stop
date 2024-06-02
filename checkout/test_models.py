@@ -1,7 +1,6 @@
 from decimal import Decimal
 from django.test import TestCase
 from django.conf import settings
-from django.db.models import Sum
 from django_countries.fields import Country
 from products.models import Product, Category
 from profiles.models import UserProfile, User
@@ -146,7 +145,7 @@ class OrderLineItemModelTests(TestCase):
         Test that the order total updates correctly when a line item is saved.
         """
 
-        line_item = OrderLineItem.objects.create(
+        OrderLineItem.objects.create(
             order=self.order,
             product=self.product,
             quantity=2,

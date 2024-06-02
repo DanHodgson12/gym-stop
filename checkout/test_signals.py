@@ -1,6 +1,5 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
-from django.conf import settings
 from decimal import Decimal
 from products.models import Product
 from checkout.models import Order, OrderLineItem

@@ -134,7 +134,7 @@ class ReviewViewsTests(TestCase):
         Test that users cannot edit reviews they did not write.
         """
 
-        other_user = User.objects.create_user(username='otheruser', password='testpass')
+        User.objects.create_user(username='otheruser', password='testpass')
         self.client.login(username='otheruser', password='testpass')
         url = reverse('reviews:edit_review', args=[self.review.id])
         response = self.client.get(url)
@@ -157,7 +157,7 @@ class ReviewViewsTests(TestCase):
         Test that users cannot delete reviews they did not write.
         """
 
-        other_user = User.objects.create_user(username='otheruser', password='testpass')
+        User.objects.create_user(username='otheruser', password='testpass')
         self.client.login(username='otheruser', password='testpass')
         url = reverse('reviews:delete_review', args=[self.review.id])
         response = self.client.post(url)

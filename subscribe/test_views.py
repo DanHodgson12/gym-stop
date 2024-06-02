@@ -2,7 +2,7 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 from subscribe.models import MarketingSubscription
-from subscribe.forms import MarketingSubscriptionForm, UnsubscribeForm
+from subscribe.forms import UnsubscribeForm
 from unittest.mock import patch
 from django.contrib import messages
 

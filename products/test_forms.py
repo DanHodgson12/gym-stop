@@ -1,7 +1,6 @@
 from django.test import TestCase
-from django import forms
 from .forms import ProductForm
-from .models import Product, Category
+from .models import Category
 from .widgets import CustomClearableFileInput
 
 

@@ -2,7 +2,7 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
 from profiles.models import UserProfile
-from checkout.models import Order, OrderLineItem
+from checkout.models import Order
 from products.models import Product
 from unittest.mock import patch
 import json
@@ -24,7 +24,7 @@ class WebhookTests(TestCase):
         self.url = reverse('webhook')
         self.user, created = User.objects.get_or_create(username='testuser', password='password')
         self.user_profile, created = UserProfile.objects.get_or_create(user=self.user)
-        
+
         # Creating a test product
         self.product = Product.objects.create(
             name="Test Product",
@@ -89,8 +89,8 @@ class WebhookTests(TestCase):
         }, stripe.api_key)
 
         response = self.client.post(
-            self.url, 
-            data=json.dumps(self.payload), 
+            self.url,
+            data=json.dumps(self.payload),
             content_type='application/json',
             HTTP_STRIPE_SIGNATURE=self.sig_header
         )
@@ -107,8 +107,8 @@ class WebhookTests(TestCase):
         """
 
         response = self.client.post(
-            self.url, 
-            data=json.dumps(self.payload), 
+            self.url,
+            data=json.dumps(self.payload),
             content_type='application/json',
             HTTP_STRIPE_SIGNATURE=self.sig_header
         )
@@ -123,8 +123,8 @@ class WebhookTests(TestCase):
         """
 
         response = self.client.post(
-            self.url, 
-            data=json.dumps(self.payload), 
+            self.url,
+            data=json.dumps(self.payload),
             content_type='application/json',
             HTTP_STRIPE_SIGNATURE=self.sig_header
         )
@@ -139,8 +139,8 @@ class WebhookTests(TestCase):
         """
 
         response = self.client.post(
-            self.url, 
-            data=json.dumps(self.payload), 
+            self.url,
+            data=json.dumps(self.payload),
             content_type='application/json',
             HTTP_STRIPE_SIGNATURE=self.sig_header
         )

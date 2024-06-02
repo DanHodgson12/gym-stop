@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
 from django.http import HttpResponseRedirect
-from django.urls import reverse
 from django.contrib.auth import get_user_model
 import os
 from django.template.loader import render_to_string

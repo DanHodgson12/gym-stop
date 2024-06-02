@@ -251,7 +251,7 @@ class CheckoutViewsTests(TestCase):
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(len(messages), 1)
         self.assertEqual(
-            str(messages[0]), 
+            str(messages[0]),
             "One of the products in your bag wasn't found in our database. Please call us for assistance!"
         )
 

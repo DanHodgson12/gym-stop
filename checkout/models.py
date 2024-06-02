@@ -9,7 +9,7 @@ from profiles.models import UserProfile
 
 class Order(models.Model):
     """
-    Represents a customer's order, containing details about the user, 
+    Represents a customer's order, containing details about the user,
     shipping address, and total costs.
     """
 

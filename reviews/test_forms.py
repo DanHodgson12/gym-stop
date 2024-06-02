@@ -1,7 +1,6 @@
 from django.test import TestCase
 from django.utils.safestring import SafeData
 from .forms import ReviewForm
-from .models import Review
 from products.models import Product, Category
 from django.contrib.auth.models import User
 
@@ -34,20 +33,20 @@ class ReviewFormTests(TestCase):
         form = ReviewForm()
         expected_choices = [
             (1, '<i class="fa fa-star filled-star"></i>'),
-            (2, '<i class="fa fa-star filled-star"></i>' +
-                '<i class="fa fa-star filled-star"></i>'),
-            (3, '<i class="fa fa-star filled-star"></i>' +
-                '<i class="fa fa-star filled-star"></i>' +
-                '<i class="fa fa-star filled-star"></i>'),
-            (4, '<i class="fa fa-star filled-star"></i>' +
-                '<i class="fa fa-star filled-star"></i>' +
-                '<i class="fa fa-star filled-star"></i>' +
-                '<i class="fa fa-star filled-star"></i>'),
-            (5, '<i class="fa fa-star filled-star"></i>' +
-                '<i class="fa fa-star filled-star"></i>' +
-                '<i class="fa fa-star filled-star"></i>' +
-                '<i class="fa fa-star filled-star"></i>' +
-                '<i class="fa fa-star filled-star"></i>')
+            (2, '<i class="fa fa-star filled-star"></i>'
+                + '<i class="fa fa-star filled-star"></i>'),
+            (3, '<i class="fa fa-star filled-star"></i>'
+                + '<i class="fa fa-star filled-star"></i>'
+                + '<i class="fa fa-star filled-star"></i>'),
+            (4, '<i class="fa fa-star filled-star"></i>'
+                + '<i class="fa fa-star filled-star"></i>'
+                + '<i class="fa fa-star filled-star"></i>'
+                + '<i class="fa fa-star filled-star"></i>'),
+            (5, '<i class="fa fa-star filled-star"></i>'
+                + '<i class="fa fa-star filled-star"></i>'
+                + '<i class="fa fa-star filled-star"></i>'
+                + '<i class="fa fa-star filled-star"></i>'
+                + '<i class="fa fa-star filled-star"></i>')
         ]
         self.assertEqual(form.fields['rating'].choices, expected_choices)
 

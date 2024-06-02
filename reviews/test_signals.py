@@ -29,7 +29,7 @@ class ReviewSignalsTests(TestCase):
         Test that the product rating is updated when a review is saved.
         """
 
-        review = Review.objects.create(
+        Review.objects.create(
             product=self.product,
             user=self.user,
             rating=5,

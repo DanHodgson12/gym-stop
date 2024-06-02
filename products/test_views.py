@@ -58,9 +58,9 @@ class ProductsViewsTests(TestCase):
         profile = UserProfile.objects.get(user=self.user)
         order = Order.objects.create(user_profile=profile)
         order.lineitems.create(product=self.product, quantity=1)
-        
+
         self.client.login(username='testuser', password='testpass')
-        
+
         response = self.client.get(reverse('product_detail', args=[self.product.id]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/product_detail.html')

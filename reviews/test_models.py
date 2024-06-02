@@ -38,7 +38,7 @@ class ReviewModelTests(TestCase):
         """
 
         review_str = str(self.review)
-        self.assertEqual(review_str, f"Review by testuser for Test Product")
+        self.assertEqual(review_str, "Review by testuser for Test Product")
 
     def test_review_creation(self):
         """
@@ -81,5 +81,5 @@ class ReviewModelTests(TestCase):
             content='This is an anonymous review.',
             rating=4
         )
-        self.assertEqual(str(anonymous_review), f"Review by Anonymous for Test Product")
+        self.assertEqual(str(anonymous_review), "Review by Anonymous for Test Product")
         self.assertIsNone(anonymous_review.user)

@@ -1,8 +1,5 @@
 from django.test import TestCase
-from django import forms
 from profiles.forms import UserProfileForm
-from profiles.models import UserProfile
-from django_countries.fields import Country
 
 
 class UserProfileFormTests(TestCase):
