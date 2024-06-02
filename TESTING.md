@@ -167,7 +167,13 @@ Nav links highlighted when hovered over | Pass
 Nav links display relevant dropdown when clicked | Pass
 Nav link dropdown links take user to appropriate page when clicked | Pass
 
+### Home
 
+Outcome | Pass/Fail
+--- | ---
+Text displayed clearly with no formatting issues | Pass
+Background image displayed clearly with no pixelation or stretching | Pass
+Shop Now button takes user to 'All Products' page as expected | Pass
 
 ### Known Bugs
 
