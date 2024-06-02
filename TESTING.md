@@ -292,6 +292,20 @@ Editing or Deleting a review updates the product's average rating accordingly | 
 
 ### Subscribe
 
+Outcome | Pass/Fail
+--- | ---
+Subscribe button shown correctly in footer | Pass
+Subscribe button opens subscribe modal when clicked | Pass
+Subscribe modal renders subscribe form correctly with relevant validation | Pass
+Error message displayed when an email address is already subscribed, and whether it's linked to an existing account | Pass
+Clicking 'Subscribe to marketing emails?' box on user's Profile page successfully subscribes user | Pass
+Success message displayed when email address successfully subscribed | Pass
+Email sent to email address after being successfully subscribed | Pass
+Unsubscribe link in marketing emails takes user to Unsubscribe page | Pass
+Entering subscribed email address in unsubscription form and clicking 'Unsubscribe' button successfully unsubscribes email address | Pass
+Unchecking 'Subscribe to marketing emails?' box on user's Profile page successfully unsubscribes user | Pass
+Success message displayed when email address is successfully unsubscribed | Pass
+
 ### Bag
 
 ### Checkout
