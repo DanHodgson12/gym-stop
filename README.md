@@ -49,7 +49,6 @@ Visit the deployed site [here](https://danh12-gym-stop-6494ee93884f.herokuapp.co
 
 - **As a** Shopper, **I want** to sort the list of available products **so that** I can easily identify the best rated, best priced, and categorically sorted products.
 - **As a** Shopper, **I want** to sort a specific category of product **so that** I can find the best-priced or best-rated product in a specific category, or sort the products in that category by name.
-- **As a** Shopper, **I want** to sort multiple categories of products simultaneously **so that** I can find the best-priced or best-rated products across broad categories, such as "clothing" or "homeware".
 - **As a** Shopper, **I want** to search for a product by name or description **so that** I can find a specific product I'd like to purchase.
 - **As a** Shopper, **I want** to easily see what I've searched for and the number of results **so that** I can quickly decide whether the product I want is available.
 
@@ -59,14 +58,16 @@ Visit the deployed site [here](https://danh12-gym-stop-6494ee93884f.herokuapp.co
 - **As a** Shopper, **I want** to view items in my bag to be purchased **so that** I can identify the total cost of my purchase and all items I will receive.
 - **As a** Shopper, **I want** to adjust the quantity of individual items in my bag **so that** I can easily make changes to my purchase before checkout.
 - **As a** Shopper, **I want** to easily enter my payment information **so that** I can check out quickly and with no hassles.
-- **As a** Shopper, **I want** to feel my personal and payment information is safe and secure **so that** I can confidently provide the needed information to make a purchase.
 - **As a** Shopper, **I want** to view an order confirmation after checkout **so that** I can verify that I haven't made any mistakes.
 - **As a** Shopper, **I want** to receive an email confirmation after checking out **so that** I can keep the confirmation of what I've purchased for my records.
 
 ### Reviews and Subscriptions
 
 - **As a** Shopper, **I want** to receive marketing emails **so that** I can keep up to date with new deals and offers.
+- **As a** Shopper, **I want** to ubsubscribe from marketing emails **so that** I can chose whether I want to see offers and deals.
 - **As a** Shopper, **I want** to leave reviews on products I have purchased **so that** I can let other shoppers know what I think of the product.
+- **As a** Shopper, **I want** to be able to edit reviews I have left **so that** I can update my rating, headline or description if I change my mind.
+- **As a** Shopper, **I want** to be able to delete reviews I have left **so that** I can chose whether to leave my review for others to see.
 
 ### Admin and Store Management
 
