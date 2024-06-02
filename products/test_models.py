@@ -108,6 +108,14 @@ class ProductModelTests(TestCase):
         self.product.rating = 4.5
         self.assertEqual(self.product.rating_percentage(), 90)
 
+    def test_rating_percentage_none(self):
+        """
+        Test the rating_percentage method of the Product model when rating is None.
+        """
+
+        self.product.rating = None
+        self.assertEqual(self.product.rating_percentage(), 0)
+
     def test_max_value_validator_for_rating(self):
         """
         Test that the rating field respects the MaxValueValidator.
