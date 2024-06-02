@@ -232,6 +232,28 @@ Product 'Edit' button takes user to respective 'Edit Product' page | Pass
 Product 'Delete' button opens modal asking user if they want to proceed | Pass
 After clicking delete button on Delete modal, product is successfully deleted | Pass
 
+### Add Product
+
+Outcome | Pass/Fail
+--- | ---
+All form fields are rendered correctly | Pass
+All fields show relevant placeholders | Pass
+All fields have relevant field validation | Pass
+'Select Image' button allows user to upload image file | Pass
+'Cancel' button takes user back to original page they navigated from | Pass
+'Add Product' button successfully adds product which then renders on products page | Pass
+
+### Edit Product
+
+Outcome | Pass/Fail
+--- | ---
+All form fields are rendered with the product's current information | Pass
+All fields show relevant placeholders | Pass
+All fields have relevant field validation | Pass
+'Select Image' button allows user to change image file | Pass
+'Cancel' button takes user back to original page they navigated from | Pass
+'Update Product' button successfully updates product's information | Pass
+
 ### Account Management
 
 ### Profile
