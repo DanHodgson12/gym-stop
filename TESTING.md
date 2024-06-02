@@ -322,6 +322,19 @@ Quantity of individual sizes of a product can be updated/removed as expected | P
 
 ### Checkout
 
+Outcome | Pass/Fail
+--- | ---
+User Details form rendered correctly with relevant validation | Pass
+User Devliery Info form rendered correctly with relevant validation | Pass
+Stripe Card Number Entry field rendered correctly with relevant validation | Pass
+All forms auto-filled with user's saved info | Pass
+'Save delivery info' box is checked by default | Pass
+Order summary correctly displayed on right of form with relevant product info | Pass
+Order total, delivery and grand total price displayed correctly | Pass
+Warning message displayed under 'Complete Order' button as expected | Pass
+Card element validation prevents incorrect card information to be entered | Pass
+Completing order by clicking 'Complete Order' button displays success message, takes user to checkout success page, and sends confirmation email as expected | Pass
+
 ## Known Bugs
 
 There are no known bugs with the web application.
