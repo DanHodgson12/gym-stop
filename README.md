@@ -265,6 +265,44 @@ Subscribe button
 
 ## Products
 
+![Products](assets/products-features.png)
+
+Product Cards
+- Each product is rendered in their own card, containing the following information:
+  - Product name
+  - Price
+  - Category tag
+    - Is a clickable link, taking user to page displaying products in that category
+  - Rating
+    - Rating stars are filled depending on average rating of product's reviews
+- Each product card is clickable and takes user to specific ['Product Detail'](#product-detail) page
+
+Sort/Filter Dropdown
+
+![Sort/Filter Dropdown](assets/products-sort.png)
+
+- Clicking the 'Sort by...' button opens a dropdown where the user can sort products by Price, Rating, Name or Category.
+
+Product Home Link
+
+![Products Home Link](assets/products-home.png)
+
+- If a user enters search criteria in the search bar or uses sorting, a 'Products Home' link is displayed, taking user to the 'All Products' page.
+
+Products/Categories Links
+
+![Products/Categories Links](assets/products-super-category.png)
+
+- If user searches for all products in a super-category, all categories are displayed in links below the header.
+  - Each category link takes user to products in that category.
+  - Each category link's colour reverses when hovered over.
+
+## Product Detail
+
+## Add Product
+
+## Edit Product
+
 ## Account Management
 
 ## Profile
