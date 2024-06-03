@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    # Django extensions
+    'django_extensions',
+
     # All-auth
     'allauth',
     'allauth.account',
