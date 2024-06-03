@@ -199,6 +199,9 @@ Collapsed Nav | Extended Nav | Extended Nav Dropdown (example)
 
 ## Footer
 
+- Footer stuck to bottom of screen when page loads.
+- Can scroll past footer to get to the extended footer.
+
 ![Footer](assets/footer.png)
 
 Social Media links
@@ -218,6 +221,39 @@ Subscribe button
 - All links perform the same as regular footer.
 
 ## Footer (Extended)
+
+![Footer Extended](assets/footer-extended.png)
+
+- Hidden when page loads, but can scroll past footer to get to extended footer.
+- Only displayed on 'Home' page and pages for respective legal documents.
+- Contains 'About' and 'Contact' information.
+- Contains links for legal documents:
+  - <details>
+    <summary>Terms & Conditions</summary>
+
+    ![Terms & Conditions](assets/terms-and-conditions.png)
+
+    </details>
+  - <details>
+    <summary>Privacy Policy</summary>
+
+    ![Privacy Policy](assets/privacy-policy.png)
+
+    </details>
+  - <details>
+    <summary>Returns Policy</summary>
+
+    ![Returns Policy](assets/returns-policy.png)
+
+    </details>
+
+### Mobile Footer (Extended)
+
+![Mobile Footer (Extended)](assets/footer-extended-mobile.png)
+
+- All information stays the same as on the regular extended footer.
+- Also only displayed on 'Home' page and pages for respective legal documents.
+- Only the layout changes.
 
 ## Home
 
