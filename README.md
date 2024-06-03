@@ -257,6 +257,12 @@ Subscribe button
 
 ## Home
 
+![Home Page Features](assets/home-features.png)
+
+- Centered background image covers the entire page.
+- Displays promotional headline message - **"YOUR FITNESS JOURNEY STARTS HERE"**.
+- Displays **"SHOP NOW"** button, which takes user to the 'All Products' page.
+
 ## Products
 
 ## Account Management
