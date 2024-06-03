@@ -351,6 +351,50 @@ Clicking the 'Cancel' button takes the user back to the page they navigated from
 
 ## Account Management
 
+As a user of this website, I would need to be able to log in, log out, confirm my email address, register and request a password reset link. Below are the respective pages rendered depending on the user's needs.
+
+<details>
+<summary>Register</summary>
+
+![Register](assets/sign-up-feature.png)
+
+</details>
+
+<details>
+<summary>Sign In</summary>
+
+![Sign In](assets/sign-in-feature.png)
+
+</details>
+
+<details>
+<summary>Sign Out</summary>
+
+![Sign Out](assets/sign-out-feature.png)
+
+</details>
+
+<details>
+<summary>Verify Email Address</summary>
+
+![Verify Email Address](assets/verify-email-feature.png)
+
+</details>
+
+<details>
+<summary>Confirm Email Address</summary>
+
+![Confirm Email Address](assets/confirm-email-feature.png)
+
+</details>
+
+<details>
+<summary>Password Reset</summary>
+
+![Password Reset](assets/password-reset-feature.png)
+
+</details>
+
 ## Profile
 
 ## Reviews
