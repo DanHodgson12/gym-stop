@@ -326,6 +326,17 @@ Products/Categories Links
 
 ## Add Product
 
+If you are a superuser, clicking the 'Product Management' link in the dropdown for the 'My Account' button in the navbar takes user to 'Add Product' page.
+
+![Add Product Page](assets/add-product-features.png)
+
+Here, the superuser can add a product to the site. All form fields have the relevant validation, and the following fields are required:
+- Name
+- Description
+- Price
+
+Clicking the 'Cancel' button takes the user back to the page they navigated from.
+
 ## Edit Product
 
 ## Account Management
