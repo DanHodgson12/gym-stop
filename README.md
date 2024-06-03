@@ -146,11 +146,62 @@ Please see database schemas below.
 
 ## Navbar
 
-## Home
+### Main Nav
+
+![Main Nav](assets/main-nav.png)
+
+#### GYM STOP logo
+- When clicked, takes user to 'Home' page.
+
+#### Search Bar
+- User can enter text and search for specific products.
+- Returns results of input in either product title or description.
+
+#### My Account Button
+- When hovered over, changes background colour to white and colour to grey.
+- When clicked, opens a dropdown showing the following:
+
+Logged In & Superuser | Logged In & Not Superuser | Logged Out
+--- | --- | ---
+![Logged In & Superuser](assets/my-account-logged-in-super.png) | ![Logged In & Not Superuser](assets/my-account-logged-in.png) | ![Logged Out](assets/my-account-logged-out.png)
+
+#### Shopping Bag icon
+- When clicked, takes user to 'Shopping Bag' page.
+- When hovered over, changes background colour to white and colour to grey.
+- When nothing is in bag, defaults to white icon.
+- When items are in bag, goes to 'active' state and turns yellow.
+
+#### Nav Links
+- When hovered over, changes background colour to white and colour to grey.
+- When each link is clicked, opens dropdown specific to that super-category.
+- When a link in a dropdown is clicked, takes user to products page displaying only products in that specific category.
+
+All Products | Strength & Conditioning | Nutrition & Supplements | Accessories
+--- | --- | --- | ---
+![All Products](assets/all-products-nav-links.png) | ![Strength & Conditioning](assets/str-cond-nav-links.png) | ![Nutrition & Supplements](assets/nutri-sup-nav-links.png) | ![Accessories](assets/accessories-nav-links.png)
+
+#### Promotional Banner
+- Displays promotional message to the user.
+- Default message is **"FREE DELIVERY ON ORDERS OVER £50.00!"**.
+- Is attached to navbar and displays on all pages.
+
+### Mobile Nav
+
+- GYM STOP logo no longer shown.
+- Now has a 'Home' link instead of logo.
+- Search bar now displays when 'Search' button is clicked.
+- Nav-links turn into a collapsed menu which extends upon pressing hamburger icon.
+- Nav-links open dropdown showing categories specific to super-category
+
+Collapsed Nav | Extended Nav | Extended Nav Dropdown (example)
+--- | --- | ---
+![Mobile Nav](assets/mobile-nav.png) | ![Mobile Nav Extended](assets/mobile-nav-extended.png) | ![Mobile Nav Extended Dropdown](assets/mobile-nav-extended-dropdown.png)
 
 ## Footer
 
 ## Footer (Extended)
+
+## Home
 
 ## Products
 
