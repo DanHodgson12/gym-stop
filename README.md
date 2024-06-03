@@ -199,6 +199,24 @@ Collapsed Nav | Extended Nav | Extended Nav Dropdown (example)
 
 ## Footer
 
+![Footer](assets/footer.png)
+
+Social Media links
+- When clicked, takes user to respective webpage.
+- Each link opens in a new tab instead of reloading current window.
+
+Subscribe button
+- When clicked, opens 'Subscribe' modal, allowing user to enter email address and subscribe to marketing emails.
+
+![Subscribe Modal](assets/subscribe-modal.png)
+
+### Mobile Footer
+
+![Mobile Footer](assets/footer-mobile.png)
+
+- Subscribe button now turned into button with mail icon.
+- All links perform the same as regular footer.
+
 ## Footer (Extended)
 
 ## Home
