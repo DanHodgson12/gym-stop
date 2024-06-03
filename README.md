@@ -297,7 +297,32 @@ Products/Categories Links
   - Each category link takes user to products in that category.
   - Each category link's colour reverses when hovered over.
 
-## Product Detail
+## Product Details
+
+![Product Details](assets/product-details-features.png)
+
+- Contains important information about the product:
+  - Product image
+  - Product name
+  - Price
+  - Category tag
+    - Is a clickable link, taking user to page displaying products in that category
+  - Rating
+    - Rating stars are filled depending on average rating of product's reviews
+  - Product Description
+- A size selector dropdown is shown if the product has sizes (is hidden if not)
+- Quantity selector is shown always
+  - Has max value of 99 and min value of 1
+  - Plus and minus buttons disabled once min/max values reached
+- 'Keep Shopping' button takes user back to the page they navigated from
+- 'Add To Bag' button adds product to the user's bag
+  - Success message showing a preview of user's bag is displayed when this action is performed
+- If product has reviews, each review is rendered underneath product details
+  - Head to ['Reviews'](#reviews) section for more detail
+- 'Edit and 'Delete' buttons are shown ONLY if user is a superuser
+  - 'Edit' button takes user to ['Edit Product'](#edit-product) page
+  - 'Delete' button opens modal asking user if they are sure they want to delete the product
+    - 'Confirm Delete' button inside modal deletes the product permanently
 
 ## Add Product
 
