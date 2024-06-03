@@ -107,15 +107,16 @@ Products | ![Products](assets/wireframes.png)
 
 Relational databases and non-relational databases are two of many databases which can be utilised in a web application. Each database differs in the way it uses data models and how data can be scaled with each model.
 
-1. Relational
-   1. Follow a structured, table-based model
-   2. Data organised in rows and columns
-   3. Good at managing structured data with complex relationships
-   4. Suitable for applications requiring strong consistency, such as financial systems
-2. Non-Relational
-   1. Flexible data models like documents, key-value pairs, or graphs
-   2. Prioritize scalability and accommodate dynamic, unstructured data
-   3. Good at delivering horizontal scalability, such as web applications or real-time analytics
+Relational
+- Follow a structured, table-based model
+- Data organised in rows and columns
+- Good at managing structured data with complex relationships
+- Suitable for applications requiring strong consistency, such as financial systems
+
+Non-Relational
+- Flexible data models like documents, key-value pairs, or graphs
+- Prioritize scalability and accommodate dynamic, unstructured data
+- Good at delivering horizontal scalability, such as web applications or real-time analytics
 
 # Database Schemas
 
@@ -136,22 +137,6 @@ Please see database schemas below.
 ![Custom Models](assets/selected_apps_visualized.png)
 
 </details>
-
-## Users
-
-## Categories
-
-## Products
-
-## Reviews
-
-## Subscribe
-
-## User Profile
-
-## Bag
-
-## Checkout
 
 # Features
 
@@ -187,14 +172,12 @@ When a user performs a major action in the application, such as signing in, regi
 
 Click below to see all the flashed messages shown depending on action and outcome.
 
-<details>
-
-<summary>All Flashed Messages</summary>
-
-Action | Outcome | Message
+Type | Use-Case | Message
 --- | --- | ---
-
-</details>
+Success | Used to display confirmation of a successful action to the user, e.g. a successful purchase. | ![Success Message](assets/messages-success.png)
+Error | Shown when an action fails, such as when form validation errors occur or a payment process fails. | ![Error Message](assets/messages-error.png)
+Info | Used to provide general information to the user, such as indicating they are viewing an old order. | ![Info Message](assets/messages-info.png)
+Warning | Issued to alert the user about potential issues, such as when the superuser is editing a product. | ![Warning Message](assets/messages-warning.png)
 
 # Technologies Used
 
