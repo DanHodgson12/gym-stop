@@ -119,9 +119,23 @@ Relational databases and non-relational databases are two of many databases whic
 
 # Database Schemas
 
-The database used for this application is stored in the relational database __ElephantSQL__. The reason behind the choice to use a relational database for this application was that the relation between each data-model is linked via foreign and primary keys.
+The database for this e-commerce application is hosted on ElephantSQL, a relational database service. The choice to use a relational database is crucial for this project because it allows for the structured linking of data models through foreign and primary keys, ensuring data integrity and efficient management of relationships between entities such as products, customers, and orders. This structure supports complex queries and transactions, which are essential for the robust functionality and scalability of an e-commerce site.
 
-Please see below for examples of each data-model.
+Please see database schemas below.
+
+<details>
+<summary>All Models</summary>
+
+![All Models](assets/my_project_visualized.png)
+
+</details>
+
+<details open>
+<summary>Custom Models</summary>
+
+![Custom Models](assets/selected_apps_visualized.png)
+
+</details>
 
 ## Users
 
