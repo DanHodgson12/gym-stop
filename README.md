@@ -339,6 +339,16 @@ Clicking the 'Cancel' button takes the user back to the page they navigated from
 
 ## Edit Product
 
+If you are a superuser, clicking the 'Edit' button on a product card on the products page, or in the product information on the 'Product Details' page will take the user to the 'Edit Product' page. All fields will be filled with the products current data.
+
+![Edit Product Page](assets/edit-product-features.png)
+
+Here, the superuser can edit a products information. The form is identical to the 'Add Product' form.
+
+Clicking 'Update Product' will update the products information in the database.
+
+Clicking the 'Cancel' button takes the user back to the page they navigated from.
+
 ## Account Management
 
 ## Profile
