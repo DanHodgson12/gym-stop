@@ -473,6 +473,22 @@ Underneath the Payment section, there are two buttons:
   - If unsuccessful, an error message will show at the top of the screen and the page will refresh
   - If successful, the user will be taken to the 'Checkiout Success' page
 
+## Checkout Success
+
+![Checkout Success](assets/checkout-success-features.png)
+
+The checkout success page is shown when the user has placed a successful order. It let's the user know that a confirmation email will be sent to their registered email address.
+
+Other than the header and informative text above the order information, this page is identical to the 'Order Confirmation' page.
+
+It contains all details of the customer's order, such as:
+  - Order Info
+  - Order Details
+  - Delivery Info
+  - Billing Info
+
+There's also a button which prompts the user to checkout out a specific category of products - "NOW CHECK OUT OUR GYM ESSENTIALS!".
+
 ## Reviews
 
 ## Subscribe
