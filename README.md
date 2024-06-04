@@ -414,7 +414,7 @@ The 'Profile' page displays the following:
 
 This page shows information for a particular order, which was sent to the user via email after their successful checkout.
 
-Other than the header and informative text above the order information, this page is identical to the 'Checkout Success' page.
+Other than the header and informative text above the order information, this page is identical to the ['Checkout Success'](#checkout-success) page.
 
 It contains all details of the customer's order, such as:
   - Order Info
@@ -479,7 +479,7 @@ Underneath the Payment section, there are two buttons:
 
 The checkout success page is shown when the user has placed a successful order. It let's the user know that a confirmation email will be sent to their registered email address.
 
-Other than the header and informative text above the order information, this page is identical to the 'Order Confirmation' page.
+Other than the header and informative text above the order information, this page is identical to the ['Order Confirmation'](#order-confirmation) page.
 
 It contains all details of the customer's order, such as:
   - Order Info
