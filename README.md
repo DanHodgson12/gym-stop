@@ -535,6 +535,9 @@ Warning | Issued to alert the user about potential issues, such as when the supe
 - [Amazon Web Services](https://aws.amazon.com/)
   - AWS was used for hosting static files and media files.
 
+- [Stripe](https://www.stripe.com)
+  - Stripe was used as the payment system for the website, allowing users to purchase items safely.
+
 - [jQuery](https://jquery.com/)
   - jQuery was used as the preferred JavaScript library for HTML document traversal and manipulation, event handling and animation.
 
