@@ -403,6 +403,7 @@ As a user of this website, I would need to be able to log in, log out, confirm m
 The 'Profile' page displays the following:
 - User's saved info (if user clicks "Save Info" checkbox at checkout)
   - This contains a checkbox for the user to subscribe or unsubscribe to emails
+    - For more information on this functionality, head to the ['Subscribe'](#subscribe) section
   - Also has an 'Update Information' button so the user can change their saved info
 
 - User's Order History
@@ -527,6 +528,24 @@ The 'Edit Review' page is identical to the 'Add Review' page, except the review'
 Changing the information and clicking 'Submit Changes' will update the review in the database.
 
 ## Subscribe
+
+After a user has clicked the **'Subscribe'** button in the [Footer](#footer), the 'Subscribe' modal will appear.
+
+![Subscribe Modal](assets/subscribe-modal-features.png)
+
+Once the user has entered a valid email address and clicks 'Subscribe', they will be sent an email and shown a success message if successful, or an error message if the email address is either already registered, or the email address was invalid.
+
+![Subscribe Email](assets/subscribe-email-feature.png)
+
+The subscribe email sent to the user contains a welcome message, information on what they will receive whilst subscribed, a contact email, and an 'unsubscribe' link.
+
+Once clicked, the 'Unsubscribe' link will take the user to the 'Unsubscribe' page.
+
+![Unsubscribe Page](assets/unsubscribe-features.png)
+
+Here, the user can enter their email address and click 'Unsubscribe', successfully unsubscibing them from the mailing list. If the email address is not already subscribed, it will simply show an error message in the top right corner.
+
+As mentioned in the ['Profile'](#profile) section, users can also subscribe and unsubscribe using the relevant checkbox in their profile information.
 
 ## Flashed Messages
 
