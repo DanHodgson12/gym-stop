@@ -491,6 +491,40 @@ There's also a button which prompts the user to checkout out a specific category
 
 ## Reviews
 
+![Reviews](assets/reviews-features.png)
+
+The reviews section displays on the 'Product Detail' page for each product. If there are no reviews for a product, the text "No reviews yet" will be displayed underneath the reviews header.
+
+Depending on certain conditions, the user will see different options in the top right corner of the reviews section:
+
+Condition | Displayed
+--- | ---
+The user IS NOT logged in - a link to log in is provided. | ![Reviews Not Logged In](assets/reviews-non-login.png)
+The user IS logged in but they HAVE NOT purchased the product before. | ![Reviews Not Purchased](assets/reviews-non-purchase.png)
+The user IS logged in and they HAVE purchased the product before - a button is displayed for them to add a review. | ![Review Logged In & Purchased](assets/reviews-login-purchase.png)
+
+If the currently logged in user has left a review on a particular product, two buttons will be displayed in the bottom right corner of the review:
+- 'Edit' - this will take the user to the ['Edit Review'](#edit-review) page where they can make changes to their review.
+- 'Delete' - this button brings up a modal asking the user if they're sure they want to delete the review
+  - Clicking 'Confirm Delete' inside the modal will delete the review permanently
+
+### Add Review
+
+![Add Review](assets/add-review-features.png)
+
+After clicking the 'Add Review' button in the reviews section, the user is taken to the 'Add Review' page, where they can enter the following:
+- Star Rating out of 5 (required)
+- Review Headline (optional)
+- Review Content (optional)
+
+Once finished, clicking 'Submit Review' will add the review to the database, and display it on the product detail page in the Reviews section.
+
+### Edit Review
+
+The 'Edit Review' page is identical to the 'Add Review' page, except the review's current rating, headline and content are pre-filled in the form.
+
+Changing the information and clicking 'Submit Changes' will update the review in the database.
+
 ## Subscribe
 
 ## Flashed Messages
