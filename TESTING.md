@@ -41,6 +41,8 @@ Due to time constraints, a high amount of manual testing being carried out on th
 
 ### Viewing and Navigation
 
+- **As a** user, **I want** to be able to navigate the application easily, **so that** I can start using the application as soon as possible.
+  - **Given** I load the web application, **when** I look at the navbar, **then** I will be able to see how to navigate to the desired page.
 - **As a** Shopper, **I want** to view a list of products **so that** I can select some to purchase.
   - **Given** I click the "Shop Now" button on the home page, or click the "All Products" link in the navigation menu, **then** I will see a list of products to view.
 - **As a** Shopper, **I want** to view individual product details **so that** I can identify the price, description, product rating, product image, and available sizes.

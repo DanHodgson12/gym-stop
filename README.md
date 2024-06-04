@@ -32,6 +32,7 @@ Visit the deployed site [here](https://danh12-gym-stop-6494ee93884f.herokuapp.co
 
 ### Viewing and Navigation
 
+- **As a** user, **I want** to be able to navigate the application easily, **so that** I can start using the application as soon as possible.
 - **As a** Shopper, **I want** to view a list of products **so that** I can select some to purchase.
 - **As a** Shopper, **I want** to view individual product details **so that** I can identify the price, description, product rating, product image, and available sizes.
 - **As a** Shopper, **I want** to quickly identify deals, clearance items, and special offers **so that** I can take advantage of special savings on products I'd like to purchase.
