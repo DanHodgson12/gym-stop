@@ -422,13 +422,33 @@ It contains all details of the customer's order, such as:
   - Delivery Info
   - Billing Info
 
+## Bag
+
+![Bag Page](assets/shopping-bag-features.png)
+
+On the shopping bag page, each item in the user's shopping bag will be rendered. Each item will show the following:
+- Product image
+- Product name
+- SKU
+- Size (if applicable)
+- Quantity selector
+  - With 'Remove' and 'Update' buttons to remove item from bag or update it's quantity
+- Price
+- Subtotal
+
+Below the rendered bag items, the following items are displayed:
+- 'Bag Total' - the total cost of all items in the bag
+- 'Delivery' - the cost of delivery, which is 10% of the 'Bag Total' (if under £50)
+- 'Grand Total' - total of the 'Bag Total' + 'Delivery'
+- An informative message, stating user could qualify for free delivery if they spend 'x' amount more (if they don't already reach the free delivery threshold)
+- A 'Keep Shopping' button, in case the user isn't ready to check out
+- A 'Secure Checkout' button, which takes the user to the 'Checkout' page
+
+## Checkout
+
 ## Reviews
 
 ## Subscribe
-
-## Bag
-
-## Checkout
 
 ## Flashed Messages
 
