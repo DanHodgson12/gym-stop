@@ -446,6 +446,31 @@ Below the rendered bag items, the following items are displayed:
 
 ## Checkout
 
+![Checkout Page](assets/checkout-features.png)
+
+The 'Checkout' page is split into three sections: Order Form, Order Summary & Payment.
+
+### Order Form
+
+The order form allows users to enter the following:
+- Personal details, such as name, email address and phone number
+- Delivery details, such as street address, postcode and country
+- A "Save Info" checkbox, in case the user wants to save their personal and delivery info to their profile
+
+### Order Summary
+
+This section renders each item in the users bag, the total cost and delivery cost. This information is almost identical to the information displayed on the 'Bag' page, minus the quantity selection option.
+
+### Payment
+
+Underneath the order form is a Stripe payment element. This element contains all the required validation by Stripe. Error messages are shown beneath the payment element - for example, if the card number is incorrect - and the user will not be able to checkout until the payment method has been validated.
+
+Underneath the Payment section, there are two buttons:
+- 'Adjust Bag' - this allows the user to go back and adjust the items in their shopping bag if they wish
+- 'Complete Order' - this buttons performs the 'Checkout' function and tries to place the order
+  - If unsuccessful, an error message will show at the top of the screen and the page will refresh
+  - If successful, the user will be taken to the 'Checkiout Success' page
+
 ## Reviews
 
 ## Subscribe
