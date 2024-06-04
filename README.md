@@ -408,6 +408,20 @@ The 'Profile' page displays the following:
   - Each past order will be listed in chronological order, ordered from most recent
   - Each order's order number is a clickable link, which takes the user to the Order Confirmation page for that order (the same info they were shown after the successful checkout)
 
+## Order Confirmation
+
+![Order Confirmation](assets/order-history-confirmation.png)
+
+This page shows information for a particular order, which was sent to the user via email after their successful checkout.
+
+Other than the header and informative text above the order information, this page is identical to the 'Checkout Success' page.
+
+It contains all details of the customer's order, such as:
+  - Order Info
+  - Order Details
+  - Delivery Info
+  - Billing Info
+
 ## Reviews
 
 ## Subscribe
