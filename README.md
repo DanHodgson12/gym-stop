@@ -422,6 +422,8 @@ It contains all details of the customer's order, such as:
   - Delivery Info
   - Billing Info
 
+There's also a 'Back To Profile' button which takes the user back to their profile.
+
 ## Bag
 
 ![Bag Page](assets/shopping-bag-features.png)
