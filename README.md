@@ -397,6 +397,17 @@ As a user of this website, I would need to be able to log in, log out, confirm m
 
 ## Profile
 
+![Profile](assets/profile-features.png)
+
+The 'Profile' page displays the following:
+- User's saved info (if user clicks "Save Info" checkbox at checkout)
+  - This contains a checkbox for the user to subscribe or unsubscribe to emails
+  - Also has an 'Update Information' button so the user can change their saved info
+
+- User's order History
+  - Each past order will be listed in chronological order, ordered from most recent
+  - Each order's order number is a clickable link, which takes the user to the Order Confirmation page for that order (the same info they were shown after the successful checkout)
+
 ## Reviews
 
 ## Subscribe
