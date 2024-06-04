@@ -444,6 +444,9 @@ Warning | Issued to alert the user about potential issues, such as when the supe
 - [ElephantSQL](https://www.elephantsql.com/)
   - ElephantSQL was used as the data platform for this application to perform CRUD functionality.
 
+- [Amazon Web Services](https://aws.amazon.com/)
+  - AWS was used for hosting static files and media files.
+
 - [jQuery](https://jquery.com/)
   - jQuery was used as the preferred JavaScript library for HTML document traversal and manipulation, event handling and animation.
 
