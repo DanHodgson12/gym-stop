@@ -404,7 +404,7 @@ The 'Profile' page displays the following:
   - This contains a checkbox for the user to subscribe or unsubscribe to emails
   - Also has an 'Update Information' button so the user can change their saved info
 
-- User's order History
+- User's Order History
   - Each past order will be listed in chronological order, ordered from most recent
   - Each order's order number is a clickable link, which takes the user to the Order Confirmation page for that order (the same info they were shown after the successful checkout)
 
