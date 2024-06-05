@@ -35,7 +35,6 @@ Visit the deployed site [here](https://danh12-gym-stop-6494ee93884f.herokuapp.co
 - **As a** user, **I want** to be able to navigate the application easily, **so that** I can start using the application as soon as possible.
 - **As a** Shopper, **I want** to view a list of products **so that** I can select some to purchase.
 - **As a** Shopper, **I want** to view individual product details **so that** I can identify the price, description, product rating, product image, and available sizes.
-- **As a** Shopper, **I want** to quickly identify deals, clearance items, and special offers **so that** I can take advantage of special savings on products I'd like to purchase.
 - **As a** Shopper, **I want** to easily view the total of my purchases at any time **so that** I can avoid spending too much.
 
 ### Registration and User Accounts
@@ -151,10 +150,15 @@ Please see database schemas below.
 
 ![Main Nav](assets/main-nav.png)
 
+> **As a** user, **I want** to be able to navigate the application easily, **so that** I can start using the application as soon as possible.
+
 #### GYM STOP logo
 - When clicked, takes user to 'Home' page.
 
 #### Search Bar
+
+> - **As a** Shopper, **I want** to search for a product by name or description **so that** I can find a specific product I'd like to purchase.
+
 - User can enter text and search for specific products.
 - Returns results of input in either product title or description.
 
@@ -167,6 +171,11 @@ Logged In & Superuser | Logged In & Not Superuser | Logged Out
 ![Logged In & Superuser](assets/my-account-logged-in-super.png) | ![Logged In & Not Superuser](assets/my-account-logged-in.png) | ![Logged Out](assets/my-account-logged-out.png)
 
 #### Shopping Bag icon
+
+![Shopping Bag Icon](assets/shopping-bag-active.png)
+
+> **As a** Shopper, **I want** to easily view the total of my purchases at any time **so that** I can avoid spending too much.
+
 - When clicked, takes user to 'Shopping Bag' page.
 - When hovered over, changes background colour to white and colour to grey.
 - When nothing is in bag, defaults to white icon.
@@ -268,7 +277,10 @@ Subscribe button
 
 ![Products](assets/products-features.png)
 
-Product Cards
+> **As a** Shopper, **I want** to view a list of products **so that** I can select some to purchase.
+
+### Product Cards
+
 - Each product is rendered in their own card, containing the following information:
   - Product name
   - Price
@@ -278,19 +290,26 @@ Product Cards
     - Rating stars are filled depending on average rating of product's reviews
 - Each product card is clickable and takes user to specific ['Product Detail'](#product-detail) page
 
-Sort/Filter Dropdown
+### Sort/Filter Dropdown
 
 ![Sort/Filter Dropdown](assets/products-sort.png)
 
+> **As a** Shopper, **I want** to sort the list of available products **so that** I can easily identify the best rated, best priced, and categorically sorted products.
+
+> **As a** Shopper, **I want** to sort a specific category of product **so that** I can find the best-priced or best-rated product in a specific category, or sort the products in that category by name.
+
 - Clicking the 'Sort by...' button opens a dropdown where the user can sort products by Price, Rating, Name or Category.
 
-Product Home Link
+### Product Home Link/Search Results
 
-![Products Home Link](assets/products-home.png)
+![Products Home Link/Search Results](assets/results-features.png)
 
-- If a user enters search criteria in the search bar or uses sorting, a 'Products Home' link is displayed, taking user to the 'All Products' page.
+> **As a** Shopper, **I want** to easily see what I've searched for and the number of results **so that** I can quickly decide whether the product I want is available.
 
-Products/Categories Links
+- If a user enters search criteria in the search bar or uses sorting, the results of the search/sorting method will be shown in the top left of the products page.
+- A link to take the user to the 'Products' home page will also be displayed.
+
+### Products/Categories Links
 
 ![Products/Categories Links](assets/products-super-category.png)
 
@@ -301,6 +320,10 @@ Products/Categories Links
 ## Product Details
 
 ![Product Details](assets/product-details-features.png)
+
+> **As a** Shopper, **I want** to view individual product details **so that** I can identify the price, description, product rating, product image, and available sizes.
+
+> **As a** Shopper, **I want** to easily select the size and quantity of a product when purchasing it **so that** I ensure I don't accidentally select the wrong product, quantity, or size.
 
 - Contains important information about the product:
   - Product image
@@ -325,7 +348,11 @@ Products/Categories Links
   - 'Delete' button opens modal asking user if they are sure they want to delete the product
     - 'Confirm Delete' button inside modal deletes the product permanently
 
-## Add Product
+## Product Management
+
+### Add Product
+
+> **As a** Store Owner, **I want** to add a product **so that** I can add new items to my store.
 
 If you are a superuser, clicking the 'Product Management' link in the dropdown for the 'My Account' button in the navbar takes user to 'Add Product' page.
 
@@ -338,7 +365,11 @@ Here, the superuser can add a product to the site. All form fields have the rele
 
 Clicking the 'Cancel' button takes the user back to the page they navigated from.
 
-## Edit Product
+*Superusers can also perform this functionality in the admin panel.*
+
+### Edit Product
+
+> **As a** Store Owner, **I want** to edit/update a product **so that** I can change product prices, descriptions, images, and other product criteria.
 
 If you are a superuser, clicking the 'Edit' button on a product card on the products page, or in the product information on the 'Product Details' page will take the user to the 'Edit Product' page. All fields will be filled with the products current data.
 
@@ -350,9 +381,33 @@ Clicking 'Update Product' will update the products information in the database.
 
 Clicking the 'Cancel' button takes the user back to the page they navigated from.
 
+*Superusers can also perform this functionality in the admin panel.*
+
+### Delete Product
+
+> **As a** Store Owner, **I want** to delete a product **so that** I can remove items that are no longer for sale.
+
+If you are a superuser, clicking the 'Delete' button on a product card on the products page, or in the product information on the 'Product Details' page will open up the 'Delete Product Modal'.
+
+![Delete Product Modal](assets/delete-product-features.png)
+
+Clicking the 'Confirm Deletion' button inside the modal will delete the product permanently.
+
+*Superusers can also perform this functionality in the admin panel.*
+
 ## Account Management
 
-As a user of this website, I would need to be able to log in, log out, confirm my email address, register and request a password reset link. Below are the respective pages rendered depending on the user's needs.
+> **As a** Site User, **I want** to easily register for an account **so that** I can have a personal account and be able to view my profile.
+
+> **As a** Site User, **I want** to easily log in or log out **so that** I can access my personal account information.
+
+> **As a** Site User, **I want** to easily recover my password in case I forget it **so that** I can recover access to my account.
+
+> **As a** Site User, **I want** to receive an email confirmation after registering **so that** I can verify that my account registration was successful.
+
+A user can access any of the following pages via the 'My Account' button in the navbar.
+
+Below are the respective pages rendered depending on the user's needs.
 
 <details>
 <summary>Register</summary>
@@ -400,6 +455,8 @@ As a user of this website, I would need to be able to log in, log out, confirm m
 
 ![Profile](assets/profile-features.png)
 
+> **As a** Site User, **I want** to have a personalized user profile **so that** I can view my personal order history and order confirmations, and save my payment information.
+
 The 'Profile' page displays the following:
 - User's saved info (if user clicks "Save Info" checkbox at checkout)
   - This contains a checkbox for the user to subscribe or unsubscribe to emails
@@ -429,6 +486,10 @@ There's also a 'Back To Profile' button which takes the user back to their profi
 ## Bag
 
 ![Bag Page](assets/shopping-bag-features.png)
+
+> **As a** Shopper, **I want** to view items in my bag to be purchased **so that** I can identify the total cost of my purchase and all items I will receive.
+
+> **As a** Shopper, **I want** to adjust the quantity of individual items in my bag **so that** I can easily make changes to my purchase before checkout.
 
 On the shopping bag page, each item in the user's shopping bag will be rendered. Each item will show the following:
 - Product image
@@ -467,6 +528,8 @@ This section renders each item in the users bag, the total cost and delivery cos
 
 ### Payment
 
+> **As a** Shopper, **I want** to easily enter my payment information **so that** I can check out quickly and with no hassles.
+
 Underneath the order form is a Stripe payment element. This element contains all the required validation by Stripe. Error messages are shown beneath the payment element - for example, if the card number is incorrect - and the user will not be able to checkout until the payment method has been validated.
 
 Underneath the Payment section, there are two buttons:
@@ -478,6 +541,10 @@ Underneath the Payment section, there are two buttons:
 ## Checkout Success
 
 ![Checkout Success](assets/checkout-success-features.png)
+
+> **As a** Shopper, **I want** to view an order confirmation after checkout **so that** I can verify that I haven't made any mistakes.
+
+> **As a** Shopper, **I want** to receive an email confirmation after checking out **so that** I can keep the confirmation of what I've purchased for my records.
 
 The checkout success page is shown when the user has placed a successful order. It let's the user know that a confirmation email will be sent to their registered email address.
 
@@ -503,16 +570,18 @@ Condition | Displayed
 --- | ---
 The user IS NOT logged in - a link to log in is provided. | ![Reviews Not Logged In](assets/reviews-non-login.png)
 The user IS logged in but they HAVE NOT purchased the product before. | ![Reviews Not Purchased](assets/reviews-non-purchase.png)
-The user IS logged in and they HAVE purchased the product before - a button is displayed for them to add a review. | ![Review Logged In & Purchased](assets/reviews-login-purchase.png)
+The user IS logged in and they HAVE purchased the product before - a button is displayed for them to [Add Review](#add-review). | ![Review Logged In & Purchased](assets/reviews-login-purchase.png)
 
 If the currently logged in user has left a review on a particular product, two buttons will be displayed in the bottom right corner of the review:
 - 'Edit' - this will take the user to the ['Edit Review'](#edit-review) page where they can make changes to their review.
-- 'Delete' - this button brings up a modal asking the user if they're sure they want to delete the review
+- 'Delete' - this button brings up a modal asking the user if they're sure they want to [Delete Review](#delete-review)
   - Clicking 'Confirm Delete' inside the modal will delete the review permanently
 
 ### Add Review
 
 ![Add Review](assets/add-review-features.png)
+
+> **As a** Shopper, **I want** to leave reviews on products I have purchased **so that** I can let other shoppers know what I think of the product.
 
 After clicking the 'Add Review' button in the reviews section, the user is taken to the 'Add Review' page, where they can enter the following:
 - Star Rating out of 5 (required)
@@ -523,11 +592,25 @@ Once finished, clicking 'Submit Review' will add the review to the database, and
 
 ### Edit Review
 
+> **As a** Shopper, **I want** to be able to edit reviews I have left **so that** I can update my rating, headline or description if I change my mind.
+
 The 'Edit Review' page is identical to the 'Add Review' page, except the review's current rating, headline and content are pre-filled in the form.
 
 Changing the information and clicking 'Submit Changes' will update the review in the database.
 
+### Delete Review
+
+![Delete Review](assets/delete-review-modal-feature.png)
+
+> **As a** Shopper, **I want** to be able to delete reviews I have left **so that** I can chose whether to leave my review for others to see.
+
+This modal is shown when the user clicks the 'Delete' button on a review they've left. Clicking 'Confirm Deletion' permanently deletes the review.
+
 ## Subscribe
+
+> **As a** Shopper, **I want** to receive marketing emails **so that** I can keep up to date with new deals and offers.
+
+> **As a** Shopper, **I want** to ubsubscribe from marketing emails **so that** I can chose whether I want to see offers and deals.
 
 After a user has clicked the **'Subscribe'** button in the [Footer](#footer), the 'Subscribe' modal will appear.
 
