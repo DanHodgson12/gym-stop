@@ -15,7 +15,7 @@ Visit the deployed site [here](https://danh12-gym-stop-6494ee93884f.herokuapp.co
 ## Project Goals
 
 - The application can be easily navigated and understood.
-- Clearly explains the concept of the application.
+- Clearly explains the purpose of the application.
 - Clearly explains how to use the application.
 - Contains clear imagery and content.
 - Provides interactivity in the form of clickable elements.
@@ -25,8 +25,8 @@ Visit the deployed site [here](https://danh12-gym-stop-6494ee93884f.herokuapp.co
 - Provides users with the ability to search all products depending on keyword.
 - Provides users with the ability to purchase products.
 - Provides users with the ability to subscribe/unsubscribe to marketing emails.
-- Provides users with the ability to leave a review of a product they have purchased.
-- The game can be viewed on a variety of screen sizes.
+- Provides users with the ability to add/edit/delete a review of a product they have purchased.
+- The application can be viewed on a variety of screen sizes.
 
 ## User Stories
 
