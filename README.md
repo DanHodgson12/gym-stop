@@ -712,29 +712,6 @@ Please see a detailed breakdown of the testing carried out for this application 
 
 This website was developed using [CI's GitPod](https://codeinstitute-ide.net/workspaces), then committed and pushed to GitHub using the GitPod terminal.
 
-## Heroku Deployment
-
-The project was deployed to Heroku using the following steps:
-
-1. Create a `requirements.txt` file using the terminal command:
-
-   ```bash
-   pip freeze > requirements.txt
-   ```
-
-2. Create a `Procfile` with the terminal command:
-
-   ```bash
-   echo web: python app.py > Procfile
-   ```
-
-3. `git add` and `git commit` the new requirements and Procfile and then `git push` the project to GitHub.
-4. Create a new app on the [Herkou website](https://dashboard.heroku.com/apps) by clicking the "New" button in your dashboard. Give it a name and assign the region to Europe.
-5. From the Heroku dashboard of your newly created application, click on "Deploy" > "Deployment Method" and select GitHub.
-6. Confirm the linking of the Heroku app to the correct GitHub repository.
-7. In the Heroku dashboard, click "Deploy".
-8. In the "Manual Deployment" section of this page, make sure the "Master Branch" is selected and then click "Deploy Branch".
-
 ## Local Development
 
 ### How to Fork
@@ -752,13 +729,9 @@ To fork the repository:
 To clone the repository:
 
 1. Log in (or sign up) to GitHub.
-
-2. Go to the repository for this project, [Gym Stop](https://github.com/DanHodgson12/).
-
+2. Go to the repository for this project, [Gym Stop](https://github.com/DanHodgson12/gym-stop).
 3. In the "Clone with HTTPs" section, copy the clone URL for the repository.
-
 4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
-
 5. Type `git clone`, then paste the URL you copied in Step 3, the press Enter:
 
     ```bash
@@ -772,6 +745,314 @@ To clone the repository:
     ```
 
 7. Your local clone will now be created.
+
+Click [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) for a more detailed guide to cloning a repository.
+
+## Project Set-Up
+
+1. Create a `.gitignore` file and `env.py` file in the project's root directory. Add the `env.py` file to `.gitignore`.
+2. Inside the env.py file, add your environment variables:
+  ```bash
+    import os
+
+    os.environ['DEVELOPMENT'] = 'True'
+    os.environ['SECRET_KEY'] = '<your_secret_key>'
+    os.environ['STRIPE_WH_SECRET'] = '<your_key>'
+    os.environ['STRIPE_PUBLIC_KEY'] = '<your_key>'
+    os.environ['STRIPE_SECRET_KEY'] = '<your_key>'
+  ```
+- How to generate keys:
+  - `SECRET_KEY`:
+    - Use the [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/).
+  - `STRIPE_PUBLIC_KEY` and `STRIPE_SECRET_KEY`:
+    - These are generated in your Stripe account.
+    - Head to 'Developers' > 'API Keys'.
+    - The `STRIPE_PUBLIC_KEY` and `STRIPE_SECRET_KEY` are the 'Publishable Key' and 'Secret key' respectively.
+  - `STRIPE_WH_SECRET`:
+    - In Stripe, go to 'Developers' > 'Webhooks', then click '+ Add Endpoint'.
+    - Set the 'Endpoint URL' as: `https://<your_host_url>/checkout/wh/`
+    - Set webhook to 'Listen To All Events', then click 'Create'.
+    - You will then see your `STRIPE_WH_SECRET`
+3. Make migrations to setup the inital database operations.
+  ```bash
+    python3 manage.py makemigrations 
+    python3 manage.py migrate
+  ```
+4. Load data for Categories and Products in this specific order (or create data manually).
+  ```bash
+    python3 manage.py loaddata categories
+    python3 manage.py loaddata products
+  ```
+5. Create a super user.
+  ```bash
+    python3 manage.py create superuser
+  ```
+
+## Project Configuration
+
+We need to adjust some settings for the project, so head to the `settings.py` file and update the following variables:
+
+```bash
+  SECRET_KEY = os.environ.get('SECRET_KEY', '')
+```
+This is the `SECRET_KEY` you defined in the `env.py` file.
+
+```bash
+  ALLOWED_HOSTS = ['<your_development_app_name>.ws.codeinstitute-ide.net']
+```
+This allows the development environment to host the app.
+
+```bash
+  DEBUG = 'DEVELOPMENT' in os.environ
+```
+This means that you can debug the website whilst hosting it from the development environment but not from the Heroku app.
+
+The project is now set up and can be used for development. To run the project, type the following into the terminal: `python3 manage.py runserver`
+
+## Heroku Deployment
+
+Before we deploy to Heroku, we need to make sure it doesn't try to collect static files when deploying. We can do this by temporarily setting the following environment variable in the 'Config Vars' section in the 'Settings' section of the Heroku app (we wil remove this later):
+
+Variable | Key
+--- | ---
+DISABLE_COLLECTSTATIC | 1
+
+The project was deployed to Heroku using the following steps:
+
+1. In the project, create a `Procfile` with the terminal command:
+
+   ```bash
+   echo web: python app.py > Procfile
+   ```
+2. Add the following to the Procfile: `web: gunicorn gym_stop.wsgi:application`
+3. `git add` and `git commit` the new Procfile and then `git push` the project to GitHub.
+4. Create a new app on the [Herkou website](https://dashboard.heroku.com/apps) by clicking the 'New' button in your dashboard. Give it a name and assign the region to Europe.
+5. From the Heroku dashboard of your newly created application, click on 'Deploy' > 'Deployment Method' and select GitHub.
+6. Confirm the linking of the Heroku app to the correct GitHub repository.
+7. In the Heroku dashboard, click 'Deploy'.
+8. In the 'Manual Deployment' section of this page, make sure the 'Master Branch' is selected and then click Deploy Branch.
+9. Select 'Enable Automatic Deploys' in order to automatically deploy to the app each time you push changes to GitHub from the development environment.
+
+Now go back to the development environment and open the `settings.py` file in the root directory. Look for the `ALLOWED_HOSTS` variable and add the Heroku app URL. It should look something like this:
+
+```bash
+  ALLOWED_HOSTS = ['<your_heroku_app_name>.herokuapp.com/', '<your_development_app_name>.ws.codeinstitute-ide.net']
+```
+
+This allows you to access the website via both the development environment and the deployed app.
+
+## Defining Envinronment Variables
+
+Before we proceed, we need to add the following environment variables to the Heroku app. We do this in the 'Settings' section under 'Config Vars'.
+
+Variable | Key
+--- | ---
+SECRET_KEY |	your_secret_key
+STRIPE_WH_SECRET | your_wh_secret_key
+STRIPE_PUBLIC_KEY |	your_stripe_public_key
+STRIPE_SECRET_KEY |	your_stripe_secret_key
+
+## Database Creation
+
+The database service used for this project is **Elephant SQL**. The database was set up and migrated using the following steps:
+
+1. Head to [Elephant SQL](https://customer.elephantsql.com/) and create an account/log in.
+2. On the 'Instances' page, click 'Create New Instance'.
+3. Give it a 'Name', and set the 'Plan' to 'Tiny Turle (Free)'.
+4. For the 'Region', select the data center closest to you.
+5. Click 'Review' then 'Create Instance'.
+6. Once created, head to the 'Details' section of the instance, and look for the URL - this is your DATABASE_URL, which we can add as a Config Var in the Heroku App.
+
+Variable | Key
+--- | ---
+DATABASE_URL |	your_database_url
+
+## Database Migration
+
+Now we need to migrate the data from the development environment to our database in Elephant SQL. We can do this with the following steps:
+
+1. Go to the `settings.py` file in the root directory and look for the `DATABASES` variable.
+2. Comment out the current database configuration, and add the following:
+  ```bash
+    DATABASES = {
+      'default': dj_database_url.parse('YOUR_DATABASE_URL_FROM_ELEPHANT_SQL')
+    }
+  ```
+3. Run the following commands in the terminal (in this order):
+  ```bash
+    python3 manage.py migrate
+    python3 manage.py loaddata categories
+    python3 manage.py loaddata products
+    python3 manage.py create superuser
+  ```
+4. Delete the DATABASES content defined in Step 2.
+5. Uncomment the original DATABASES configuration - it should look like this:
+  ```bash
+    if 'DATABASE_URL' in os.environ:
+      DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+      }
+    else:
+      DATABASES = {
+        'default': {
+          'ENGINE': 'django.db.backends.sqlite3',
+          'NAME': BASE_DIR / 'db.sqlite3',
+        }
+      }
+  ```
+6. This means that when using the Heroku app, the default database is the one in Elephant SQL, and when using the development environment, the default database is the one in sqlite.
+
+## AWS Bucket Creation
+
+All static and media files in this project are stored in [Amazon Web Services](https://aws.amazon.com/s3/) S3 bucket which is a cloud based storage service. You can create your own bucket by following these steps:
+
+### Sign in to the AWS Management Console
+1. Go to [AWS Management Console](https://aws.amazon.com/console/).
+2. Sign in with your AWS account credentials.
+
+### Create an S3 Bucket
+1. In the AWS Management Console, search for "S3" in the top search bar and select **S3**.
+2. Click on **Create bucket**.
+3. Enter a unique name for your bucket. The name must be globally unique across all AWS accounts.
+4. Select the AWS region where you want the bucket to be created.
+5. Click **Create bucket** at the bottom of the page.
+
+### Download the CSV with Your Access Keys
+1. Go to the IAM service by searching for "IAM" in the top search bar.
+2. In the left sidebar, select **Users**.
+3. Click **Add user**.
+4. Enter a username and check the box for **Programmatic access**.
+5. Click **Next: Permissions**.
+6. Select **Attach existing policies directly** and then check the box for **AmazonS3FullAccess**.
+7. Click **Next: Tags**, then **Next: Review**, and finally **Create user**.
+8. On the next page, click **Download .csv** to download your access keys.
+
+### Configure CORS for the S3 Bucket
+1. Go back to the S3 service.
+2. Select your newly created bucket.
+3. Click on the **Permissions** tab.
+4. Scroll down to the **Cross-origin resource sharing (CORS)** section and click **Edit**.
+5. Add the following CORS configuration:
+
+    ```json
+    [
+        {
+            "AllowedHeaders": [
+                "*"
+            ],
+            "AllowedMethods": [
+                "GET",
+                "POST",
+                "PUT",
+                "DELETE",
+                "HEAD"
+            ],
+            "AllowedOrigins": [
+                "*"
+            ],
+            "ExposeHeaders": []
+        }
+    ]
+    ```
+
+6. Click **Save changes**.
+
+### Set Up Bucket Policy
+To make your bucket accessible to specific users or applications, you can set up a bucket policy:
+1. In the **Permissions** tab of your bucket, scroll down to the **Bucket policy** section and click **Edit**.
+2. Add a policy like the following, modifying the `Resource` to match your bucket name:
+
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Principal": "*",
+                "Action": "s3:*",
+                "Resource": [
+                  "arn:aws:s3:::your-bucket-name",
+                  "arn:aws:s3:::your-bucket-name/*"
+                ]
+            }
+        ]
+    }
+    ```
+
+3. Click **Save changes**.
+
+### Upload Files to Your Bucket
+1. In the **Objects** tab of your bucket, click **Upload**.
+2. Drag and drop files into the upload area or click **Add files**.
+3. Click **Upload** to start uploading your files.
+
+## Connect Django to AWS Bucket
+
+*Note: If you've forked the repository, all of the following steps have been completed.*
+
+To connect your Django app to the newly created AWS Bucket, follow these steps:
+
+1. Remove the `DISABLE_COLLECTSTATIC` variable from the 'Config Vars' in the Heroku app.
+2. Install two new packages - `boto3` and `django-storages` - then freeze them into requirements.txt:
+  ```bash
+    pip3 install boto3
+    pip3 install django-storages 
+    pip3 freeze > requirements.txt  
+  ```
+3. Add `storages` to `INSTALLED_APPS` in `settings.py`.
+4. Add the following 'Config Vars' to the Heroku App:
+
+  Variable | Key
+  --- | ---
+  AWS_ACCESS_KEY_ID |	your_access_key_id_from_AWS
+  AWS_SECRET_ACCESS_KEY |	your_secret_access_key_from_AWS
+  USE_AWS	| True
+
+5. In `settings.py`, we set cache control, bucket configurations, static and media files location, and override static and media URLs in production. Add an `if` statement so this only happens within the Heroku app and not in our development environment:
+  ```bash
+    if 'USE_AWS' in os.environ:
+        # Cache control
+        AWS_S3_OBJECT_PARAMETERS = {
+            'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+            'CacheControl': 'max-age=94608000',
+        }
+
+        # Bucket Config
+        AWS_STORAGE_BUCKET_NAME = 'your_bucket_name'
+        AWS_S3_REGION_NAME = 'your_region'
+        AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+        AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+        # Static and media files
+        STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+        STATICFILES_LOCATION = 'static'
+        DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+        MEDIAFILES_LOCATION = 'media'
+
+        # Override static and media URLs in production
+        STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+        MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+  ```
+6. Next, we need to configure Django to use S3 for storing static files and uploaded images in production. This way, whenever `collectstatic` is run, the files will be stored on S3. To achieve this, create a `custom_storages.py` file in your project's root directory. In this file, specify the storage locations for static and media files as follows:
+```bash
+  from django.conf import settings
+  from storages.backends.s3boto3 import S3Boto3Storage
+
+
+  class StaticStorage(S3Boto3Storage):
+      location = settings.STATICFILES_LOCATION
+
+
+  class MediaStorage(S3Boto3Storage):
+      location = settings.MEDIAFILES_LOCATION
+```
+7. Finally, push changes to GitHub:
+```bash
+  git add .
+  git commit -m "Your commit message"
+  git push
+```
 
 # Credits
 
