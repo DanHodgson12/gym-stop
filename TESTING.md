@@ -1,8 +1,5 @@
 # Testing
 
-## Table of Contents
-
-
 1. [Testing Paradigms](#testing-paradigms)
 2. [Code Testing](#code-testing)
 3. [Testing User Stories](#testing-user-stories)
@@ -59,6 +56,8 @@ Due to this, it is best practice to utilise both forms of testing during the bui
 
 The developer chose to use automated testing as the main form of testing throughout this project. They felt it was an efficient method for this type of application due to its size and the fact that a lot of aspects of the application relied on functions rendering and manipulating data.
 
+[Back to top &#8682;](#testing)
+
 ## Code Testing
 
 Automated code testing was carried out within the development environment. Each Python file was tested inside its own test file - each test file was name after the file being tested, prepended with 'test_' (for example, views.py's test file is named test_views.py). If you navigate to the test files for each app in the GitHub repository, you will see a detailed view of all tests carried out.
@@ -70,6 +69,8 @@ Automated code testing was carried out within the development environment. Each 
 The 'settings.py' and 'manage.py' files were ignored, as they had been set up automatically as part of the project creation aspect of Django, with minor adjustments made to variables within.
 
 Due to time constraints, a high amount of manual testing being carried out on the subscribe, checkout and profiles app, and no functionality issues noticed in the manual testing of the website in general, the developer chose to ignore the lines not being tested in these files.
+
+[Back to top &#8682;](#testing)
 
 ## Testing User Stories
 
@@ -150,6 +151,8 @@ Due to time constraints, a high amount of manual testing being carried out on th
   - **Given** I am a superuser and am logged in, **then** I can navigate to the specific product detail page, click the 'Delete' button and delete a product.
   - **Given** I am a superuser and am logged in to the admin panel, **then** I can navigate to the 'Products' section and manually delete a product
 
+[Back to top &#8682;](#testing)
+
 ## Tools Testing
 
 - [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/)
@@ -177,6 +180,8 @@ Microsoft Edge | No appearance, responsiveness or functionality issues | Pass
 The web application was tested across a wide variety of devices using [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) & [Responsive Design Checker](https://www.responsivedesignchecker.com/).
 
 - No appearance, responsiveness or functionality issues were found.
+
+[Back to top &#8682;](#testing)
 
 ## Common Elements Testing
 
@@ -370,6 +375,8 @@ Order total, delivery and grand total price displayed correctly | Pass
 Warning message displayed under 'Complete Order' button as expected | Pass
 Card element validation prevents incorrect card information to be entered | Pass
 Completing order by clicking 'Complete Order' button displays success message, takes user to checkout success page, and sends confirmation email as expected | Pass
+
+[Back to top &#8682;](#testing)
 
 ## Known Bugs
 
