@@ -2,9 +2,9 @@
 
 ![Gym Stop Final Design](assets/gym-stop-mockup.png)
 
-Gym Stop is an e-commerce website designed for users to search for and purchase a range products, leave reviews, create an account and subscribe to marketing emails.
+Gym Stop is a dynamic e-commerce platform crafted to cater to gym and fitness enthusiasts. This website offers a comprehensive range of products, allowing users to seamlessly search for and purchase gym equipment, accessories, and more. Beyond shopping, Gym Stop enhances user engagement by enabling customers to leave detailed product reviews, create personalized accounts, and subscribe to marketing emails for the latest updates and exclusive offers.
 
-The main goal for this application is to offer an easy-to-use and visually pleasing e-commerce website for the user.
+The primary objective of Gym Stop is to provide users with an intuitive and aesthetically pleasing shopping experience. By combining user-friendly navigation, robust functionality, and a visually appealing interface, Gym Stop aims to become the go-to online destination for all fitness-related needs.
 
 Visit the deployed site [here](https://danh12-gym-stop-6494ee93884f.herokuapp.com/).
 
