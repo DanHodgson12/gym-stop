@@ -10,6 +10,52 @@ Visit the deployed site [here](https://danh12-gym-stop-6494ee93884f.herokuapp.co
 
 ---
 
+- [User Experience (UX)](#user-experience-ux)
+  - [Project Goals](#project-goals)
+  - [User Stories](#user-stories)
+  - [Colour Scheme](#colour-scheme)
+  - [Typography](#typography)
+  - [Wireframes](#wireframes)
+- [Relational vs Non-Relational Database](#relational-vs-non-relational-database)
+- [Database Schemas](#database-schemas)
+- [Features](#features)
+  - [Navbar](#navbar)
+  - [Footer](#footer)
+  - [Home](#home)
+  - [Products](#products)
+  - [Product Details](#product-details)
+  - [Product Management](#product-management)
+  - [Account Management](#account-management)
+  - [Profile](#profile)
+  - [Order Confirmation](#order-confirmation)
+  - [Bag](#bag)
+  - [Checkout](#checkout)
+  - [Checkout Success](#checkout-success)
+  - [Reviews](#reviews)
+  - [Subscribe](#subscribe)
+  - [Flashed Messages](#flashed-messages)
+- [Technologies Used](#technologies-used)
+  - [Languages](#languages)
+  - [Frameworks, Libraries & Programs](#frameworks-libraries--programs)
+- [Testing](#testing)
+- [Finished Product](#finished-product)
+  - [Desktop](#desktop)
+  - [Mobile](#mobile)
+- [Deployment](#deployment)
+  - [Local Development](#local-development)
+  - [Project Set-Up](#project-set-up)
+  - [Project Configuration](#project-configuration)
+  - [Heroku Deployment](#heroku-deployment)
+  - [Defining Environment Variables](#defining-environment-variables)
+  - [Database Creation](#database-creation)
+  - [Database Migration](#database-migration)
+  - [AWS Bucket Creation](#aws-bucket-creation)
+  - [Connect Django to AWS Bucket](#connect-django-to-aws-bucket)
+- [Credits](#credits)
+- [Acknowledgements](#acknowledgements)
+
+---
+
 # User Experience (UX)
 
 ## Project Goals
@@ -75,6 +121,8 @@ Visit the deployed site [here](https://danh12-gym-stop-6494ee93884f.herokuapp.co
 - **As a** Store Owner, **I want** to edit/update a product **so that** I can change product prices, descriptions, images, and other product criteria.
 - **As a** Store Owner, **I want** to delete a product **so that** I can remove items that are no longer for sale.
 
+[Back to top &#8682;](#gym-stop)
+
 ## Colour Scheme
 
 ![Gym Stop Colour Scheme](assets/gym-stop.png)
@@ -102,6 +150,8 @@ The font-family used for this application is 'Lato' for the main body of text, w
 Page | Wireframe
 --- | ---
 Products | ![Products](assets/wireframes.png)
+
+[Back to top &#8682;](#gym-stop)
 
 ---
 
@@ -141,6 +191,8 @@ Please see database schemas below.
 ![Custom Models](assets/selected_apps_visualized.png)
 
 </details>
+
+[Back to top &#8682;](#gym-stop)
 
 ---
 
@@ -271,6 +323,8 @@ Subscribe button
 - Also only displayed on 'Home' page and pages for respective legal documents.
 - Only the layout changes.
 
+[Back to top &#8682;](#gym-stop)
+
 ## Home
 
 ![Home Page Features](assets/home-features.png)
@@ -354,6 +408,8 @@ Subscribe button
   - 'Delete' button opens modal asking user if they are sure they want to delete the product
     - 'Confirm Delete' button inside modal deletes the product permanently
 
+[Back to top &#8682;](#gym-stop)
+
 ## Product Management
 
 ### Add Product
@@ -400,6 +456,8 @@ If you are a superuser, clicking the 'Delete' button on a product card on the pr
 Clicking the 'Confirm Deletion' button inside the modal will delete the product permanently.
 
 *Superusers can also perform this functionality in the admin panel.*
+
+[Back to top &#8682;](#gym-stop)
 
 ## Account Management
 
@@ -456,6 +514,8 @@ Below are the respective pages rendered depending on the user's needs.
 ![Password Reset](assets/password-reset-feature.png)
 
 </details>
+
+[Back to top &#8682;](#gym-stop)
 
 ## Profile
 
@@ -564,6 +624,8 @@ It contains all details of the customer's order, such as:
 
 There's also a button which prompts the user to checkout out a specific category of products - "NOW CHECK OUT OUR GYM ESSENTIALS!".
 
+[Back to top &#8682;](#gym-stop)
+
 ## Reviews
 
 ![Reviews](assets/reviews-features.png)
@@ -612,6 +674,8 @@ Changing the information and clicking 'Submit Changes' will update the review in
 
 This modal is shown when the user clicks the 'Delete' button on a review they've left. Clicking 'Confirm Deletion' permanently deletes the review.
 
+[Back to top &#8682;](#gym-stop)
+
 ## Subscribe
 
 > **As a** Shopper, **I want** to receive marketing emails **so that** I can keep up to date with new deals and offers.
@@ -648,6 +712,8 @@ Success | Used to display confirmation of a successful action to the user, e.g. 
 Error | Shown when an action fails, such as when form validation errors occur or a payment process fails. | ![Error Message](assets/messages-error.png)
 Info | Used to provide general information to the user, such as indicating they are viewing an old order. | ![Info Message](assets/messages-info.png)
 Warning | Issued to alert the user about potential issues, such as when the superuser is editing a product. | ![Warning Message](assets/messages-warning.png)
+
+[Back to top &#8682;](#gym-stop)
 
 ---
 
@@ -710,6 +776,8 @@ A large amount of testing was undertaken throughout the project in order to asse
 Friends and family also participated in testing the application's functionality and expressed any concerns or ideas they had with function, layout and user experience.
 
 Please see a detailed breakdown of the testing carried out for this application in [TESTING.md](TESTING.md).
+
+[Back to top &#8682;](#gym-stop)
 
 ---
 
@@ -946,6 +1014,8 @@ Please see a detailed breakdown of the testing carried out for this application 
 
 ![Verify](assets/m-fp-verify.png)
 </details>
+
+[Back to top &#8682;](#gym-stop)
 
 ---
 
@@ -1296,6 +1366,9 @@ To connect your Django app to the newly created AWS Bucket, follow these steps:
   git commit -m "Your commit message"
   git push
 ```
+
+[Back to top &#8682;](#gym-stop)
+
 ---
 
 # Credits
@@ -1326,3 +1399,5 @@ To connect your Django app to the newly created AWS Bucket, follow these steps:
 - My family, for their valuable opinions and unconditional support.
 - My mentor, Marcel, for his encouraging feedback and patience during my learning journey.
 - Code Institute, for its wonderful learning platform and supportive community.
+
+[Back to top &#8682;](#gym-stop)
