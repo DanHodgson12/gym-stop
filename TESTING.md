@@ -381,3 +381,7 @@ There was also one error type that was chosen to be ignored - *W503 line break b
 ## Lighthouse Report
 
 Lighthouse in Google Chrome Dev Tools was used to test performance, accessibility, best practices and search engine optimisation of the webpage.
+
+Suggestions were made to reduce image file size, enable text-compression and reduce unused Javascript. The developer chose to ignore these suggestions, as the website loaded without issue and making drastic changes like adjusting the placement of Javascript links may alter the behaviour of the application.
+
+![Lighthouse Report](assets/lighthouse.png)
