@@ -103,6 +103,8 @@ Page | Wireframe
 --- | ---
 Products | ![Products](assets/wireframes.png)
 
+---
+
 # Relational vs Non-Relational Database
 
 Relational databases and non-relational databases are two of many databases which can be utilised in a web application. Each database differs in the way it uses data models and how data can be scaled with each model.
@@ -117,6 +119,8 @@ Non-Relational
 - Flexible data models like documents, key-value pairs, or graphs
 - Prioritize scalability and accommodate dynamic, unstructured data
 - Good at delivering horizontal scalability, such as web applications or real-time analytics
+
+---
 
 # Database Schemas
 
@@ -137,6 +141,8 @@ Please see database schemas below.
 ![Custom Models](assets/selected_apps_visualized.png)
 
 </details>
+
+---
 
 # Features
 
@@ -643,6 +649,8 @@ Error | Shown when an action fails, such as when form validation errors occur or
 Info | Used to provide general information to the user, such as indicating they are viewing an old order. | ![Info Message](assets/messages-info.png)
 Warning | Issued to alert the user about potential issues, such as when the superuser is editing a product. | ![Warning Message](assets/messages-warning.png)
 
+---
+
 # Technologies Used
 
 ## Languages
@@ -693,6 +701,8 @@ Warning | Issued to alert the user about potential issues, such as when the supe
 - [Flake8](https://flake8.pycqa.org/en/latest/)
   - Flake8 was used to validate the Python.
 
+---
+
 # Testing
 
 A large amount of testing was undertaken throughout the project in order to assess if the application was working as expected.
@@ -701,12 +711,243 @@ Friends and family also participated in testing the application's functionality 
 
 Please see a detailed breakdown of the testing carried out for this application in [TESTING.md](TESTING.md).
 
+---
+
 # Finished Product
 
-<details>
-<summary></summary>
+## Desktop
 
+<details open>
+<summary>Home</summary>
+
+![Home](assets/fp-home.png)
 </details>
+
+<details>
+<summary>Footer Extended</summary>
+
+![Footer Extended](assets/fp-footer-ext.png)
+</details>
+
+<details>
+<summary>Products</summary>
+
+![Products](assets/fp-products.png)
+</details>
+
+<details>
+<summary>Product Detail</summary>
+
+![Product Detail](assets/fp-product-detail.png)
+</details>
+
+<details>
+<summary>Shopping Bag</summary>
+
+![Shopping Bag](assets/fp-shopping-bag.png)
+</details>
+
+<details>
+<summary>Checkout</summary>
+
+![Checkout](assets/fp-checkout.png)
+</details>
+
+<details>
+<summary>Checkout Success</summary>
+
+![Checkout Success](assets/fp-checkout-success.png)
+</details>
+
+<details>
+<summary>Profile</summary>
+
+![Profile](assets/fp-profile.png)
+</details>
+
+<details>
+<summary>Order History</summary>
+
+![Order History](assets/fp-order-history.png)
+</details>
+
+<details>
+<summary>Subscribe</summary>
+
+![Subscribe](assets/fp-subscribe.png)
+</details>
+
+<details>
+<summary>Unsubscribe</summary>
+
+![Unsubscribe](assets/fp-unsubscribe.png)
+</details>
+
+<details>
+<summary>Add Product</summary>
+
+![Add Product](assets/fp-add-product.png)
+</details>
+
+<details>
+<summary>Edit Product</summary>
+
+![Edit Product](assets/fp-edit-product.png)
+</details>
+
+<details>
+<summary>Add Review</summary>
+
+![Add Review](assets/fp-add-review.png)
+</details>
+
+<details>
+<summary>Edit Review</summary>
+
+![Edit Review](assets/fp-edit-review.png)
+</details>
+
+<details>
+<summary>Sign In</summary>
+
+![Sign In](assets/fp-sign-in.png)
+</details>
+
+<details>
+<summary>Sign Out</summary>
+
+![Sign Out](assets/fp-sign-out.png)
+</details>
+
+<details>
+<summary>Register</summary>
+
+![Register](assets/fp-sign-up.png)
+</details>
+
+<details>
+<summary>Verify</summary>
+
+![Verify](assets/fp-verify.png)
+</details>
+
+## Mobile
+
+<details>
+<summary>Home</summary>
+
+![Home](assets/m-fp-home.png)
+</details>
+
+<details>
+<summary>Footer Extended</summary>
+
+![Footer Extended](assets/m-fp-footer-ext.png)
+</details>
+
+<details>
+<summary>Products</summary>
+
+![Products](assets/m-fp-products.png)
+</details>
+
+<details>
+<summary>Product Detail</summary>
+
+![Product Detail](assets/m-fp-product-detail.png)
+</details>
+
+<details>
+<summary>Shopping Bag</summary>
+
+![Shopping Bag](assets/m-fp-shopping-bag.png)
+</details>
+
+<details>
+<summary>Checkout</summary>
+
+![Checkout](assets/m-fp-checkout.png)
+</details>
+
+<details>
+<summary>Checkout Success</summary>
+
+![Checkout Success](assets/m-fp-checkout-success.png)
+</details>
+
+<details>
+<summary>Profile</summary>
+
+![Profile](assets/m-fp-profile.png)
+</details>
+
+<details>
+<summary>Order History</summary>
+
+![Order History](assets/m-fp-order-history.png)
+</details>
+
+<details>
+<summary>Subscribe</summary>
+
+![Subscribe](assets/m-fp-subscribe.png)
+</details>
+
+<details>
+<summary>Unsubscribe</summary>
+
+![Unsubscribe](assets/m-fp-unsubscribe.png)
+</details>
+
+<details>
+<summary>Add Product</summary>
+
+![Add Product](assets/m-fp-add-product.png)
+</details>
+
+<details>
+<summary>Edit Product</summary>
+
+![Edit Product](assets/m-fp-edit-product.png)
+</details>
+
+<details>
+<summary>Add Review</summary>
+
+![Add Review](assets/m-fp-add-review.png)
+</details>
+
+<details>
+<summary>Edit Review</summary>
+
+![Edit Review](assets/m-fp-edit-review.png)
+</details>
+
+<details>
+<summary>Sign In</summary>
+
+![Sign In](assets/m-fp-sign-in.png)
+</details>
+
+<details>
+<summary>Sign Out</summary>
+
+![Sign Out](assets/m-fp-sign-out.png)
+</details>
+
+<details>
+<summary>Register</summary>
+
+![Register](assets/m-fp-sign-up.png)
+</details>
+
+<details>
+<summary>Verify</summary>
+
+![Verify](assets/m-fp-verify.png)
+</details>
+
+---
 
 # Deployment
 
@@ -958,6 +1199,7 @@ All static and media files in this project are stored in [Amazon Web Services](h
 6. Click **Save changes**.
 
 ### Set Up Bucket Policy
+
 To make your bucket accessible to specific users or applications, you can set up a bucket policy:
 1. In the **Permissions** tab of your bucket, scroll down to the **Bucket policy** section and click **Edit**.
 2. Add a policy like the following, modifying the `Resource` to match your bucket name:
@@ -982,6 +1224,7 @@ To make your bucket accessible to specific users or applications, you can set up
 3. Click **Save changes**.
 
 ### Upload Files to Your Bucket
+
 1. In the **Objects** tab of your bucket, click **Upload**.
 2. Drag and drop files into the upload area or click **Add files**.
 3. Click **Upload** to start uploading your files.
@@ -1053,6 +1296,7 @@ To connect your Django app to the newly created AWS Bucket, follow these steps:
   git commit -m "Your commit message"
   git push
 ```
+---
 
 # Credits
 
@@ -1077,7 +1321,7 @@ To connect your Django app to the newly created AWS Bucket, follow these steps:
 - [CSS-tricks.com](https://css-tricks.com/snippets/css/css-triangle/) was used for the 'arrow-up' class for the toasts.
 - [Favicon.io](https://favicon.io/favicon-converter/) was used to generate the favicon for the application.
 
-# Acknowledgements
+## Acknowledgements
 
 - My family, for their valuable opinions and unconditional support.
 - My mentor, Marcel, for his encouraging feedback and patience during my learning journey.
