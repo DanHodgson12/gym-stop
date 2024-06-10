@@ -1,5 +1,39 @@
 # Testing
 
+## Table of Contents
+
+
+1. [Testing Paradigms](#testing-paradigms)
+2. [Code Testing](#code-testing)
+3. [Testing User Stories](#testing-user-stories)
+    - [Viewing and Navigation](#viewing-and-navigation)
+    - [Registration and User Accounts](#registration-and-user-accounts)
+    - [Sorting and Searching](#sorting-and-searching)
+    - [Purchasing and Checkout](#purchasing-and-checkout)
+    - [Reviews and Subscriptions](#reviews-and-subscriptions)
+    - [Admin and Store Management](#admin-and-store-management)
+4. [Tools Testing](#tools-testing)
+5. [Compatibility Testing](#compatibility-testing)
+    - [Browser Compatibility](#browser-compatibility)
+    - [Device Compatibility](#device-compatibility)
+6. [Common Elements Testing](#common-elements-testing)
+    - [Navbar](#navbar)
+    - [Home](#home)
+    - [Footer](#footer)
+    - [Products](#products)
+    - [Product Detail](#product-detail)
+    - [Add Product](#add-product)
+    - [Edit Product](#edit-product)
+    - [Account Management](#account-management)
+    - [Profile](#profile)
+    - [Reviews](#reviews)
+    - [Subscribe](#subscribe)
+    - [Bag](#bag)
+    - [Checkout](#checkout)
+7. [Known Bugs](#known-bugs)
+8. [Code Validation](#code-validation)
+9. [Lighthouse Report](#lighthouse-report)
+
 ## Testing Paradigms
 
 There are two types of testing a developer can carry out before, during and after writing a web application - Automated and Manual.
