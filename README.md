@@ -155,7 +155,9 @@ Products | ![Products](assets/wireframes.png)
 
 ---
 
-# Relational vs Non-Relational Database
+# Database
+
+## Relational vs Non-Relational
 
 Relational databases and non-relational databases are two of many databases which can be utilised in a web application. Each database differs in the way it uses data models and how data can be scaled with each model.
 
@@ -170,9 +172,7 @@ Non-Relational
 - Prioritize scalability and accommodate dynamic, unstructured data
 - Good at delivering horizontal scalability, such as web applications or real-time analytics
 
----
-
-# Database Schemas
+## Database Schemas
 
 The database for this e-commerce application is hosted on ElephantSQL, a relational database service. The choice to use a relational database is crucial for this project because it allows for the structured linking of data models through foreign and primary keys, ensuring data integrity and efficient management of relationships between entities such as products, customers, and orders. This structure supports complex queries and transactions, which are essential for the robust functionality and scalability of an e-commerce site.
 
@@ -191,6 +191,117 @@ Please see database schemas below.
 ![Custom Models](assets/selected_apps_visualized.png)
 
 </details>
+
+[Back to top &#8682;](#gym-stop)
+
+## Database Schema Relationships
+
+### User
+- **Attributes**: 
+  - ID (Primary Key)
+  - Other attributes are implied but not explicitly listed in the diagram.
+- **Relationships**:
+  - Linked to **Review** through `user` field.
+  - Linked to **UserProfile** through `user` field.
+
+### UserProfile
+- **Attributes**: 
+  - ID (Primary Key)
+  - user (OneToOneField - Foreign Key to User)
+  - default_country (CountryField)
+  - default_county (CharField)
+  - default_phone_number (CharField)
+  - default_postcode (CharField)
+  - default_street_address1 (CharField)
+  - default_street_address2 (CharField)
+  - default_town_or_city (CharField)
+  - is_subscribed_to_newsletter (BooleanField)
+- **Relationships**:
+  - Linked to **User** through `user` field (OneToOne relationship).
+  - Linked to **Order** through `user_profile` field.
+
+### Category
+- **Attributes**: 
+  - ID (Primary Key)
+  - friendly_name (CharField)
+  - name (CharField)
+- **Relationships**:
+  - Linked to **Product** through `category` field.
+
+### Product
+- **Attributes**: 
+  - ID (Primary Key)
+  - category (Foreign Key to Category)
+  - description (TextField)
+  - has_sizes (BooleanField)
+  - image (ImageField)
+  - image_url (URLField)
+  - name (CharField)
+  - price (DecimalField)
+  - rating (DecimalField)
+  - sku (CharField)
+- **Relationships**:
+  - Linked to **Category** through `category` field.
+  - Linked to **Review** through `product` field.
+  - Linked to **OrderLineItem** through `product` field.
+
+### Review
+- **Attributes**: 
+  - ID (Primary Key)
+  - product (Foreign Key to Product)
+  - user (Foreign Key to User)
+  - content (TextField)
+  - created_at (DateTimeField)
+  - headline (CharField)
+  - rating (IntegerField)
+- **Relationships**:
+  - Linked to **Product** through `product` field.
+  - Linked to **User** through `user` field.
+
+### Order
+- **Attributes**: 
+  - ID (Primary Key)
+  - user_profile (Foreign Key to UserProfile)
+  - country (CountryField)
+  - county (CharField)
+  - date (DateTimeField)
+  - delivery_cost (DecimalField)
+  - email (EmailField)
+  - full_name (CharField)
+  - grand_total (DecimalField)
+  - order_number (CharField)
+  - order_total (DecimalField)
+  - original_bag (TextField)
+  - phone_number (CharField)
+  - postcode (CharField)
+  - street_address1 (CharField)
+  - street_address2 (CharField)
+  - stripe_pid (CharField)
+  - town_or_city (CharField)
+- **Relationships**:
+  - Linked to **UserProfile** through `user_profile` field.
+  - Linked to **OrderLineItem** through `order` field.
+
+### OrderLineItem
+- **Attributes**: 
+  - ID (Primary Key)
+  - order (Foreign Key to Order)
+  - product (Foreign Key to Product)
+  - lineitem_total (DecimalField)
+  - product_size (CharField)
+  - quantity (IntegerField)
+- **Relationships**:
+  - Linked to **Order** through `order` field.
+  - Linked to **Product** through `product` field.
+
+### MarketingSubscription
+- **Attributes**: 
+  - ID (Primary Key)
+  - date_subscribed (DateTimeField)
+  - email (EmailField)
+- **Relationships**:
+  - No direct relationships to other entities in the diagram.
+  - However, 'Subscribe' and 'Unsubscribe' view check for email address linked to 'User'
 
 [Back to top &#8682;](#gym-stop)
 
