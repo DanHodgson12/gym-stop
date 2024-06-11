@@ -11,6 +11,8 @@
 
 {% block content %}
     <div class="container">
+
+        <!-- Confirmation Order Number/Message -->
         <div class="row">
             <div class="col">
                 {% if from_profile %}
@@ -27,17 +29,16 @@
             </div>
         </div>
 
+        <!-- Order Confirmation Info -->
         <div class="row">
             <div class="col-12 col-lg-8">
                 <div class="order-confirmation-wrapper px-2 py-1 border bg-white">
-                
-                    <!-- Order Confirmation Info -->
                     {% include 'checkout/includes/order_confirmation_info.html' %}
-
                 </div>
             </div>
         </div>
 
+        <!-- Redirect Button -->
         <div class="row">
 			<div class="col-12 col-lg-8 text-end">
                 {% if from_profile %}

@@ -52,8 +52,9 @@
   <body>
 
     <div class="wrapper">
+        
+        <!-- Header -->
         <header class="container-fluid">
-            <!-- Logo / Search / Account & Bag -->
             <div id="topnav" class="row bg-grey p-lg-2 d-none d-lg-flex">
 
                 <!-- Logo -->
@@ -140,6 +141,7 @@
             </div>
         </header>
 
+        <!-- Flashed Messages Container -->
         {% if messages %}
             <div class="message-container">
                 {% for message in messages %}
@@ -158,11 +160,13 @@
             </div>
         {% endif %}
         
+        <!-- Main Content -->
         <main>
             {% block content %}
             {% endblock %}
         </main>
 
+        <!-- Footer -->
         <footer class="sticky-bottom bg-grey p-2">
             <div class="row p-0 m-0">
 
@@ -188,15 +192,11 @@
                         <i class="fa-solid fa-square-envelope d-sm-none px-1 fs-2 lh-sm"></i>
                     </button>
                 </div>
-
-                
-
             </div>
         </footer>
 
         <!-- Subscribe Modal -->
         {% include 'subscribe/includes/subscribe_modal.html' %}
-
     </div>
 
     {% block legal_content %}
